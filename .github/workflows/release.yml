@@ -12,7 +12,9 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      # Actions are pinned to commit SHAs, since the upload step gets the
+      # Chrome Web Store secrets and a moved tag could hand them to anyone
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Check tag matches manifest version
         run: |
@@ -36,13 +38,13 @@ jobs:
             icons/icon128.png
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
           files: youtube-sanitiser.zip
           generate_release_notes: true
 
       - name: Upload & publish to Chrome Web Store
-        uses: mnao305/chrome-extension-upload@v5.0.0
+        uses: mnao305/chrome-extension-upload@4008e29e13c144d0f6725462cbd49b7c291b4928 # v5.0.0
         with:
           extension-id: ${{ secrets.CHROME_EXTENSION_ID }}
           file-path: youtube-sanitiser.zip

@@ -12,9 +12,9 @@ YouTube Sanitiser is a small Chrome extension that tidies up YouTube. It hides S
 
 Click the extension's icon in the toolbar and switch off whatever you don't want to see. Changes show up straight away in every open YouTube tab, and if you use Chrome sync, your settings follow you to your other computers.
 
-- **Shorts.** The Shorts shelf on the home page, and Shorts in the sidebar next to a video.
-- **Playlists.** Playlist cards in your feed, in search results and in the sidebar. They stay put on your library's playlists page and on a channel's Playlists tab, since that's where you'd go looking for them.
-- **Mixes.** The endless "Mix" playlists YouTube puts together for you.
+- **Shorts.** The Shorts shelves on the home page and in search results, and Shorts in the sidebar next to a video.
+- **Playlists.** Playlist cards in your feed, in search results and in the sidebar. They stay put on your You page, its playlists page and a channel's Playlists tab, since that's where you'd go looking for them.
+- **Mixes.** The endless "Mix" playlists YouTube puts together for you. A mix you've saved still shows up on those same playlist pages.
 - **Low view count.** Hides videos with fewer views than a number you choose (10,000 to start with). Turn on **Exclude subscribed channels** if you still want everything from the channels you follow, however small they are. To know who you follow, it reads your subscriptions from YouTube's sidebar, briefly opening its "Show more" list. The list is never saved or sent anywhere (see the [privacy policy](privacy-policy.md)).
 
 Shorts, playlists and mixes are hidden from the moment you install it. The view count filter stays off until you turn it on.
