@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 240" width="900" height="240">
   <defs>
-    <!-- The banner has its own background, so it looks the same on light and dark pages -->
+    <!-- A card in GitHub's light colours, for light pages. banner-dark.svg is the version for dark pages -->
     <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
         gradientTransform="translate(204 122) scale(230 130)">
-      <stop offset="0%"   stop-color="#ff0033" stop-opacity="0.13"/>
+      <stop offset="0%"   stop-color="#ff0033" stop-opacity="0.08"/>
       <stop offset="100%" stop-color="#ff0033" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="divider" x1="0" y1="0" x2="0" y2="1">
@@ -29,18 +29,18 @@
     </clipPath>
     <style>
       text { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; }
-      .title    { fill: #f1f1f1; font-size: 46px; font-weight: 700; letter-spacing: -0.4px; }
-      .subtitle { fill: #aaaaaa; font-size: 20px; }
+      .title    { fill: #1f2328; font-size: 46px; font-weight: 700; letter-spacing: -0.4px; }
+      .subtitle { fill: #59636e; font-size: 20px; }
       .badge    { fill: #ffffff; font-size: 7.5px; font-weight: 700; letter-spacing: 0.3px; }
       .time     { fill: #ffffff; font-size: 7.5px; font-weight: 600; }
-      .line1    { fill: #3d3d3d; }
-      .line2    { fill: #2b2b2b; }
+      .line1    { fill: #d0d7de; }
+      .line2    { fill: #e6eaef; }
       .hidden   { opacity: 0.45; }
       .strike   { stroke: #ff4d6a; stroke-width: 1.5; stroke-linecap: round; }
     </style>
   </defs>
 
-  <rect x="0.5" y="0.5" width="899" height="239" rx="16" fill="#161b22" stroke="#30363d"/>
+  <rect x="0.5" y="0.5" width="899" height="239" rx="16" fill="#f6f8fa" stroke="#d0d7de"/>
   <rect x="0.5" y="0.5" width="899" height="239" rx="16" fill="url(#glow)"/>
 
   <!-- A feed of six video cards, three of them filtered out -->
@@ -57,7 +57,7 @@
   <!-- Shorts, hidden -->
   <g transform="translate(152 32)">
     <g class="hidden">
-      <rect width="104" height="58" rx="7" fill="#2a2a2a"/>
+      <rect width="104" height="58" rx="7" fill="#e6eaef"/>
       <rect class="line1" y="66" width="88" height="6" rx="3"/>
       <rect class="line2" y="78" width="54" height="5" rx="2.5"/>
     </g>
@@ -78,7 +78,7 @@
   <!-- Live stream, hidden -->
   <g transform="translate(36 128)">
     <g class="hidden">
-      <rect width="104" height="58" rx="7" fill="#2a2a2a"/>
+      <rect width="104" height="58" rx="7" fill="#e6eaef"/>
       <rect class="line1" y="66" width="90" height="6" rx="3"/>
       <rect class="line2" y="78" width="58" height="5" rx="2.5"/>
     </g>
@@ -99,12 +99,12 @@
   <!-- Mix, hidden -->
   <g transform="translate(268 128)">
     <g class="hidden">
-      <rect width="104" height="58" rx="7" fill="#2a2a2a"/>
-      <rect x="64" width="40" height="58" fill="#000" opacity="0.6" clip-path="url(#thumbClip)"/>
+      <rect width="104" height="58" rx="7" fill="#e6eaef"/>
+      <rect x="64" width="40" height="58" fill="#000" opacity="0.15" clip-path="url(#thumbClip)"/>
       <rect class="line1" y="66" width="86" height="6" rx="3"/>
       <rect class="line2" y="78" width="64" height="5" rx="2.5"/>
     </g>
-    <text class="badge" x="84" y="32" text-anchor="middle">MIX</text>
+    <text class="badge" x="84" y="32" text-anchor="middle" fill="#59636e" style="fill: #59636e">MIX</text>
     <line class="strike" x1="6" y1="52" x2="98" y2="6"/>
   </g>
 
