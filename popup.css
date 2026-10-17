@@ -10,7 +10,7 @@ body {
   width: 280px;
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 14px;
-  background: #282828; /* YouTube's dark mode menu background */
+  background: #212121;
   color: #e0e0e0;
   user-select: none;
 }
@@ -53,7 +53,7 @@ main {
 }
 
 .filter-row:hover {
-  background: #303030;
+  background: #2a2a2a;
 }
 
 .filter-label {
@@ -70,7 +70,7 @@ main {
    popup.js sets, so the two never disagree. */
 .group:has(.sub-row:not(.hidden)) {
   margin: 4px 8px;
-  background: #363636;
+  background: #2a2a2a;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -80,13 +80,13 @@ main {
 }
 
 .group:has(.sub-row:not(.hidden)) .filter-row:hover {
-  background: #3e3e3e;
+  background: #333333;
 }
 
 /* The options hide once none of their rows show, so popup.js only has to
    hide the rows */
 .options {
-  border-top: 1px solid #444444;
+  border-top: 1px solid #383838;
   padding: 2px 0;
 }
 
