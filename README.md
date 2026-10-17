@@ -4,8 +4,8 @@
 </p>
 
 <p align="center">
-  A Chrome extension that hides Shorts, playlists, mixes, live streams<br>
-  and low-view videos from YouTube.
+  A Chrome extension that hides Shorts, playlists, mixes, live streams,<br>
+  low-view videos and videos you've watched from YouTube.
 </p>
 
 <p align="center">
@@ -36,8 +36,9 @@
 | **Mixes** | The Mix playlists YouTube generates for you¹ | On |
 | **Live streams** | Streams that are live right now. Recordings stay.² | Off |
 | **Low view count** | Videos under a minimum you choose, 10,000 by default | Off |
+| **Watched videos** | Videos you've watched at least a share of, 90% by default³ | Off |
 
-<sub>¹ Still shown on the You page, your playlists and a channel's Playlists tab. ² Still shown on a channel's Live tab.</sub>
+<sub>¹ Still shown on the You page, your playlists and a channel's Playlists tab. ² Still shown on a channel's Live tab. ³ Still shown in your watch history.</sub>
 
 - **Instant.** Changes apply to every open YouTube tab, and settings follow you through Chrome sync.
 - **Subscriptions exempt.** *Keep subscribed channels* still shows live streams and small videos from the channels you follow.

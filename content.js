@@ -1,7 +1,8 @@
 /**
  * YouTube Sanitiser: content script
- * Runs on every youtube.com page. Hides Shorts, playlists, mixes, live streams
- * and low-view-count videos based on settings stored in chrome.storage.sync.
+ * Runs on every youtube.com page. Hides Shorts, playlists, mixes, live streams,
+ * low-view-count videos and watched videos based on settings stored in
+ * chrome.storage.sync.
  * DEFAULTS comes from defaults.js and view count reading from view-count.js,
  * which the manifest loads first.
  */
@@ -332,6 +333,28 @@ function filterLowViews(root, minViews) {
   });
 }
 
+/**
+ * Your watch history (/feed/history), where you go looking for videos you've
+ * watched, so the watched videos filter doesn't apply there.
+ */
+function isHistoryPage() {
+  return window.location.pathname === '/feed/history';
+}
+
+// The red bar along the bottom of a thumbnail showing how much of the video
+// you've watched, as a width in percent: in a lockup's progress bar, or an
+// older card's resume playback overlay
+const WATCHED_BAR_SELECTOR =
+  'yt-thumbnail-overlay-progress-bar-view-model [style*="width"], ' +
+  'ytd-thumbnail-overlay-resume-playback-renderer #progress';
+
+function filterWatched(root, minPercent) {
+  if (isHistoryPage()) return;
+  queryAll(root, WATCHED_BAR_SELECTOR).forEach(el => {
+    if (parseFloat(el.style.width) >= minPercent) sanitise(cardFor(el));
+  });
+}
+
 // ─── Un-filter (restore all hidden elements) ──────────────────────────────────
 
 function removeAllFilters() {
@@ -345,6 +368,8 @@ function applyFilters(root) {
   if (settings.hidePlaylists)   filterPlaylists(root);
   if (settings.hideMixes)       filterMixes(root);
   if (settings.hideLiveStreams) filterLiveStreams(root);
+  // Before low views, which skips hidden cards, so their counts aren't read
+  if (settings.hideWatched)     filterWatched(root, settings.watchedPercent);
   if (settings.hideLowViews)    filterLowViews(root, settings.minViews);
 }
 
