@@ -1,8 +1,6 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/banner-dark.svg">
-    <img src="docs/banner-light.svg" alt="YouTube Sanitiser" width="100%">
-  </picture>
+  <img src="docs/banner-light.svg#gh-light-mode-only" alt="YouTube Sanitiser" width="100%">
+  <img src="docs/banner-dark.svg#gh-dark-mode-only" alt="YouTube Sanitiser" width="100%">
 </p>
 
 <p align="center">
@@ -25,10 +23,8 @@
 </p>
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/screenshot-dark.png">
-    <img src="docs/screenshot-light.png" alt="The YouTube Sanitiser popup" width="352">
-  </picture>
+  <img src="docs/screenshot-light.png#gh-light-mode-only" alt="The YouTube Sanitiser popup" width="352">
+  <img src="docs/screenshot-dark.png#gh-dark-mode-only" alt="The YouTube Sanitiser popup" width="352">
 </p>
 
 ## Features
