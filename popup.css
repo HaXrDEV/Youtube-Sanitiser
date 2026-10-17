@@ -1,3 +1,40 @@
+/* ── Colours ──────────────────────────────────────────────────────────────── */
+
+/* Dark, or light when the system is, in YouTube's own colours */
+:root {
+  color-scheme: dark light;
+  --bg:             #0f0f0f; /* YouTube's dark mode background */
+  --card:           #212121; /* YouTube's dark mode raised background */
+  --hover:          #2a2a2a;
+  --title:          #ffffff;
+  --text:           #e0e0e0;
+  --text-secondary: #aaaaaa;
+  --line:           #383838;
+  --field:          #2e2e2e;
+  --field-border:   #484848;
+  --toggle-off:     #555555;
+  --accent:         #ff0000;
+  --link:           #3ea6ff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:             #ffffff;
+    /* YouTube's light raised background is white too, so the cards use
+       its light grey tint instead */
+    --card:           #f2f2f2;
+    --hover:          #e6e6e6;
+    --title:          #0f0f0f;
+    --text:           #0f0f0f;
+    --text-secondary: #606060;
+    --line:           rgba(0, 0, 0, 0.1);
+    --field:          #ffffff;
+    --field-border:   #cccccc;
+    --toggle-off:     #cccccc;
+    --link:           #065fd4;
+  }
+}
+
 /* ── Reset & base ─────────────────────────────────────────────────────────── */
 
 *, *::before, *::after {
@@ -10,8 +47,8 @@ body {
   width: 280px;
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 14px;
-  background: #212121;
-  color: #e0e0e0;
+  background: var(--bg);
+  color: var(--text);
   user-select: none;
 }
 
@@ -22,19 +59,17 @@ header {
   align-items: center;
   gap: 8px;
   padding: 14px 16px 12px;
-  border-bottom: 1px solid #383838;
+  border-bottom: 1px solid var(--line);
 }
 
 .logo {
-  color: #ff0000;
-  font-size: 18px;
-  line-height: 1;
+  display: block;
 }
 
 h1 {
   font-size: 15px;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--title);
   letter-spacing: 0.2px;
 }
 
@@ -55,24 +90,51 @@ main {
 }
 
 .filter-row:hover {
-  background: #2a2a2a;
+  background: var(--hover);
 }
 
 .filter-label {
-  color: #e0e0e0;
+  color: var(--text);
   font-size: 13.5px;
   cursor: pointer;
 }
 
-/* ── Sub-row (min views input) ────────────────────────────────────────────── */
+/* ── Cards ────────────────────────────────────────────────────────────────── */
 
-.sub-row {
-  padding-top: 6px;
-  padding-bottom: 10px;
+/* Each setting is a card. A filter with options is one card holding it and
+   its options, which show while the filter is on. */
+main > .filter-row,
+.group {
+  margin: 4px 8px;
+  background: var(--card);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+main > .filter-row,
+.group .filter-row {
+  padding: 9px 8px;
+}
+
+/* ── Options ──────────────────────────────────────────────────────────────── */
+
+/* The options hide once none of their rows show, so popup.js only has to
+   hide the rows */
+.options {
+  border-top: 1px solid var(--line);
+  padding: 2px 0;
+}
+
+.options:not(:has(.sub-row:not(.hidden))) {
+  display: none;
+}
+
+.group .sub-row {
+  padding: 7px 8px;
 }
 
 .sub-label {
-  color: #aaaaaa;
+  color: var(--text-secondary);
   font-size: 13px;
 }
 
@@ -85,10 +147,10 @@ main {
 .views-input {
   width: 100px;
   padding: 5px 9px;
-  background: #2e2e2e;
-  border: 1px solid #484848;
+  background: var(--field);
+  border: 1px solid var(--field-border);
   border-radius: 4px;
-  color: #e0e0e0;
+  color: var(--text);
   font-size: 13px;
   text-align: right;
   outline: none;
@@ -96,20 +158,12 @@ main {
 }
 
 .views-input:focus {
-  border-color: #ff0000;
+  border-color: var(--accent);
 }
 
 .views-input:disabled {
   opacity: 0.4;
   cursor: not-allowed;
-}
-
-/* ── Divider ──────────────────────────────────────────────────────────────── */
-
-.divider {
-  height: 1px;
-  background: #383838;
-  margin: 4px 0;
 }
 
 /* ── Toggle switch ────────────────────────────────────────────────────────── */
@@ -133,7 +187,7 @@ main {
 .slider {
   position: absolute;
   inset: 0;
-  background: #555555;
+  background: var(--toggle-off);
   border-radius: 22px;
   transition: background 0.2s;
 }
@@ -151,7 +205,7 @@ main {
 }
 
 .toggle input:checked + .slider {
-  background: #ff0000;
+  background: var(--accent);
 }
 
 .toggle input:checked + .slider::before {
@@ -159,6 +213,37 @@ main {
 }
 
 .toggle input:focus-visible + .slider {
-  outline: 2px solid #ff0000;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* A long branch name is cut short, and the commit can be selected to copy it */
+#build {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  user-select: text;
+}
+
+footer a {
+  color: var(--link);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
