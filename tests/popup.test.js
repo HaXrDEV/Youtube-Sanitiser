@@ -25,11 +25,15 @@ function popupElements() {
       value: '',
       disabled: false,
       events: [],
+      listeners: {},
       classList: {
         toggle: (name, on) => (on ? classes.add(name) : classes.delete(name)),
         contains: name => classes.has(name),
       },
-      addEventListener(type) { this.events.push(type); },
+      addEventListener(type, listener) {
+        this.events.push(type);
+        this.listeners[type] = listener;
+      },
     };
   }
   return elements;
@@ -67,7 +71,7 @@ test('every setting saves when its control changes', () => {
   const { popup, elements, defaults } = loadPopup();
   popup.wireUpControls();
   for (const [key, value] of Object.entries(defaults)) {
-    // A checkbox saves on change, the minimum views box once you leave it
+    // A checkbox saves on change, a number box once you leave it
     assert.ok(elements[key].events.includes(typeof value === 'boolean' ? 'change' : 'blur'), key);
   }
 });
@@ -77,13 +81,27 @@ test('a filter\'s options show only while it\'s on', () => {
   const rowsFor = {
     hideLiveStreams: ['excludeSubscribedLiveRow'],
     hideLowViews: ['minViewsRow', 'excludeSubscribedRow'],
+    hideWatched: ['watchedPercentRow'],
   };
+  const allOff = Object.fromEntries(Object.keys(rowsFor).map(filter => [filter, false]));
   for (const on of Object.keys(rowsFor)) {
-    popup.applyToUI({ ...defaults, hideLiveStreams: false, hideLowViews: false, [on]: true });
+    popup.applyToUI({ ...defaults, ...allOff, [on]: true });
     for (const [filter, rows] of Object.entries(rowsFor)) {
       for (const row of rows) {
         assert.strictEqual(elements[row].classList.contains('hidden'), filter !== on, `${row} with ${on} on`);
       }
     }
+  }
+});
+
+test('the watched percentage stays between 1 and 100', () => {
+  const { popup, elements, defaults } = loadPopup();
+  popup.applyToUI(defaults);
+  popup.wireUpControls();
+  const input = elements.watchedPercent;
+  for (const [typed, shown] of [['50', '50%'], ['250', '100%'], ['0', `${defaults.watchedPercent}%`], ['', `${defaults.watchedPercent}%`]]) {
+    input.value = typed;
+    input.listeners.blur();
+    assert.strictEqual(input.value, shown, `typed ${typed || 'nothing'}`);
   }
 });

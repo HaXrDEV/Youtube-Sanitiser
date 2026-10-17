@@ -166,6 +166,11 @@ main > .filter-row,
   cursor: not-allowed;
 }
 
+/* A percentage is at most "100%", so its box is narrower */
+.percent-input {
+  width: 64px;
+}
+
 /* ── Toggle switch ────────────────────────────────────────────────────────── */
 
 .toggle {

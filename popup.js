@@ -12,7 +12,12 @@ function formatNumber(n) {
   return Number(n).toLocaleString('en-US');
 }
 
-/** Strip commas/spaces and parse: "10,000" → 10000 */
+/** Format a percentage: 90 → "90%" */
+function formatPercent(n) {
+  return `${Number(n)}%`;
+}
+
+/** Strip commas/spaces and parse: "10,000" → 10000, "90%" → 90 */
 function parseNumber(str) {
   const n = parseInt(str.replace(/[,\s]/g, ''), 10);
   return isNaN(n) ? 0 : n;
@@ -24,12 +29,14 @@ function getEl(id) {
   return document.getElementById(id);
 }
 
-/** Show/hide the sub-rows under "Hide live streams" and "Hide low view count" */
+/** Show/hide the sub-rows under the filters that have options */
 function updateSubRows(s) {
   getEl('excludeSubscribedLiveRow').classList.toggle('hidden', !s.hideLiveStreams);
   getEl('minViewsRow').classList.toggle('hidden', !s.hideLowViews);
   getEl('excludeSubscribedRow').classList.toggle('hidden', !s.hideLowViews);
   getEl('minViews').disabled = !s.hideLowViews;
+  getEl('watchedPercentRow').classList.toggle('hidden', !s.hideWatched);
+  getEl('watchedPercent').disabled = !s.hideWatched;
 }
 
 // ─── Populate UI from settings ────────────────────────────────────────────────
@@ -43,6 +50,8 @@ function applyToUI(s) {
   getEl('hideLowViews').checked          = !!s.hideLowViews;
   getEl('minViews').value                = formatNumber(s.minViews ?? DEFAULTS.minViews);
   getEl('excludeSubscribed').checked     = !!s.excludeSubscribed;
+  getEl('hideWatched').checked           = !!s.hideWatched;
+  getEl('watchedPercent').value          = formatPercent(s.watchedPercent ?? DEFAULTS.watchedPercent);
   updateSubRows(s);
 }
 
@@ -58,6 +67,8 @@ function readFromUI() {
     hideLowViews:          getEl('hideLowViews').checked,
     minViews:              parseNumber(getEl('minViews').value),
     excludeSubscribed:     getEl('excludeSubscribed').checked,
+    hideWatched:           getEl('hideWatched').checked,
+    watchedPercent:        parseNumber(getEl('watchedPercent').value),
   };
 }
 
@@ -119,30 +130,38 @@ document.addEventListener('DOMContentLoaded', () => {
 function wireUpControls() {
   // Wire up all checkboxes to auto-save
   ['hideShorts', 'hidePlaylists', 'hideMixes', 'hideLiveStreams', 'excludeSubscribedLive',
-   'hideLowViews', 'excludeSubscribed'].forEach(id => {
+   'hideLowViews', 'excludeSubscribed', 'hideWatched'].forEach(id => {
     getEl(id).addEventListener('change', save);
   });
 
-  // Min-views input: save on blur, format on blur, strip on focus
-  const minViewsInput = getEl('minViews');
+  wireUpNumberInput('minViews', formatNumber, n => n || DEFAULTS.minViews);
+  // A percentage runs from 1 to 100
+  wireUpNumberInput('watchedPercent', formatPercent, n => (n ? Math.min(n, 100) : DEFAULTS.watchedPercent));
+}
 
-  minViewsInput.addEventListener('focus', () => {
-    minViewsInput.value = minViewsInput.value.replace(/,/g, '');
+/**
+ * A number box: shows the bare digits while you type, and once you leave it,
+ * corrects the number with fix, formats it with format, and saves.
+ */
+function wireUpNumberInput(id, format, fix) {
+  const input = getEl(id);
+
+  input.addEventListener('focus', () => {
+    input.value = input.value.replace(/[^\d]/g, '');
   });
 
-  minViewsInput.addEventListener('blur', () => {
-    const n = parseNumber(minViewsInput.value);
-    minViewsInput.value = formatNumber(n || DEFAULTS.minViews);
+  input.addEventListener('blur', () => {
+    input.value = format(fix(parseNumber(input.value)));
     save();
   });
 
   // Allow Enter to confirm the input
-  minViewsInput.addEventListener('keydown', e => {
-    if (e.key === 'Enter') minViewsInput.blur();
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') input.blur();
   });
 
   // Prevent non-numeric characters
-  minViewsInput.addEventListener('input', () => {
-    minViewsInput.value = minViewsInput.value.replace(/[^\d,]/g, '');
+  input.addEventListener('input', () => {
+    input.value = input.value.replace(/[^\d,]/g, '');
   });
 }
