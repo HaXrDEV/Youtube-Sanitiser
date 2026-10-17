@@ -161,11 +161,6 @@ main > .filter-row,
   border-color: var(--accent);
 }
 
-.views-input:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
 /* A percentage is at most "100%", so its box is narrower */
 .percent-input {
   width: 64px;

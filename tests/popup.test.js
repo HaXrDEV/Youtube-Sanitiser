@@ -23,17 +23,12 @@ function popupElements() {
     elements[id] = {
       checked: false,
       value: '',
-      disabled: false,
-      events: [],
       listeners: {},
       classList: {
         toggle: (name, on) => (on ? classes.add(name) : classes.delete(name)),
         contains: name => classes.has(name),
       },
-      addEventListener(type, listener) {
-        this.events.push(type);
-        this.listeners[type] = listener;
-      },
+      addEventListener(type, listener) { this.listeners[type] = listener; },
     };
   }
   return elements;
@@ -72,17 +67,13 @@ test('every setting saves when its control changes', () => {
   popup.wireUpControls();
   for (const [key, value] of Object.entries(defaults)) {
     // A checkbox saves on change, a number box once you leave it
-    assert.ok(elements[key].events.includes(typeof value === 'boolean' ? 'change' : 'blur'), key);
+    assert.ok(elements[key].listeners[typeof value === 'boolean' ? 'change' : 'blur'], key);
   }
 });
 
 test('a filter\'s options show only while it\'s on', () => {
   const { popup, elements, defaults } = loadPopup();
-  const rowsFor = {
-    hideLiveStreams: ['excludeSubscribedLiveRow'],
-    hideLowViews: ['minViewsRow', 'excludeSubscribedRow'],
-    hideWatched: ['watchedPercentRow'],
-  };
+  const rowsFor = plain(vm.runInContext('OPTION_ROWS', popup));
   const allOff = Object.fromEntries(Object.keys(rowsFor).map(filter => [filter, false]));
   for (const on of Object.keys(rowsFor)) {
     popup.applyToUI({ ...defaults, ...allOff, [on]: true });

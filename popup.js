@@ -29,14 +29,17 @@ function getEl(id) {
   return document.getElementById(id);
 }
 
-/** Show/hide the sub-rows under the filters that have options */
+/** The sub-rows holding each filter's options, which show while it's on */
+const OPTION_ROWS = {
+  hideLiveStreams: ['excludeSubscribedLiveRow'],
+  hideLowViews:    ['minViewsRow', 'excludeSubscribedRow'],
+  hideWatched:     ['watchedPercentRow'],
+};
+
 function updateSubRows(s) {
-  getEl('excludeSubscribedLiveRow').classList.toggle('hidden', !s.hideLiveStreams);
-  getEl('minViewsRow').classList.toggle('hidden', !s.hideLowViews);
-  getEl('excludeSubscribedRow').classList.toggle('hidden', !s.hideLowViews);
-  getEl('minViews').disabled = !s.hideLowViews;
-  getEl('watchedPercentRow').classList.toggle('hidden', !s.hideWatched);
-  getEl('watchedPercent').disabled = !s.hideWatched;
+  for (const [filter, rows] of Object.entries(OPTION_ROWS)) {
+    rows.forEach(row => getEl(row).classList.toggle('hidden', !s[filter]));
+  }
 }
 
 // ─── Populate UI from settings ────────────────────────────────────────────────
@@ -128,22 +131,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function wireUpControls() {
-  // Wire up all checkboxes to auto-save
-  ['hideShorts', 'hidePlaylists', 'hideMixes', 'hideLiveStreams', 'excludeSubscribedLive',
-   'hideLowViews', 'excludeSubscribed', 'hideWatched'].forEach(id => {
+  // Every on/off setting is a checkbox with its name as id: auto-save them
+  Object.keys(DEFAULTS).filter(id => typeof DEFAULTS[id] === 'boolean').forEach(id => {
     getEl(id).addEventListener('change', save);
   });
 
-  wireUpNumberInput('minViews', formatNumber, n => n || DEFAULTS.minViews);
-  // A percentage runs from 1 to 100
-  wireUpNumberInput('watchedPercent', formatPercent, n => (n ? Math.min(n, 100) : DEFAULTS.watchedPercent));
+  wireUpNumberInput('minViews', formatNumber);
+  wireUpNumberInput('watchedPercent', formatPercent, 100);
 }
 
 /**
- * A number box: shows the bare digits while you type, and once you leave it,
- * corrects the number with fix, formats it with format, and saves.
+ * A number box for the setting of the same name: shows the bare digits while
+ * you type, and once you leave it, caps the number at max (or puts back the
+ * default for none), formats it with format, and saves.
  */
-function wireUpNumberInput(id, format, fix) {
+function wireUpNumberInput(id, format, max = Infinity) {
   const input = getEl(id);
 
   input.addEventListener('focus', () => {
@@ -151,7 +153,8 @@ function wireUpNumberInput(id, format, fix) {
   });
 
   input.addEventListener('blur', () => {
-    input.value = format(fix(parseNumber(input.value)));
+    const n = parseNumber(input.value);
+    input.value = format(n ? Math.min(n, max) : DEFAULTS[id]);
     save();
   });
 

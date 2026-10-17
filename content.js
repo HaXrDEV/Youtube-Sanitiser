@@ -351,10 +351,7 @@ const WATCHED_BAR_SELECTOR =
 function filterWatched(root, minPercent) {
   if (isHistoryPage()) return;
   queryAll(root, WATCHED_BAR_SELECTOR).forEach(el => {
-    const watched = parseFloat(el.style.width);
-    if (!(watched >= minPercent)) return;
-    const card = cardFor(el);
-    if (card) sanitise(card);
+    if (parseFloat(el.style.width) >= minPercent) sanitise(cardFor(el));
   });
 }
 
@@ -371,8 +368,9 @@ function applyFilters(root) {
   if (settings.hidePlaylists)   filterPlaylists(root);
   if (settings.hideMixes)       filterMixes(root);
   if (settings.hideLiveStreams) filterLiveStreams(root);
-  if (settings.hideLowViews)    filterLowViews(root, settings.minViews);
+  // Before low views, which skips hidden cards, so their counts aren't read
   if (settings.hideWatched)     filterWatched(root, settings.watchedPercent);
+  if (settings.hideLowViews)    filterLowViews(root, settings.minViews);
 }
 
 // ─── Full re-scan (after settings change or navigation) ──────────────────────
