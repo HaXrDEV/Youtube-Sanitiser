@@ -1,0 +1,4829 @@
+{
+ "capturedAt": "2026-10-17",
+ "videos": [
+  "h5v23HIWdIw",
+  "bK5TMc71FI4",
+  "kJQP7kiw5Fk"
+ ],
+ "search": "minecraft",
+ "languages": {
+  "af": {
+   "lang": "af-ZA",
+   "cards": [
+    {
+     "text": "44 k",
+     "label": "44 duisend kyke"
+    },
+    {
+     "text": "8,6 k",
+     "label": "8,6 duisend kyke"
+    },
+    {
+     "text": "4,2 m",
+     "label": "4,2 miljoen kyke"
+    },
+    {
+     "text": "29 m",
+     "label": "29 miljoen kyke"
+    },
+    {
+     "text": "479",
+     "label": "479 kyke"
+    },
+    {
+     "text": "2,5 mjd",
+     "label": "2,5 miljard kyke"
+    }
+   ],
+   "search": [
+    {
+     "short": "3,6 m",
+     "exact": 3678589
+    },
+    {
+     "short": "123 k",
+     "exact": 123437
+    },
+    {
+     "short": "4 m",
+     "exact": 4024153
+    },
+    {
+     "short": "6,5 k",
+     "exact": 6521
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 k kyke",
+     "full": "13 051 kyke"
+    },
+    {
+     "short": "1,1 m kyke",
+     "full": "1 141 464 kyke"
+    },
+    {
+     "short": "9,1 mjd",
+     "full": "9 147 946 829 kyke"
+    }
+   ]
+  },
+  "am": {
+   "lang": "am-ET",
+   "cards": [
+    {
+     "text": "44 ሺ",
+     "label": "44 ሺ ዕይታዎች"
+    },
+    {
+     "text": "182",
+     "label": "182 ዕይታዎች"
+    },
+    {
+     "text": "5.6 ሺ",
+     "label": "5.6 ሺ ዕይታዎች"
+    },
+    {
+     "text": "1.8 ሚ",
+     "label": "1.8 ሚሊዮን ዕይታዎች"
+    },
+    {
+     "text": "29 ሚ",
+     "label": "29 ሚሊዮን ዕይታዎች"
+    },
+    {
+     "text": "2.5 ቢ",
+     "label": "2.5 ቢሊዮን ዕይታዎች"
+    }
+   ],
+   "search": [
+    {
+     "short": "3.6 ሚ",
+     "exact": 3678589
+    },
+    {
+     "short": "252 ሺ",
+     "exact": 252927
+    },
+    {
+     "short": "1 ሚ",
+     "exact": 1067195
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 ሺ ዕይታዎች",
+     "full": "13,051 ዕይታዎች"
+    },
+    {
+     "short": "1.1 ሚ ዕይታዎች",
+     "full": "1,141,464 ዕይታዎች"
+    },
+    {
+     "short": "9.1 ቢ",
+     "full": "9,147,946,829 ዕይታዎች"
+    }
+   ]
+  },
+  "ar": {
+   "lang": "ar",
+   "cards": [
+    {
+     "text": "44 ألف",
+     "label": "44 ألف مشاهدة"
+    },
+    {
+     "text": "5.6 ألف",
+     "label": "5.6 ألف مشاهدة"
+    },
+    {
+     "text": "336",
+     "label": "336 مشاهدة"
+    },
+    {
+     "text": "8 آلاف",
+     "label": "8 آلاف مشاهدة"
+    },
+    {
+     "text": "4 مليون",
+     "label": "4 ملايين مشاهدة"
+    },
+    {
+     "text": "1.3 مليون",
+     "label": "1.3 مليون مشاهدة"
+    },
+    {
+     "text": "1.2 مليار",
+     "label": "1.2 مليار مشاهدة"
+    },
+    {
+     "text": "6 مليار",
+     "label": "6 مليار مشاهدة"
+    }
+   ],
+   "search": [
+    {
+     "short": "2.6 مليون",
+     "exact": 2670462
+    },
+    {
+     "short": "252 ألف",
+     "exact": 252927
+    },
+    {
+     "short": "4 مليون",
+     "exact": 4024153
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 ألف مشاهدة",
+     "full": "13,051 مشاهدة"
+    },
+    {
+     "short": "1.1 مليون مشاهدة",
+     "full": "1,141,464 مشاهدة"
+    },
+    {
+     "short": "9.1 مليار",
+     "full": "9,147,946,829 مشاهدة"
+    }
+   ]
+  },
+  "as": {
+   "lang": "as-IN",
+   "cards": [
+    {
+     "text": "44 হাজাৰ",
+     "label": "44 হাজাৰটা ভিউ"
+    },
+    {
+     "text": "2.2 লাখ",
+     "label": "2.2 লাখটা ভিউ"
+    },
+    {
+     "text": "8.6 হাজাৰ",
+     "label": "8.6 হাজাৰটা ভিউ"
+    },
+    {
+     "text": "2 লাখ",
+     "label": "2 লাখটা ভিউ"
+    },
+    {
+     "text": "431",
+     "label": "431টা ভিউ"
+    },
+    {
+     "text": "6.6 নিযুত",
+     "label": "6.6 নিযুতটা ভিউ"
+    },
+    {
+     "text": "29 নিযুত",
+     "label": "29 নিযুতটা ভিউ"
+    },
+    {
+     "text": "2.5 শঃ কোঃ",
+     "label": "2.5 শত কোটিটা ভিউ"
+    }
+   ],
+   "search": [
+    {
+     "short": "5.3 নিযুত",
+     "exact": 5372598
+    },
+    {
+     "short": "23 হাজাৰ",
+     "exact": 23815
+    },
+    {
+     "short": "1.2 লাখ",
+     "exact": 123437
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 হাজাৰটা ভিউ",
+     "full": "13,051টা ভিউ"
+    },
+    {
+     "short": "1.1 নিযুতটা ভিউ",
+     "full": "11,41,464টা ভিউ"
+    },
+    {
+     "short": "9.1 শঃ কোঃ",
+     "full": "9,14,79,46,829টা ভিউ"
+    }
+   ]
+  },
+  "az": {
+   "lang": "az-Latn-AZ",
+   "cards": [
+    {
+     "text": "44K",
+     "label": "44 min baxış"
+    },
+    {
+     "text": "382",
+     "label": "382 baxış"
+    },
+    {
+     "text": "5,6K",
+     "label": "5,6 min baxış"
+    },
+    {
+     "text": "1,3 mln",
+     "label": "1,3 milyon baxış"
+    },
+    {
+     "text": "4 mln",
+     "label": "4 milyon baxış"
+    },
+    {
+     "text": "1,3 mlrd",
+     "label": "1,3 milyard baxış"
+    }
+   ],
+   "search": [
+    {
+     "short": "2,2 mln",
+     "exact": 2257107
+    },
+    {
+     "short": "321K",
+     "exact": 321896
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13K baxış",
+     "full": "13.051 baxış"
+    },
+    {
+     "short": "1,1 mln baxış",
+     "full": "1.141.464 baxış"
+    },
+    {
+     "short": "9,1 mlrd",
+     "full": "9.147.946.829 baxış"
+    }
+   ]
+  },
+  "be": {
+   "lang": "be-BY",
+   "cards": [
+    {
+     "text": "44 тыс.",
+     "label": "44 тысячы праглядаў"
+    },
+    {
+     "text": "5,6 тыс.",
+     "label": "5,6 тысячы праглядаў"
+    },
+    {
+     "text": "428",
+     "label": "428 праглядаў"
+    },
+    {
+     "text": "1,6 млн",
+     "label": "1,6 мільёна праглядаў"
+    },
+    {
+     "text": "29 млн",
+     "label": "29 мільёнаў праглядаў"
+    },
+    {
+     "text": "2,5 млрд",
+     "label": "2,5 мільярда праглядаў"
+    }
+   ],
+   "search": [
+    {
+     "short": "5,3 млн",
+     "exact": 5306465
+    },
+    {
+     "short": "123 тыс.",
+     "exact": 123437
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 тыс. праглядаў",
+     "full": "13 051 прагляд"
+    },
+    {
+     "short": "1,1 млн праглядаў",
+     "full": "1 141 464 прагляды"
+    },
+    {
+     "short": "9,1 млрд",
+     "full": "9 147 946 829 праглядаў"
+    }
+   ]
+  },
+  "bg": {
+   "lang": "bg-BG",
+   "cards": [
+    {
+     "text": "44 хил.",
+     "label": "44 хиляди показвания"
+    },
+    {
+     "text": "5,6 хил.",
+     "label": "5,6 хиляди показвания"
+    },
+    {
+     "text": "1,1 млн.",
+     "label": "1,1 милиона показвания"
+    },
+    {
+     "text": "431",
+     "label": "431 показвания"
+    },
+    {
+     "text": "29 млн.",
+     "label": "29 милиона показвания"
+    },
+    {
+     "text": "2,5 млрд.",
+     "label": "2,5 милиарда показвания"
+    },
+    {
+     "text": "6 млрд.",
+     "label": "6 милиарда показвания"
+    }
+   ],
+   "search": [
+    {
+     "short": "2,6 млн.",
+     "exact": 2670462
+    },
+    {
+     "short": "123 хил.",
+     "exact": 123437
+    },
+    {
+     "short": "2 млн.",
+     "exact": 2002737
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 хил. показвания",
+     "full": "13 051 показвания"
+    },
+    {
+     "short": "1,1 млн. показвания",
+     "full": "1 141 464 показвания"
+    },
+    {
+     "short": "9,1 млрд.",
+     "full": "9 147 946 829 показвания"
+    }
+   ]
+  },
+  "bn": {
+   "lang": "bn-BD",
+   "cards": [
+    {
+     "text": "44 হা",
+     "label": "44 হাজারটি ভিউ"
+    },
+    {
+     "text": "5.6 হা",
+     "label": "5.6 হাজারটি ভিউ"
+    },
+    {
+     "text": "1.1 লা",
+     "label": "1.1 লাখটি ভিউ"
+    },
+    {
+     "text": "70 লা",
+     "label": "70 লাখটি ভিউ"
+    },
+    {
+     "text": "20",
+     "label": "20টি ভিউ"
+    },
+    {
+     "text": "2.9 কো",
+     "label": "2.9 কোটিটি ভিউ"
+    },
+    {
+     "text": "682 কো",
+     "label": "682 কোটিটি ভিউ"
+    }
+   ],
+   "search": [
+    {
+     "short": "36 লা",
+     "exact": 3678589
+    },
+    {
+     "short": "2.5 লা",
+     "exact": 252927
+    },
+    {
+     "short": "94 হা",
+     "exact": 94822
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 হাটি ভিউ",
+     "full": "13,051টি ভিউ"
+    },
+    {
+     "short": "11 লাটি ভিউ",
+     "full": "11,41,464টি ভিউ"
+    },
+    {
+     "short": "914 কো",
+     "full": "9,14,79,46,829টি ভিউ"
+    }
+   ]
+  },
+  "bs": {
+   "lang": "bs-Latn-BA",
+   "cards": [
+    {
+     "text": "44 hilj.",
+     "label": "44 hiljade pregleda"
+    },
+    {
+     "text": "5,6 hilj.",
+     "label": "5,6 hiljada pregleda"
+    },
+    {
+     "text": "3,7 mil.",
+     "label": "3,7 miliona pregleda"
+    },
+    {
+     "text": "45 mil.",
+     "label": "45 miliona pregleda"
+    },
+    {
+     "text": "1,4 mlrd.",
+     "label": "1,4 milijarde pregleda"
+    }
+   ],
+   "search": [
+    {
+     "short": "123 hilj.",
+     "exact": 123437
+    },
+    {
+     "short": "4,6 mil.",
+     "exact": 4674227
+    },
+    {
+     "short": "51 mil.",
+     "exact": 51105386
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 hilj. pregleda",
+     "full": "13.051 pregled"
+    },
+    {
+     "short": "1,1 mil. pregleda",
+     "full": "1.141.464 pregleda"
+    },
+    {
+     "short": "9,1 mlrd.",
+     "full": "9.147.946.829 pregleda"
+    }
+   ]
+  },
+  "ca": {
+   "lang": "ca-ES",
+   "cards": [
+    {
+     "text": "108 k",
+     "label": "108 mil visualitzacions"
+    },
+    {
+     "text": "8,6 k",
+     "label": "8,6 mil visualitzacions"
+    },
+    {
+     "text": "3,7 M",
+     "label": "3,7 milions de visualitzacions"
+    },
+    {
+     "text": "2",
+     "label": "2 visualitzacions"
+    },
+    {
+     "text": "29 M",
+     "label": "29 milions de visualitzacions"
+    }
+   ],
+   "search": [
+    {
+     "short": "2,6 M",
+     "exact": 2670462
+    },
+    {
+     "short": "51 M",
+     "exact": 51105386
+    },
+    {
+     "short": "87 k",
+     "exact": 87461
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 k visualitzacions",
+     "full": "13.051 visualitzacions"
+    },
+    {
+     "short": "1,1 M de visualitzacions",
+     "full": "1.141.464 visualitzacions"
+    },
+    {
+     "short": "9147 M",
+     "full": "9.147.946.829 visualitzacions"
+    }
+   ]
+  },
+  "cs": {
+   "lang": "cs-CZ",
+   "cards": [
+    {
+     "text": "30 tis.",
+     "label": "30 tisíc zhlédnutí"
+    },
+    {
+     "text": "431",
+     "label": "431 zhlédnutí"
+    },
+    {
+     "text": "8,6 tis.",
+     "label": "8,6 tisíce zhlédnutí"
+    },
+    {
+     "text": "1,1 mil.",
+     "label": "1,1 milionu zhlédnutí"
+    },
+    {
+     "text": "7 mil.",
+     "label": "7 milionů zhlédnutí"
+    },
+    {
+     "text": "3,9 mld.",
+     "label": "3,9 miliardy zhlédnutí"
+    }
+   ],
+   "search": [
+    {
+     "short": "321 tis.",
+     "exact": 321896
+    },
+    {
+     "short": "4,6 mil.",
+     "exact": 4674227
+    },
+    {
+     "short": "1 mil.",
+     "exact": 1067195
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 tis. zhlédnutí",
+     "full": "13 051 zhlédnutí"
+    },
+    {
+     "short": "1,1 mil. zhlédnutí",
+     "full": "1 141 464 zhlédnutí"
+    },
+    {
+     "short": "9,1 mld.",
+     "full": "9 147 946 829 zhlédnutí"
+    }
+   ]
+  },
+  "da": {
+   "lang": "da-DK",
+   "cards": [
+    {
+     "text": "86.770",
+     "label": "86.770 visninger"
+    },
+    {
+     "text": "289",
+     "label": "289 visninger"
+    },
+    {
+     "text": "1,9 mio.",
+     "label": "1,9 million visninger"
+    },
+    {
+     "text": "7 mio.",
+     "label": "7 millioner visninger"
+    },
+    {
+     "text": "2,5 mia.",
+     "label": "2,5 milliarder visninger"
+    }
+   ],
+   "search": [
+    {
+     "short": "321.896",
+     "exact": 321896
+    },
+    {
+     "short": "2,6 mio.",
+     "exact": 2670462
+    },
+    {
+     "short": "51 mio.",
+     "exact": 51105386
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13.051 visninger",
+     "full": "13.051 visninger"
+    },
+    {
+     "short": "1,1 mio. visninger",
+     "full": "1.141.464 visninger"
+    },
+    {
+     "short": "9,1 mia.",
+     "full": "9.147.946.829 visninger"
+    }
+   ]
+  },
+  "de": {
+   "lang": "de-DE",
+   "cards": [
+    {
+     "text": "42.549",
+     "label": "42.549 Aufrufe"
+    },
+    {
+     "text": "431",
+     "label": "431 Aufrufe"
+    },
+    {
+     "text": "1,8 Mio.",
+     "label": "1,8 Millionen Aufrufe"
+    },
+    {
+     "text": "36 Mio.",
+     "label": "36 Millionen Aufrufe"
+    },
+    {
+     "text": "2,5 Mrd.",
+     "label": "2,5 Milliarden Aufrufe"
+    },
+    {
+     "text": "4 Mrd.",
+     "label": "4 Milliarden Aufrufe"
+    }
+   ],
+   "search": [
+    {
+     "short": "107.979",
+     "exact": 107979
+    },
+    {
+     "short": "2,6 Mio.",
+     "exact": 2670462
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13.051 Aufrufe",
+     "full": "13.051 Aufrufe"
+    },
+    {
+     "short": "1,1 Mio. Aufrufe",
+     "full": "1.141.464 Aufrufe"
+    },
+    {
+     "short": "9,1 Mrd.",
+     "full": "9.147.946.829 Aufrufe"
+    }
+   ]
+  },
+  "el": {
+   "lang": "el-GR",
+   "cards": [
+    {
+     "text": "201 χιλ.",
+     "label": "201 χιλιάδες προβολές"
+    },
+    {
+     "text": "33",
+     "label": "33 προβολές"
+    },
+    {
+     "text": "8,6 χιλ.",
+     "label": "8,6 χιλιάδες προβολές"
+    },
+    {
+     "text": "4,2 εκ.",
+     "label": "4,2 εκατομμύρια προβολές"
+    },
+    {
+     "text": "29 εκ.",
+     "label": "29 εκατομμύρια προβολές"
+    },
+    {
+     "text": "2,5 δισ.",
+     "label": "2,5 δισεκατομμύρια προβολές"
+    },
+    {
+     "text": "6 δισ.",
+     "label": "6 δισεκατομμύρια προβολές"
+    }
+   ],
+   "search": [
+    {
+     "short": "123 χιλ.",
+     "exact": 123437
+    },
+    {
+     "short": "4 εκ.",
+     "exact": 4024153
+    },
+    {
+     "short": "4,6 εκ.",
+     "exact": 4674227
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 χιλ. προβολές",
+     "full": "13.051 προβολές"
+    },
+    {
+     "short": "1,1 εκ. προβολές",
+     "full": "1.141.464 προβολές"
+    },
+    {
+     "short": "9,1 δισ.",
+     "full": "9.147.949.615 προβολές"
+    }
+   ]
+  },
+  "en": {
+   "lang": "en",
+   "cards": [
+    {
+     "text": "44K",
+     "label": "44 thousand views"
+    },
+    {
+     "text": "8.6K",
+     "label": "8.6 thousand views"
+    },
+    {
+     "text": "431",
+     "label": "431 views"
+    },
+    {
+     "text": "4.2M",
+     "label": "4.2 million views"
+    },
+    {
+     "text": "24M",
+     "label": "24 million views"
+    },
+    {
+     "text": "2.5B",
+     "label": "2.5 billion views"
+    },
+    {
+     "text": "4B",
+     "label": "4 billion views"
+    }
+   ],
+   "search": [
+    {
+     "short": "1.4M",
+     "exact": 1465300
+    },
+    {
+     "short": "965K",
+     "exact": 965426
+    },
+    {
+     "short": "51M",
+     "exact": 51105386
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13K views",
+     "full": "13,051 views"
+    },
+    {
+     "short": "1.1M views",
+     "full": "1,141,464 views"
+    },
+    {
+     "short": "9.1B",
+     "full": "9,147,949,615 views"
+    }
+   ]
+  },
+  "en-GB": {
+   "lang": "en-GB",
+   "cards": [
+    {
+     "text": "44k",
+     "label": "44 thousand views"
+    },
+    {
+     "text": "41",
+     "label": "41 views"
+    },
+    {
+     "text": "8.6k",
+     "label": "8.6 thousand views"
+    },
+    {
+     "text": "4.2m",
+     "label": "4.2 million views"
+    },
+    {
+     "text": "29m",
+     "label": "29 million views"
+    },
+    {
+     "text": "3.9bn",
+     "label": "3.9 billion views"
+    }
+   ],
+   "search": [
+    {
+     "short": "1.4m",
+     "exact": 1465300
+    },
+    {
+     "short": "965k",
+     "exact": 965822
+    },
+    {
+     "short": "4m",
+     "exact": 4024153
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13k views",
+     "full": "13,051 views"
+    },
+    {
+     "short": "1.1m views",
+     "full": "1,141,464 views"
+    },
+    {
+     "short": "9.1bn",
+     "full": "9,147,949,615 views"
+    }
+   ]
+  },
+  "en-IN": {
+   "lang": "en-IN",
+   "cards": [
+    {
+     "text": "86K",
+     "label": "86K views"
+    },
+    {
+     "text": "1.7K",
+     "label": "1.7K views"
+    },
+    {
+     "text": "1.1 lakh",
+     "label": "1.1 lakh views"
+    },
+    {
+     "text": "3 lakh",
+     "label": "3 lakh views"
+    },
+    {
+     "text": "1.5 crore",
+     "label": "1.5 crore views"
+    },
+    {
+     "text": "259 crore",
+     "label": "259 crore views"
+    }
+   ],
+   "search": [
+    {
+     "short": "1.2 lakh",
+     "exact": 123437
+    },
+    {
+     "short": "23K",
+     "exact": 23815
+    },
+    {
+     "short": "46 lakh",
+     "exact": 4674227
+    },
+    {
+     "short": "5.1 crore",
+     "exact": 51105386
+    },
+    {
+     "short": "5.2K",
+     "exact": 5230
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13K views",
+     "full": "13,051 views"
+    },
+    {
+     "short": "11 lakh views",
+     "full": "11,41,464 views"
+    },
+    {
+     "short": "914 crore",
+     "full": "9,14,79,49,615 views"
+    }
+   ]
+  },
+  "es": {
+   "lang": "es-ES",
+   "cards": [
+    {
+     "text": "431",
+     "label": "431 visualizaciones"
+    },
+    {
+     "text": "120 K",
+     "label": "120 mil visualizaciones"
+    },
+    {
+     "text": "8,6 K",
+     "label": "8,6 mil visualizaciones"
+    },
+    {
+     "text": "1,9 M",
+     "label": "1,9 millones de visualizaciones"
+    },
+    {
+     "text": "7 M",
+     "label": "7 millones de visualizaciones"
+    }
+   ],
+   "search": [
+    {
+     "short": "321 K",
+     "exact": 321896
+    },
+    {
+     "short": "2,5 M",
+     "exact": 2500015
+    },
+    {
+     "short": "51 M",
+     "exact": 51105386
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 K visualizaciones",
+     "full": "13.051 visualizaciones"
+    },
+    {
+     "short": "1,1 M de visualizaciones",
+     "full": "1.141.464 visualizaciones"
+    },
+    {
+     "short": "9147 M",
+     "full": "9.147.949.615 visualizaciones"
+    }
+   ]
+  },
+  "es-419": {
+   "lang": "es-419",
+   "cards": [
+    {
+     "text": "19 k",
+     "label": "19 mil vistas"
+    },
+    {
+     "text": "431",
+     "label": "431 vistas"
+    },
+    {
+     "text": "8.6 K",
+     "label": "8.6 mil vistas"
+    },
+    {
+     "text": "4 M",
+     "label": "4 millones de vistas"
+    },
+    {
+     "text": "2.6 M",
+     "label": "2.6 millones de vistas"
+    },
+    {
+     "text": "8 K",
+     "label": "8 mil vistas"
+    }
+   ],
+   "search": [
+    {
+     "short": "321 k",
+     "exact": 321896
+    },
+    {
+     "short": "45 M",
+     "exact": 45655293
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 k vistas",
+     "full": "13,051 vistas"
+    },
+    {
+     "short": "1.1 M de vistas",
+     "full": "1,141,464 vistas"
+    },
+    {
+     "short": "9147 M",
+     "full": "9,147,949,615 vistas"
+    }
+   ]
+  },
+  "es-US": {
+   "lang": "es-US",
+   "cards": [
+    {
+     "text": "19 K",
+     "label": "19 mil vistas"
+    },
+    {
+     "text": "49",
+     "label": "49 vistas"
+    },
+    {
+     "text": "8.6 K",
+     "label": "8.6 mil vistas"
+    },
+    {
+     "text": "1.8 M",
+     "label": "1.8 millones de vistas"
+    },
+    {
+     "text": "29 M",
+     "label": "29 millones de vistas"
+    }
+   ],
+   "search": [
+    {
+     "short": "321 K",
+     "exact": 321896
+    },
+    {
+     "short": "2.5 M",
+     "exact": 2500123
+    },
+    {
+     "short": "51 M",
+     "exact": 51105386
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 K vistas",
+     "full": "13,060 vistas"
+    },
+    {
+     "short": "1.1 M de vistas",
+     "full": "1,141,464 vistas"
+    },
+    {
+     "short": "9147 M",
+     "full": "9,147,949,615 vistas"
+    }
+   ]
+  },
+  "et": {
+   "lang": "et-EE",
+   "cards": [
+    {
+     "text": "44 tuh",
+     "label": "44 tuhat vaatamist"
+    },
+    {
+     "text": "289",
+     "label": "289 vaatamist"
+    },
+    {
+     "text": "8,6 tuh",
+     "label": "8,6 tuhat vaatamist"
+    },
+    {
+     "text": "6,6 mln",
+     "label": "6,6 miljonit vaatamist"
+    },
+    {
+     "text": "24 mln",
+     "label": "24 miljonit vaatamist"
+    },
+    {
+     "text": "2,5 mld",
+     "label": "2,5 miljardit vaatamist"
+    }
+   ],
+   "search": [
+    {
+     "short": "321 tuh",
+     "exact": 321896
+    },
+    {
+     "short": "3,6 mln",
+     "exact": 3678589
+    },
+    {
+     "short": "51 mln",
+     "exact": 51105386
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 tuh vaatamist",
+     "full": "13 060 vaatamist"
+    },
+    {
+     "short": "1,1 mln vaatamist",
+     "full": "1 141 464 vaatamist"
+    },
+    {
+     "short": "9,1 mld",
+     "full": "9 147 949 615 vaatamist"
+    }
+   ]
+  },
+  "eu": {
+   "lang": "eu-ES",
+   "cards": [
+    {
+     "text": "44.662",
+     "label": "44.662 ikustaldi"
+    },
+    {
+     "text": "42",
+     "label": "42 ikustaldi"
+    },
+    {
+     "text": "3,7 M",
+     "label": "3,7 milioi ikustaldi"
+    },
+    {
+     "text": "29 M",
+     "label": "29 milioi ikustaldi"
+    }
+   ],
+   "search": [
+    {
+     "short": "8,4 M",
+     "exact": 8408879
+    },
+    {
+     "short": "944.933",
+     "exact": 944933
+    },
+    {
+     "short": "4 M",
+     "exact": 4024153
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13.060 ikustaldi",
+     "full": "13.060 ikustaldi"
+    },
+    {
+     "short": "1,1 M ikustaldi",
+     "full": "1.141.464 ikustaldi"
+    },
+    {
+     "short": "9147 M",
+     "full": "9.147.949.615 ikustaldi"
+    }
+   ]
+  },
+  "fa": {
+   "lang": "fa-IR",
+   "cards": [
+    {
+     "text": "36 هزار",
+     "label": "‏36 هزار بازدید"
+    },
+    {
+     "text": "203",
+     "label": "‏203 بازدید"
+    },
+    {
+     "text": "8.6 هزار",
+     "label": "‏8.6 هزار بازدید"
+    },
+    {
+     "text": "1.3 میلیون",
+     "label": "‏1.3 میلیون بازدید"
+    },
+    {
+     "text": "4 میلیون",
+     "label": "‏4 میلیون بازدید"
+    },
+    {
+     "text": "2.5 میلیارد",
+     "label": "‏2.5 میلیارد بازدید"
+    }
+   ],
+   "search": [
+    {
+     "short": "2.6 میلیون",
+     "exact": 2670558
+    },
+    {
+     "short": "321 هزار",
+     "exact": 321896
+    },
+    {
+     "short": "1 میلیون",
+     "exact": 1067230
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "‏13 هزار بازدید",
+     "full": "‏13,060 بازدید"
+    },
+    {
+     "short": "‏1.1 میلیون بازدید",
+     "full": "‏1,141,464 بازدید"
+    },
+    {
+     "short": "9.1 میلیارد",
+     "full": "‏9,147,949,615 بازدید"
+    }
+   ]
+  },
+  "fi": {
+   "lang": "fi-FI",
+   "cards": [
+    {
+     "text": "44 t.",
+     "label": "44 tuhatta katselukertaa"
+    },
+    {
+     "text": "116",
+     "label": "116 katselukertaa"
+    },
+    {
+     "text": "5,6 t.",
+     "label": "5,6 tuhatta katselukertaa"
+    },
+    {
+     "text": "1,1 milj.",
+     "label": "1,1 miljoonaa katselukertaa"
+    },
+    {
+     "text": "29 milj.",
+     "label": "29 miljoonaa katselukertaa"
+    },
+    {
+     "text": "3,9 mrd.",
+     "label": "3,9 miljardia katselukertaa"
+    }
+   ],
+   "search": [
+    {
+     "short": "321 t.",
+     "exact": 321896
+    },
+    {
+     "short": "8,4 milj.",
+     "exact": 8408879
+    },
+    {
+     "short": "4 milj.",
+     "exact": 4024153
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 t. katselukertaa",
+     "full": "13 060 katselukertaa"
+    },
+    {
+     "short": "1,1 milj. katselukertaa",
+     "full": "1 141 464 katselukertaa"
+    },
+    {
+     "short": "9,1 mrd.",
+     "full": "9 147 949 615 katselukertaa"
+    }
+   ]
+  },
+  "fil": {
+   "lang": "fil-PH",
+   "cards": [
+    {
+     "text": "44K",
+     "label": "44 na libo panonood"
+    },
+    {
+     "text": "49",
+     "label": "49 panonood"
+    },
+    {
+     "text": "5.6K",
+     "label": "5.6 na libo panonood"
+    },
+    {
+     "text": "29M",
+     "label": "29 na milyon panonood"
+    },
+    {
+     "text": "4.6M",
+     "label": "4.6 na milyon panonood"
+    },
+    {
+     "text": "3.9B",
+     "label": "3.9 na bilyon panonood"
+    }
+   ],
+   "search": [
+    {
+     "short": "2.6M",
+     "exact": 2670558
+    },
+    {
+     "short": "4M",
+     "exact": 4024153
+    },
+    {
+     "short": "252K",
+     "exact": 252927
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13K panonood",
+     "full": "13,060 panonood"
+    },
+    {
+     "short": "1.1M panonood",
+     "full": "1,141,464 panonood"
+    },
+    {
+     "short": "9.1B",
+     "full": "9,147,949,615 panonood"
+    }
+   ]
+  },
+  "fr": {
+   "lang": "fr-FR",
+   "cards": [
+    {
+     "text": "86 k",
+     "label": "86 mille vues"
+    },
+    {
+     "text": "8,6 k",
+     "label": "8,6 mille vues"
+    },
+    {
+     "text": "612",
+     "label": "612 vues"
+    },
+    {
+     "text": "4,2 M",
+     "label": "4,2 millions de vues"
+    },
+    {
+     "text": "24 M",
+     "label": "24 millions de vues"
+    },
+    {
+     "text": "3,9 Md",
+     "label": "3,9 milliards de vues"
+    }
+   ],
+   "search": [
+    {
+     "short": "79 k",
+     "exact": 79571
+    },
+    {
+     "short": "3,3 k",
+     "exact": 3363
+    },
+    {
+     "short": "4,4 M",
+     "exact": 4427641
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 k vues",
+     "full": "13 060 vues"
+    },
+    {
+     "short": "1,1 M de vues",
+     "full": "1 141 464 vues"
+    },
+    {
+     "short": "9,1 Md",
+     "full": "9 147 949 615 vues"
+    }
+   ]
+  },
+  "fr-CA": {
+   "lang": "fr-CA",
+   "cards": [
+    {
+     "text": "36 k",
+     "label": "36 mille visionnements"
+    },
+    {
+     "text": "10 M",
+     "label": "10 millions de visionnements"
+    },
+    {
+     "text": "8,6 k",
+     "label": "8,6 mille visionnements"
+    },
+    {
+     "text": "2,6 M",
+     "label": "2,6 millions de visionnements"
+    },
+    {
+     "text": "479",
+     "label": "479 visionnements"
+    },
+    {
+     "text": "2,5 G",
+     "label": "2,5 milliards de visionnements"
+    }
+   ],
+   "search": [
+    {
+     "short": "79 k",
+     "exact": 79571
+    },
+    {
+     "short": "3,3 k",
+     "exact": 3363
+    },
+    {
+     "short": "4,4 M",
+     "exact": 4427641
+    },
+    {
+     "short": "45 M",
+     "exact": 45739343
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 k visionnements",
+     "full": "13 060 visionnements"
+    },
+    {
+     "short": "1,1 M de visionnements",
+     "full": "1 141 464 visionnements"
+    },
+    {
+     "short": "9,1 G",
+     "full": "9 147 949 615 visionnements"
+    }
+   ]
+  },
+  "gl": {
+   "lang": "gl-ES",
+   "cards": [
+    {
+     "text": "117.137",
+     "label": "117.137 reproducións"
+    },
+    {
+     "text": "66",
+     "label": "66 reproducións"
+    },
+    {
+     "text": "4,2 M",
+     "label": "4,2 millóns reproducións"
+    },
+    {
+     "text": "29 M",
+     "label": "29 millóns reproducións"
+    }
+   ],
+   "search": [
+    {
+     "short": "2,6 M",
+     "exact": 2670558
+    },
+    {
+     "short": "123.437",
+     "exact": 123437
+    },
+    {
+     "short": "4 M",
+     "exact": 4024153
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13.060 reproducións",
+     "full": "13.060 reproducións"
+    },
+    {
+     "short": "1,1 M reproducións",
+     "full": "1.141.464 reproducións"
+    },
+    {
+     "short": "9147 M",
+     "full": "9.147.949.615 reproducións"
+    }
+   ]
+  },
+  "gu": {
+   "lang": "gu-IN",
+   "cards": [
+    {
+     "text": "1.2 લાખ",
+     "label": "1.2 લાખ જોવાયાની સંખ્યા"
+    },
+    {
+     "text": "44 હજાર",
+     "label": "44 હજાર જોવાયાની સંખ્યા"
+    },
+    {
+     "text": "2 લાખ",
+     "label": "2 લાખ જોવાયાની સંખ્યા"
+    },
+    {
+     "text": "8.6 હજાર",
+     "label": "8.6 હજાર જોવાયાની સંખ્યા"
+    },
+    {
+     "text": "4.5 કરોડ",
+     "label": "4.5 કરોડ જોવાયાની સંખ્યા"
+    },
+    {
+     "text": "4.7 અબજ",
+     "label": "4.7 અબજ જોવાયાની સંખ્યા"
+    },
+    {
+     "text": "27 કરોડ",
+     "label": "27 કરોડ જોવાયાની સંખ્યા"
+    },
+    {
+     "text": "6 અબજ",
+     "label": "6 અબજ જોવાયાની સંખ્યા"
+    }
+   ],
+   "search": [
+    {
+     "short": "26 લાખ",
+     "exact": 2670558
+    },
+    {
+     "short": "2.5 લાખ",
+     "exact": 252927
+    },
+    {
+     "short": "1.9 કરોડ",
+     "exact": 19430716
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 હજાર જોવાયાની સંખ્યા",
+     "full": "13,060 જોવાયાની સંખ્યા"
+    },
+    {
+     "short": "11 લાખ જોવાયાની સંખ્યા",
+     "full": "11,41,464 જોવાયાની સંખ્યા"
+    },
+    {
+     "short": "9.1 અબજ",
+     "full": "9,14,79,49,615 જોવાયાની સંખ્યા"
+    }
+   ]
+  },
+  "hi": {
+   "lang": "hi-IN",
+   "cards": [
+    {
+     "text": "86 हज़ार",
+     "label": "86 हज़ार व्यू"
+    },
+    {
+     "text": "16",
+     "label": "16 व्यू"
+    },
+    {
+     "text": "4.1 लाख",
+     "label": "4.1 लाख व्यू"
+    },
+    {
+     "text": "8.6 हज़ार",
+     "label": "8.6 हज़ार व्यू"
+    },
+    {
+     "text": "2 लाख",
+     "label": "2 लाख व्यू"
+    },
+    {
+     "text": "3.2 क॰",
+     "label": "3.2 करोड़ व्यू"
+    },
+    {
+     "text": "2.5 अ॰",
+     "label": "2.5 अरब व्यू"
+    },
+    {
+     "text": "10 क॰",
+     "label": "10 करोड़ व्यू"
+    }
+   ],
+   "search": [
+    {
+     "short": "36 लाख",
+     "exact": 3678589
+    },
+    {
+     "short": "3.2 लाख",
+     "exact": 321896
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 हज़ार व्यू",
+     "full": "13,060 व्यू"
+    },
+    {
+     "short": "11 लाख व्यू",
+     "full": "11,41,464 व्यू"
+    },
+    {
+     "short": "9.1 अ॰",
+     "full": "9,14,79,49,615 व्यू"
+    }
+   ]
+  },
+  "hr": {
+   "lang": "hr-HR",
+   "cards": [
+    {
+     "text": "86 tis.",
+     "label": "86 tisuća pregleda"
+    },
+    {
+     "text": "8,6 tis.",
+     "label": "8,6 tisuća pregleda"
+    },
+    {
+     "text": "428",
+     "label": "428 pregleda"
+    },
+    {
+     "text": "4,2 mil.",
+     "label": "4,2 milijuna pregleda"
+    },
+    {
+     "text": "29 mil.",
+     "label": "29 milijuna pregleda"
+    },
+    {
+     "text": "1,4 mlr.",
+     "label": "1,4 milijarde pregleda"
+    }
+   ],
+   "search": [
+    {
+     "short": "321 tis.",
+     "exact": 321896
+    },
+    {
+     "short": "2,6 mil.",
+     "exact": 2670558
+    },
+    {
+     "short": "4 mil.",
+     "exact": 4024153
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 tis. pregleda",
+     "full": "13.060 pregleda"
+    },
+    {
+     "short": "1,1 mil. pregleda",
+     "full": "1.141.464 pregleda"
+    },
+    {
+     "short": "9,1 mlr.",
+     "full": "9.147.949.615 pregleda"
+    }
+   ]
+  },
+  "hu": {
+   "lang": "hu-HU",
+   "cards": [
+    {
+     "text": "44 E",
+     "label": "44 ezer megtekintés"
+    },
+    {
+     "text": "49",
+     "label": "49 megtekintés"
+    },
+    {
+     "text": "8,6 E",
+     "label": "8,6 ezer megtekintés"
+    },
+    {
+     "text": "1,6 M",
+     "label": "1,6 millió megtekintés"
+    },
+    {
+     "text": "29 M",
+     "label": "29 millió megtekintés"
+    },
+    {
+     "text": "2,5 Mrd",
+     "label": "2,5 milliárd megtekintés"
+    }
+   ],
+   "search": [
+    {
+     "short": "81 E",
+     "exact": 81948
+    },
+    {
+     "short": "3,6 M",
+     "exact": 3678608
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 E megtekintés",
+     "full": "13 060 megtekintés"
+    },
+    {
+     "short": "1,1 M megtekintés",
+     "full": "1 141 464 megtekintés"
+    },
+    {
+     "short": "9,1 Mrd",
+     "full": "9 147 949 615 megtekintés"
+    }
+   ]
+  },
+  "hy": {
+   "lang": "hy-AM",
+   "cards": [
+    {
+     "text": "431",
+     "label": "431 դիտում"
+    },
+    {
+     "text": "44 հզր",
+     "label": "44 հազար դիտում"
+    },
+    {
+     "text": "8,6 հզր",
+     "label": "8,6 հազար դիտում"
+    },
+    {
+     "text": "1,6 մլն",
+     "label": "1,6 միլիոն դիտում"
+    },
+    {
+     "text": "2,5 մլրդ",
+     "label": "2,5 միլիարդ դիտում"
+    },
+    {
+     "text": "104 մլն",
+     "label": "104 միլիոն դիտում"
+    }
+   ],
+   "search": [
+    {
+     "short": "2,6 մլն",
+     "exact": 2670558
+    },
+    {
+     "short": "4 մլն",
+     "exact": 4024153
+    },
+    {
+     "short": "252 հզր",
+     "exact": 252927
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 հզր դիտում",
+     "full": "13 060 դիտում"
+    },
+    {
+     "short": "1,1 մլն դիտում",
+     "full": "1 141 464 դիտում"
+    },
+    {
+     "short": "9,1 մլրդ",
+     "full": "9 147 949 615 դիտում"
+    }
+   ]
+  },
+  "id": {
+   "lang": "id-ID",
+   "cards": [
+    {
+     "text": "86 rb",
+     "label": "86 ribu x ditonton"
+    },
+    {
+     "text": "4",
+     "label": "4 x ditonton"
+    },
+    {
+     "text": "8,6 rb",
+     "label": "8,6 ribu x ditonton"
+    },
+    {
+     "text": "4 jt",
+     "label": "4 juta x ditonton"
+    },
+    {
+     "text": "6,6 jt",
+     "label": "6,6 juta x ditonton"
+    },
+    {
+     "text": "2,5 M",
+     "label": "2,5 miliar x ditonton"
+    },
+    {
+     "text": "6 M",
+     "label": "6 miliar x ditonton"
+    }
+   ],
+   "search": [
+    {
+     "short": "8,4 jt",
+     "exact": 8408879
+    },
+    {
+     "short": "4 jt",
+     "exact": 4024153
+    },
+    {
+     "short": "252 rb",
+     "exact": 252927
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 rb x ditonton",
+     "full": "13.060 x ditonton"
+    },
+    {
+     "short": "1,1 jt x ditonton",
+     "full": "1.141.464 x ditonton"
+    },
+    {
+     "short": "9,1 M",
+     "full": "9.147.949.615 x ditonton"
+    }
+   ]
+  },
+  "is": {
+   "lang": "is-IS",
+   "cards": [
+    {
+     "text": "44 þ.",
+     "label": "44 þúsund áhorf"
+    },
+    {
+     "text": "5,6 þ.",
+     "label": "5,6 þúsund áhorf"
+    },
+    {
+     "text": "431",
+     "label": "431 áhorf"
+    },
+    {
+     "text": "4,2 m.",
+     "label": "4,2 milljónir áhorf"
+    },
+    {
+     "text": "7 m.",
+     "label": "7 milljónir áhorf"
+    },
+    {
+     "text": "2,5 ma.",
+     "label": "2,5 milljarðar áhorf"
+    }
+   ],
+   "search": [
+    {
+     "short": "2,6 m.",
+     "exact": 2670558
+    },
+    {
+     "short": "252 þ.",
+     "exact": 252927
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 þ. áhorf",
+     "full": "13.060 áhorf"
+    },
+    {
+     "short": "1,1 m. áhorf",
+     "full": "1.141.464 áhorf"
+    },
+    {
+     "short": "9,1 ma.",
+     "full": "9.147.949.615 áhorf"
+    }
+   ]
+  },
+  "it": {
+   "lang": "it-IT",
+   "cards": [
+    {
+     "text": "86K",
+     "label": "86 mila visualizzazioni"
+    },
+    {
+     "text": "8,6K",
+     "label": "8,6 mila visualizzazioni"
+    },
+    {
+     "text": "4,2 Mln",
+     "label": "4,2 milioni di visualizzazioni"
+    },
+    {
+     "text": "24 Mln",
+     "label": "24 milioni di visualizzazioni"
+    },
+    {
+     "text": "3,9 Mld",
+     "label": "3,9 miliardi di visualizzazioni"
+    },
+    {
+     "text": "406",
+     "label": "406 visualizzazioni"
+    }
+   ],
+   "search": [
+    {
+     "short": "321K",
+     "exact": 321896
+    },
+    {
+     "short": "2,6 Mln",
+     "exact": 2670558
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13K visualizzazioni",
+     "full": "13.060 visualizzazioni"
+    },
+    {
+     "short": "1,1 Mln di visualizzazioni",
+     "full": "1.141.464 visualizzazioni"
+    },
+    {
+     "short": "9,1 Mld",
+     "full": "9.147.949.615 visualizzazioni"
+    }
+   ]
+  },
+  "iw": {
+   "lang": "he-IL",
+   "cards": [
+    {
+     "text": "‫19K‏‬",
+     "label": "‫‏19 אלף‬ צפיות"
+    },
+    {
+     "text": "‫1.7K‏‬",
+     "label": "‫‏1.7 אלף‬ צפיות"
+    },
+    {
+     "text": "‫431‬",
+     "label": "‫431‬ צפיות"
+    },
+    {
+     "text": "‫3.7M‏‬",
+     "label": "‫‏3.7 מיליון‬ צפיות"
+    },
+    {
+     "text": "‫24M‏‬",
+     "label": "‫‏24 מיליון‬ צפיות"
+    },
+    {
+     "text": "‫1.2B‏‬",
+     "label": "‫‏1.2 מיליארד‬ צפיות"
+    }
+   ],
+   "search": [
+    {
+     "short": "‫321K‏‬",
+     "exact": 321896
+    },
+    {
+     "short": "‫2.2M‏‬",
+     "exact": 2257111
+    },
+    {
+     "short": "‫51M‏‬",
+     "exact": 51111651
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "‫13K‏‬ צפיות",
+     "full": "13,060 צפיות"
+    },
+    {
+     "short": "‫1.1M‏‬ צפיות",
+     "full": "1,141,464 צפיות"
+    },
+    {
+     "short": "‫9.1B‏‬",
+     "full": "9,147,949,615 צפיות"
+    }
+   ]
+  },
+  "ja": {
+   "lang": "ja-JP",
+   "cards": [
+    {
+     "text": "4.4万",
+     "label": "4.4万回視聴"
+    },
+    {
+     "text": "5240",
+     "label": "5,240回視聴"
+    },
+    {
+     "text": "18万",
+     "label": "18万回視聴"
+    },
+    {
+     "text": "25億",
+     "label": "25億回視聴"
+    },
+    {
+     "text": "2.7億",
+     "label": "2.7億回視聴"
+    }
+   ],
+   "search": [
+    {
+     "short": "267万",
+     "exact": 2670558
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "1.3万回視聴",
+     "full": "13,060回視聴"
+    },
+    {
+     "short": "114万回視聴",
+     "full": "1,141,464回視聴"
+    },
+    {
+     "short": "91億",
+     "full": "9,147,949,615回視聴"
+    }
+   ]
+  },
+  "ka": {
+   "lang": "ka-GE",
+   "cards": [
+    {
+     "text": "44 ათ.",
+     "label": "44 ათასი ნახვა"
+    },
+    {
+     "text": "49",
+     "label": "49 ნახვა"
+    },
+    {
+     "text": "8,6 ათ.",
+     "label": "8,6 ათასი ნახვა"
+    },
+    {
+     "text": "1,6 მლნ.",
+     "label": "1,6 მილიონი ნახვა"
+    },
+    {
+     "text": "29 მლნ.",
+     "label": "29 მილიონი ნახვა"
+    },
+    {
+     "text": "2,5 მლრდ.",
+     "label": "2,5 მილიარდი ნახვა"
+    }
+   ],
+   "search": [
+    {
+     "short": "465 ათ.",
+     "exact": 465774
+    },
+    {
+     "short": "2,6 მლნ.",
+     "exact": 2670558
+    },
+    {
+     "short": "4 მლნ.",
+     "exact": 4026405
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 ათ. ნახვა",
+     "full": "13 060 ნახვა"
+    },
+    {
+     "short": "1,1 მლნ. ნახვა",
+     "full": "1 141 464 ნახვა"
+    },
+    {
+     "short": "9,1 მლრდ.",
+     "full": "9 147 949 615 ნახვა"
+    }
+   ]
+  },
+  "kk": {
+   "lang": "kk-KZ",
+   "cards": [
+    {
+     "text": "44 мың",
+     "label": "44 мың рет көрілді"
+    },
+    {
+     "text": "858",
+     "label": "858 рет көрілді"
+    },
+    {
+     "text": "8,6 мың",
+     "label": "8,6 мың рет көрілді"
+    },
+    {
+     "text": "201 м.",
+     "label": "201 мың рет көрілді"
+    },
+    {
+     "text": "1,8 млн",
+     "label": "1,8 миллион рет көрілді"
+    },
+    {
+     "text": "24 млн",
+     "label": "24 миллион рет көрілді"
+    },
+    {
+     "text": "2,5 млрд",
+     "label": "2,5 миллиард рет көрілді"
+    }
+   ],
+   "search": [
+    {
+     "short": "2,6 млн",
+     "exact": 2670558
+    },
+    {
+     "short": "252 м.",
+     "exact": 252927
+    },
+    {
+     "short": "4 млн",
+     "exact": 4026405
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 мың рет көрілді",
+     "full": "13 060 рет көрілді"
+    },
+    {
+     "short": "1,1 млн рет көрілді",
+     "full": "1 141 464 рет көрілді"
+    },
+    {
+     "short": "9,1 млрд",
+     "full": "9 147 949 615 рет көрілді"
+    }
+   ]
+  },
+  "km": {
+   "lang": "km-KH",
+   "cards": [
+    {
+     "text": "44 ពាន់",
+     "label": "ចំនួនមើល 44 ពាន់"
+    },
+    {
+     "text": "8",
+     "label": "ចំនួនមើល 8"
+    },
+    {
+     "text": "8.6ពាន់",
+     "label": "ចំនួនមើល 8.6 ពាន់"
+    },
+    {
+     "text": "4.2 លាន",
+     "label": "ចំនួនមើល 4.2 លាន"
+    },
+    {
+     "text": "24 លាន",
+     "label": "ចំនួនមើល 24 លាន"
+    },
+    {
+     "text": "6 ប៊ីលាន",
+     "label": "ចំនួនមើល 6 ប៊ីលាន"
+    },
+    {
+     "text": "2.5 ប៊ីលាន",
+     "label": "ចំនួនមើល 2.5 ប៊ីលាន"
+    }
+   ],
+   "search": [
+    {
+     "short": "2.6 លាន",
+     "exact": 2670558
+    },
+    {
+     "short": "4 លាន",
+     "exact": 4027564
+    },
+    {
+     "short": "252 ពាន់",
+     "exact": 252927
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "ចំនួនមើល 13 ពាន់",
+     "full": "ចំនួនមើល 13,060"
+    },
+    {
+     "short": "ចំនួនមើល 1.1 លាន",
+     "full": "ចំនួនមើល 1,141,464"
+    },
+    {
+     "short": "9.1 ប៊ីលាន",
+     "full": "ចំនួនមើល 9,147,949,615"
+    }
+   ]
+  },
+  "kn": {
+   "lang": "kn-IN",
+   "cards": [
+    {
+     "text": "19,848",
+     "label": "19,848 ವೀಕ್ಷಣೆಗಳು"
+    },
+    {
+     "text": "2 ಲಕ್ಷ",
+     "label": "2 ಲಕ್ಷ ವೀಕ್ಷಣೆಗಳು"
+    },
+    {
+     "text": "5.8 ಲಕ್ಷ",
+     "label": "5.8 ಲಕ್ಷ ವೀಕ್ಷಣೆಗಳು"
+    },
+    {
+     "text": "257",
+     "label": "257 ವೀಕ್ಷಣೆಗಳು"
+    },
+    {
+     "text": "2.9 ಕೋಟಿ",
+     "label": "2.9 ಕೋಟಿ ವೀಕ್ಷಣೆಗಳು"
+    },
+    {
+     "text": "10 ಕೋಟಿ",
+     "label": "10 ಕೋಟಿ ವೀಕ್ಷಣೆಗಳು"
+    }
+   ],
+   "search": [
+    {
+     "short": "26 ಲಕ್ಷ",
+     "exact": 2670558
+    },
+    {
+     "short": "1.2 ಲಕ್ಷ",
+     "exact": 123439
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13,060 ವೀಕ್ಷಣೆಗಳು",
+     "full": "13,060 ವೀಕ್ಷಣೆಗಳು"
+    },
+    {
+     "short": "11 ಲಕ್ಷ ವೀಕ್ಷಣೆಗಳು",
+     "full": "1,141,464 ವೀಕ್ಷಣೆಗಳು"
+    },
+    {
+     "short": "914 ಕೋಟಿ",
+     "full": "9,147,949,615 ವೀಕ್ಷಣೆಗಳು"
+    }
+   ]
+  },
+  "ko": {
+   "lang": "ko-KR",
+   "cards": [
+    {
+     "text": "8.6만",
+     "label": "조회수 8.6만회"
+    },
+    {
+     "text": "1만",
+     "label": "조회수 1만회"
+    },
+    {
+     "text": "1.9천",
+     "label": "조회수 1.9천회"
+    },
+    {
+     "text": "43",
+     "label": "조회수 43회"
+    },
+    {
+     "text": "68억",
+     "label": "조회수 68억회"
+    }
+   ],
+   "search": [
+    {
+     "short": "267만",
+     "exact": 2670558
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "조회수 1.3만회",
+     "full": "조회수 13,060회"
+    },
+    {
+     "short": "조회수 114만회",
+     "full": "조회수 1,141,464회"
+    },
+    {
+     "short": "91억",
+     "full": "조회수 9,147,949,615회"
+    }
+   ]
+  },
+  "ky": {
+   "lang": "ky-KG",
+   "cards": [
+    {
+     "text": "109 миң",
+     "label": "109 миң жолу көрүлдү"
+    },
+    {
+     "text": "8,6 миң",
+     "label": "8,6 миң жолу көрүлдү"
+    },
+    {
+     "text": "431",
+     "label": "431 жолу көрүлдү"
+    },
+    {
+     "text": "6,6 млн",
+     "label": "6,6 миллион жолу көрүлдү"
+    },
+    {
+     "text": "4 млн",
+     "label": "4 миллион жолу көрүлдү"
+    },
+    {
+     "text": "3,9 млд",
+     "label": "3,9 миллиард жолу көрүлдү"
+    }
+   ],
+   "search": [
+    {
+     "short": "2,6 млн",
+     "exact": 2670558
+    },
+    {
+     "short": "123 миң",
+     "exact": 123439
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 миң жолу көрүлдү",
+     "full": "13 060 жолу көрүлдү"
+    },
+    {
+     "short": "1,1 млн жолу көрүлдү",
+     "full": "1 141 464 жолу көрүлдү"
+    },
+    {
+     "short": "9,1 млд",
+     "full": "9 147 949 615 жолу көрүлдү"
+    }
+   ]
+  },
+  "lo": {
+   "lang": "lo-LA",
+   "cards": [
+    {
+     "text": "44 ພັນ",
+     "label": "ຍອດເບິ່ງ 44 ພັນ ເທື່ອ"
+    },
+    {
+     "text": "1,7 ພັນ",
+     "label": "ຍອດເບິ່ງ 1,7 ພັນ ເທື່ອ"
+    },
+    {
+     "text": "6,6 ລ້ານ",
+     "label": "ຍອດເບິ່ງ 6,6 ລ້ານ ເທື່ອ"
+    },
+    {
+     "text": "4 ລ້ານ",
+     "label": "ຍອດເບິ່ງ 4 ລ້ານ ເທື່ອ"
+    },
+    {
+     "text": "285",
+     "label": "ຍອດເບິ່ງ 285 ເທື່ອ"
+    },
+    {
+     "text": "3,9 ຕື້",
+     "label": "ຍອດເບິ່ງ 3,9 ຕື້ ເທື່ອ"
+    }
+   ],
+   "search": [
+    {
+     "short": "2,6 ລ້ານ",
+     "exact": 2670558
+    },
+    {
+     "short": "123 ພັນ",
+     "exact": 123439
+    },
+    {
+     "short": "4 ລ້ານ",
+     "exact": 4028502
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "ຍອດເບິ່ງ 13 ພັນ ເທື່ອ",
+     "full": "ຍອດເບິ່ງ 13.060 ເທື່ອ"
+    },
+    {
+     "short": "ຍອດເບິ່ງ 1,1 ລ້ານ ເທື່ອ",
+     "full": "ຍອດເບິ່ງ 1.141.464 ເທື່ອ"
+    },
+    {
+     "short": "9,1 ຕື້",
+     "full": "ຍອດເບິ່ງ 9.147.949.615 ເທື່ອ"
+    }
+   ]
+  },
+  "lt": {
+   "lang": "lt-LT",
+   "cards": [
+    {
+     "text": "44 tūkst.",
+     "label": "44 tūkstančiai peržiūrų"
+    },
+    {
+     "text": "428",
+     "label": "428 views"
+    },
+    {
+     "text": "8,6 tūkst.",
+     "label": "8,6 tūkstančio peržiūrų"
+    },
+    {
+     "text": "2,6 mln.",
+     "label": "2,6 milijono peržiūrų"
+    },
+    {
+     "text": "24 mln.",
+     "label": "24 milijonai peržiūrų"
+    },
+    {
+     "text": "3,9 mlrd.",
+     "label": "3,9 milijardo peržiūrų"
+    }
+   ],
+   "search": [
+    {
+     "short": "2,6 mln.",
+     "exact": 2670558
+    },
+    {
+     "short": "252 tūkst.",
+     "exact": 252927
+    },
+    {
+     "short": "4 mln.",
+     "exact": 4028502
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 tūkst. peržiūrų",
+     "full": "13 060 peržiūrų"
+    },
+    {
+     "short": "1,1 mln. peržiūrų",
+     "full": "1 141 464 views"
+    },
+    {
+     "short": "9,1 mlrd.",
+     "full": "9 147 949 615 peržiūrų"
+    }
+   ]
+  },
+  "lv": {
+   "lang": "lv-LV",
+   "cards": [
+    {
+     "text": "86 tūkst.",
+     "label": "86 tūkstoši skatījumu"
+    },
+    {
+     "text": "1,7 tūkst.",
+     "label": "1,7 tūkstoši skatījumu"
+    },
+    {
+     "text": "4,2 milj.",
+     "label": "4,2 miljoni skatījumu"
+    },
+    {
+     "text": "1 milj.",
+     "label": "1 miljons skatījumu"
+    },
+    {
+     "text": "2,5 mljrd.",
+     "label": "2,5 miljardi skatījumu"
+    }
+   ],
+   "search": [
+    {
+     "short": "2,6 milj.",
+     "exact": 2670558
+    },
+    {
+     "short": "123 tūkst.",
+     "exact": 123439
+    },
+    {
+     "short": "51 milj.",
+     "exact": 51111651
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 tūkst. skatījumu",
+     "full": "13 060 skatījumu"
+    },
+    {
+     "short": "1,1 milj. skatījumu",
+     "full": "1 141 464 skatījumi"
+    },
+    {
+     "short": "9,1 mljrd.",
+     "full": "9 147 949 615 skatījumu"
+    }
+   ]
+  },
+  "mk": {
+   "lang": "mk-MK",
+   "cards": [
+    {
+     "text": "44 илј.",
+     "label": "44 илјади прегледи"
+    },
+    {
+     "text": "5,6 илј.",
+     "label": "5,6 илјади прегледи"
+    },
+    {
+     "text": "1,8 мил.",
+     "label": "1,8 милиони прегледи"
+    },
+    {
+     "text": "24 мил.",
+     "label": "24 милиони прегледи"
+    },
+    {
+     "text": "22",
+     "label": "22 прегледи"
+    },
+    {
+     "text": "2,5 милј.",
+     "label": "2,5 милијарди прегледи"
+    },
+    {
+     "text": "104 М",
+     "label": "104 милиони прегледи"
+    }
+   ],
+   "search": [
+    {
+     "short": "3,6 мил.",
+     "exact": 3678608
+    },
+    {
+     "short": "4 мил.",
+     "exact": 4028502
+    },
+    {
+     "short": "252 илј.",
+     "exact": 252927
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 илј. прегледи",
+     "full": "13.060 прегледи"
+    },
+    {
+     "short": "1,1 мил. прегледи",
+     "full": "1.141.464 прегледи"
+    },
+    {
+     "short": "9,1 милј.",
+     "full": "9.147.949.615 прегледи"
+    }
+   ]
+  },
+  "ml": {
+   "lang": "ml-IN",
+   "cards": [
+    {
+     "text": "67 ലക്ഷം",
+     "label": "67 ലക്ഷം കാഴ്‌ച"
+    },
+    {
+     "text": "86,770",
+     "label": "86,770 കാഴ്‌ച"
+    },
+    {
+     "text": "1.9 ലക്ഷം",
+     "label": "1.9 ലക്ഷം കാഴ്‌ച"
+    },
+    {
+     "text": "125",
+     "label": "125 കാഴ്‌ച"
+    },
+    {
+     "text": "2.9 കോടി",
+     "label": "2.9 കോടി കാഴ്‌ച"
+    },
+    {
+     "text": "609 കോടി",
+     "label": "609 കോടി കാഴ്‌ച"
+    }
+   ],
+   "search": [
+    {
+     "short": "26 ലക്ഷം",
+     "exact": 2670558
+    },
+    {
+     "short": "1.2 ലക്ഷം",
+     "exact": 123439
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13,060 കാഴ്‌ച",
+     "full": "13,060 കാഴ്‌ച"
+    },
+    {
+     "short": "11 ലക്ഷം കാഴ്‌ച",
+     "full": "11,41,464 കാഴ്‌ച"
+    },
+    {
+     "short": "914 കോടി",
+     "full": "9,14,79,49,615 കാഴ്‌ച"
+    }
+   ]
+  },
+  "mn": {
+   "lang": "mn-MN",
+   "cards": [
+    {
+     "text": "106 мян",
+     "label": "106 мянга үзэлт"
+    },
+    {
+     "text": "8.6 мян",
+     "label": "8.6 мянга үзэлт"
+    },
+    {
+     "text": "431",
+     "label": "431 үзэлт"
+    },
+    {
+     "text": "4.2 сая",
+     "label": "4.2 сая үзэлт"
+    },
+    {
+     "text": "7 сая",
+     "label": "7 сая үзэлт"
+    },
+    {
+     "text": "2.5 тэрбум",
+     "label": "2.5 тэрбум үзэлт"
+    },
+    {
+     "text": "6 тэрбум",
+     "label": "6 тэрбум үзэлт"
+    }
+   ],
+   "search": [
+    {
+     "short": "2.6 сая",
+     "exact": 2670558
+    },
+    {
+     "short": "4 сая",
+     "exact": 4028502
+    },
+    {
+     "short": "259 мян",
+     "exact": 259390
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 мян үзэлт",
+     "full": "13,060 үзэлт"
+    },
+    {
+     "short": "1.1 сая үзэлт",
+     "full": "1,141,464 үзэлт"
+    },
+    {
+     "short": "9.1 тэрбум",
+     "full": "9,147,949,615 үзэлт"
+    }
+   ]
+  },
+  "mr": {
+   "lang": "mr-IN",
+   "cards": [
+    {
+     "text": "44 ह",
+     "label": "44 हजार व्ह्यू"
+    },
+    {
+     "text": "5.6 ह",
+     "label": "5.6 हजार व्ह्यू"
+    },
+    {
+     "text": "1.3 लाख",
+     "label": "1.3 लाख व्ह्यू"
+    },
+    {
+     "text": "2 लाख",
+     "label": "2 लाख व्ह्यू"
+    },
+    {
+     "text": "423",
+     "label": "423 व्ह्यू"
+    },
+    {
+     "text": "2.9 कोटी",
+     "label": "2.9 कोटी व्ह्यू"
+    },
+    {
+     "text": "4.7 अब्ज",
+     "label": "4.7 अब्ज व्ह्यू"
+    },
+    {
+     "text": "10 कोटी",
+     "label": "10 कोटी व्ह्यू"
+    }
+   ],
+   "search": [
+    {
+     "short": "27 लाख",
+     "exact": 2706492
+    },
+    {
+     "short": "1.9 कोटी",
+     "exact": 19430716
+    },
+    {
+     "short": "3.2 लाख",
+     "exact": 321896
+    },
+    {
+     "short": "94 ह",
+     "exact": 94822
+    },
+    {
+     "short": "1.9 ह",
+     "exact": 1913
+    },
+    {
+     "short": "174",
+     "exact": 174
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 ह व्ह्यू",
+     "full": "13,060 व्ह्यू"
+    },
+    {
+     "short": "11 लाख व्ह्यू",
+     "full": "11,41,464 व्ह्यू"
+    },
+    {
+     "short": "9.1 अब्ज",
+     "full": "9,14,79,49,615 व्ह्यू"
+    }
+   ]
+  },
+  "ms": {
+   "lang": "ms-MY",
+   "cards": [
+    {
+     "text": "86K",
+     "label": "86 ribu tontonan"
+    },
+    {
+     "text": "49",
+     "label": "49 tontonan"
+    },
+    {
+     "text": "8.6K",
+     "label": "8.6 ribu tontonan"
+    },
+    {
+     "text": "1.8J",
+     "label": "1.8 juta tontonan"
+    },
+    {
+     "text": "4J",
+     "label": "4 juta tontonan"
+    },
+    {
+     "text": "3.9B",
+     "label": "3.9 bilion tontonan"
+    }
+   ],
+   "search": [
+    {
+     "short": "8.4J",
+     "exact": 8408879
+    },
+    {
+     "short": "4J",
+     "exact": 4028502
+    },
+    {
+     "short": "321K",
+     "exact": 321896
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13K tontonan",
+     "full": "13,060 tontonan"
+    },
+    {
+     "short": "1.1J tontonan",
+     "full": "1,141,464 tontonan"
+    },
+    {
+     "short": "9.1B",
+     "full": "9,147,949,615 tontonan"
+    }
+   ]
+  },
+  "my": {
+   "lang": "my-MM",
+   "cards": [
+    {
+     "text": "431",
+     "label": "ကြည့်ရှုမှု 431"
+    },
+    {
+     "text": "4.4 သောင်း",
+     "label": "ကြည့်ရှုမှု 4.4 သောင်း"
+    },
+    {
+     "text": "8.6 ထောင်",
+     "label": "ကြည့်ရှုမှု 8.6 ထောင်"
+    },
+    {
+     "text": "2 သိန်း",
+     "label": "ကြည့်ရှုမှု 2 သိန်း"
+    },
+    {
+     "text": "4 သောင်း",
+     "label": "ကြည့်ရှုမှု 4 သောင်း"
+    },
+    {
+     "text": "6.1 သိန်း",
+     "label": "ကြည့်ရှုမှု 6.1 သိန်း"
+    },
+    {
+     "text": "6.6 သန်း",
+     "label": "ကြည့်ရှုမှု 6.6 သန်း"
+    },
+    {
+     "text": "4.5 ကုဋေ",
+     "label": "ကြည့်ရှုမှု 4.5 ကုဋေ"
+    }
+   ],
+   "search": [
+    {
+     "short": "2.6 သန်း",
+     "exact": 2670558
+    },
+    {
+     "short": "4 သန်း",
+     "exact": 4028502
+    },
+    {
+     "short": "2.5 သိန်း",
+     "exact": 252927
+    },
+    {
+     "short": "1.9 ကုဋေ",
+     "exact": 19430716
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "ကြည့်ရှုမှု 1.3 သောင်း",
+     "full": "ကြည့်ရှုမှု 13,060"
+    },
+    {
+     "short": "ကြည့်ရှုမှု 1.1 သန်း",
+     "full": "ကြည့်ရှုမှု 1,141,464"
+    },
+    {
+     "short": "914 ဋေ",
+     "full": "ကြည့်ရှုမှု 9,147,949,615"
+    }
+   ]
+  },
+  "ne": {
+   "lang": "ne-NP",
+   "cards": [
+    {
+     "text": "44 हजार",
+     "label": "44 हजार भ्यु"
+    },
+    {
+     "text": "2.2 लाख",
+     "label": "2.2 लाख भ्यु"
+    },
+    {
+     "text": "5.6 हजार",
+     "label": "5.6 हजार भ्यु"
+    },
+    {
+     "text": "2 लाख",
+     "label": "2 लाख भ्यु"
+    },
+    {
+     "text": "2",
+     "label": "2 भ्यु"
+    },
+    {
+     "text": "2.4 करोड",
+     "label": "24 करोड भ्यु"
+    },
+    {
+     "text": "10 करोड",
+     "label": "104 करोड भ्यु"
+    },
+    {
+     "text": "2.5 अरब",
+     "label": "2.5 अरब भ्यु"
+    }
+   ],
+   "search": [
+    {
+     "short": "26 लाख",
+     "exact": 2670558
+    },
+    {
+     "short": "2.5 लाख",
+     "exact": 252927
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 हजार भ्यु",
+     "full": "13,060 भ्यु"
+    },
+    {
+     "short": "11 लाख भ्यु",
+     "full": "11,41,464 भ्यु"
+    },
+    {
+     "short": "9.1 अरब",
+     "full": "9,14,79,49,615 भ्यु"
+    }
+   ]
+  },
+  "nl": {
+   "lang": "nl-NL",
+   "cards": [
+    {
+     "text": "44K",
+     "label": "44 duizend weergaven"
+    },
+    {
+     "text": "49",
+     "label": "49 weergaven"
+    },
+    {
+     "text": "5,2K",
+     "label": "5,2 duizend weergaven"
+    },
+    {
+     "text": "2,4 mln.",
+     "label": "2,4 miljoen weergaven"
+    },
+    {
+     "text": "29 mln.",
+     "label": "29 miljoen weergaven"
+    },
+    {
+     "text": "2,5 mld.",
+     "label": "2,5 miljard weergaven"
+    },
+    {
+     "text": "4 mld.",
+     "label": "4 miljard weergaven"
+    }
+   ],
+   "search": [
+    {
+     "short": "465K",
+     "exact": 465825
+    },
+    {
+     "short": "51 mln.",
+     "exact": 51111651
+    },
+    {
+     "short": "2,6 mln.",
+     "exact": 2670558
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13K weergaven",
+     "full": "13.060 weergaven"
+    },
+    {
+     "short": "1,1 mln. weergaven",
+     "full": "1.141.464 weergaven"
+    },
+    {
+     "short": "9,1 mld.",
+     "full": "9.147.949.615 weergaven"
+    }
+   ]
+  },
+  "no": {
+   "lang": "nb-NO",
+   "cards": [
+    {
+     "text": "5,6k",
+     "label": "5,6 tusen avspillinger"
+    },
+    {
+     "text": "58k",
+     "label": "58 tusen avspillinger"
+    },
+    {
+     "text": "7 mill.",
+     "label": "7 millioner avspillinger"
+    },
+    {
+     "text": "4,2 mill.",
+     "label": "4,2 millioner avspillinger"
+    },
+    {
+     "text": "2,5 mrd.",
+     "label": "2,5 milliarder avspillinger"
+    }
+   ],
+   "search": [
+    {
+     "short": "35k",
+     "exact": 35246
+    },
+    {
+     "short": "2,5 mill.",
+     "exact": 2549315
+    },
+    {
+     "short": "51 mill.",
+     "exact": 51111651
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13k avspillinger",
+     "full": "13 060 avspillinger"
+    },
+    {
+     "short": "1,1 mill. avspillinger",
+     "full": "1 141 464 avspillinger"
+    },
+    {
+     "short": "9,1 mrd.",
+     "full": "9 147 949 615 avspillinger"
+    }
+   ]
+  },
+  "or": {
+   "lang": "or-IN",
+   "cards": [
+    {
+     "text": "44ହ",
+     "label": "44 ହଜାରଟି ଭ୍ୟୁ"
+    },
+    {
+     "text": "8.6ହ",
+     "label": "8.6 ହଜାରଟି ଭ୍ୟୁ"
+    },
+    {
+     "text": "428",
+     "label": "428ଟି ଭ୍ୟୁ"
+    },
+    {
+     "text": "1.3ନି",
+     "label": "1.3 ନିୟୁତଟି ଭ୍ୟୁ"
+    },
+    {
+     "text": "4ନି",
+     "label": "4 ନିୟୁତଟି ଭ୍ୟୁ"
+    }
+   ],
+   "search": [
+    {
+     "short": "5.3ନି",
+     "exact": 5307031
+    },
+    {
+     "short": "252ହ",
+     "exact": 252927
+    },
+    {
+     "short": "4ନି",
+     "exact": 4028502
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13ହଟି ଭ୍ୟୁ",
+     "full": "13,060ଟି ଭ୍ୟୁ"
+    },
+    {
+     "short": "1.1ନିଟି ଭ୍ୟୁ",
+     "full": "11,41,464ଟି ଭ୍ୟୁ"
+    },
+    {
+     "short": "9.1ବି",
+     "full": "9,14,79,49,615ଟି ଭ୍ୟୁ"
+    }
+   ]
+  },
+  "pa": {
+   "lang": "pa-Guru-IN",
+   "cards": [
+    {
+     "text": "12 ਹਜ਼ਾਰ",
+     "label": "12 ਹਜ਼ਾਰ ਵਾਰ ਦੇਖਿਆ"
+    },
+    {
+     "text": "858",
+     "label": "858 ਵਾਰ ਦੇਖਿਆ"
+    },
+    {
+     "text": "5.2 ਹਜ਼ਾਰ",
+     "label": "5.2 ਹਜ਼ਾਰ ਵਾਰ ਦੇਖਿਆ"
+    },
+    {
+     "text": "1.7 ਲੱਖ",
+     "label": "1.7 ਲੱਖ ਵਾਰ ਦੇਖਿਆ"
+    },
+    {
+     "text": "1 ਲੱਖ",
+     "label": "1 ਲੱਖ ਵਾਰ ਦੇਖਿਆ"
+    },
+    {
+     "text": "2.4 ਕਰੋੜ",
+     "label": "2.4 ਕਰੋੜ ਵਾਰ ਦੇਖਿਆ"
+    },
+    {
+     "text": "10 ਕਰੋੜ",
+     "label": "10 ਕਰੋੜ ਵਾਰ ਦੇਖਿਆ"
+    },
+    {
+     "text": "3.9 ਅਰਬ",
+     "label": "3.9 ਅਰਬ ਵਾਰ ਦੇਖਿਆ"
+    }
+   ],
+   "search": [
+    {
+     "short": "26 ਲੱਖ",
+     "exact": 2670558
+    },
+    {
+     "short": "2.5 ਲੱਖ",
+     "exact": 252927
+    },
+    {
+     "short": "1.9 ਕਰੋੜ",
+     "exact": 19430716
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 ਹਜ਼ਾਰ ਵਾਰ ਦੇਖਿਆ",
+     "full": "13,060 ਵਾਰ ਦੇਖਿਆ"
+    },
+    {
+     "short": "11 ਲੱਖ ਵਾਰ ਦੇਖਿਆ",
+     "full": "11,41,464 ਵਾਰ ਦੇਖਿਆ"
+    },
+    {
+     "short": "9.1 ਅਰਬ",
+     "full": "9,14,79,49,615 ਵਾਰ ਦੇਖਿਆ"
+    }
+   ]
+  },
+  "pl": {
+   "lang": "pl-PL",
+   "cards": [
+    {
+     "text": "44 tys.",
+     "label": "44 tysiące wyświetleń"
+    },
+    {
+     "text": "5,6 tys.",
+     "label": "5,6 tysiąca wyświetleń"
+    },
+    {
+     "text": "4,2 mln",
+     "label": "4,2 miliona wyświetleń"
+    },
+    {
+     "text": "36",
+     "label": "36 wyświetleń"
+    },
+    {
+     "text": "1 mln",
+     "label": "1 milion wyświetleń"
+    },
+    {
+     "text": "2,5 mld",
+     "label": "2,5 miliarda wyświetleń"
+    }
+   ],
+   "search": [
+    {
+     "short": "14 tys.",
+     "exact": 14241
+    },
+    {
+     "short": "51 mln",
+     "exact": 51111651
+    },
+    {
+     "short": "1,1 mln",
+     "exact": 1118189
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 tys. wyświetleń",
+     "full": "13 060 wyświetleń"
+    },
+    {
+     "short": "1,1 mln wyświetleń",
+     "full": "1 141 464 wyświetlenia"
+    },
+    {
+     "short": "9,1 mld",
+     "full": "9 147 949 615 wyświetleń"
+    }
+   ]
+  },
+  "pt": {
+   "lang": "pt-BR",
+   "cards": [
+    {
+     "text": "86 mil",
+     "label": "86 mil visualizações"
+    },
+    {
+     "text": "1",
+     "label": "1 visualização"
+    },
+    {
+     "text": "8,6 mil",
+     "label": "8,6 mil visualizações"
+    },
+    {
+     "text": "4 mi",
+     "label": "4 milhões de visualizações"
+    },
+    {
+     "text": "6,6 mi",
+     "label": "6,6 milhões de visualizações"
+    },
+    {
+     "text": "3,9 bi",
+     "label": "3,9 bilhões de visualizações"
+    }
+   ],
+   "search": [
+    {
+     "short": "321 mil",
+     "exact": 321896
+    },
+    {
+     "short": "8,4 mi",
+     "exact": 8408879
+    },
+    {
+     "short": "4 mi",
+     "exact": 4028502
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 mil visualizações",
+     "full": "13.060 visualizações"
+    },
+    {
+     "short": "1,1 mi de visualizações",
+     "full": "1.141.464 visualizações"
+    },
+    {
+     "short": "9,1 bi",
+     "full": "9.147.949.615 visualizações"
+    }
+   ]
+  },
+  "pt-PT": {
+   "lang": "pt-PT",
+   "cards": [
+    {
+     "text": "44 mil",
+     "label": "44 mil visualizações"
+    },
+    {
+     "text": "1",
+     "label": "1 visualização"
+    },
+    {
+     "text": "5,6 mil",
+     "label": "5,6 mil visualizações"
+    },
+    {
+     "text": "148 M",
+     "label": "148 milhões de visualizações"
+    },
+    {
+     "text": "4,2 M",
+     "label": "4,2 milhões de visualizações"
+    },
+    {
+     "text": "3,9 mM",
+     "label": "3,9 mil milhões de visualizações"
+    }
+   ],
+   "search": [
+    {
+     "short": "3,6 M",
+     "exact": 3678608
+    },
+    {
+     "short": "4 M",
+     "exact": 4028502
+    },
+    {
+     "short": "321 mil",
+     "exact": 321896
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 mil visualizações",
+     "full": "13 060 visualizações"
+    },
+    {
+     "short": "1,1 M de visualizações",
+     "full": "1 141 464 visualizações"
+    },
+    {
+     "short": "9,1 mM",
+     "full": "9 147 949 615 visualizações"
+    }
+   ]
+  },
+  "ro": {
+   "lang": "ro-RO",
+   "cards": [
+    {
+     "text": "44 K",
+     "label": "44 de mii de vizionări"
+    },
+    {
+     "text": "289",
+     "label": "289 de vizionări"
+    },
+    {
+     "text": "5,6 K",
+     "label": "5,6 mii de vizionări"
+    },
+    {
+     "text": "4,6 mil.",
+     "label": "4,6 milioane de vizionări"
+    },
+    {
+     "text": "4 mil.",
+     "label": "4 milioane de vizionări"
+    },
+    {
+     "text": "2,5 mld.",
+     "label": "2,5 miliarde de vizionări"
+    }
+   ],
+   "search": [
+    {
+     "short": "8,4 mil.",
+     "exact": 8408879
+    },
+    {
+     "short": "4 mil.",
+     "exact": 4028502
+    },
+    {
+     "short": "321 K",
+     "exact": 321896
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 K de vizionări",
+     "full": "13.060 de vizionări"
+    },
+    {
+     "short": "1,1 mil. de vizionări",
+     "full": "1.141.464 de vizionări"
+    },
+    {
+     "short": "9,1 mld.",
+     "full": "9.147.949.615 vizionări"
+    }
+   ]
+  },
+  "ru": {
+   "lang": "ru-RU",
+   "cards": [
+    {
+     "text": "86 тыс.",
+     "label": "86 тысяч просмотров"
+    },
+    {
+     "text": "49",
+     "label": "49 просмотров"
+    },
+    {
+     "text": "8,6 тыс.",
+     "label": "8,6 тысячи просмотров"
+    },
+    {
+     "text": "4,2 млн",
+     "label": "4,2 миллиона просмотров"
+    },
+    {
+     "text": "24 млн",
+     "label": "24 миллиона просмотров"
+    },
+    {
+     "text": "1,3 млрд",
+     "label": "1,3 миллиарда просмотров"
+    },
+    {
+     "text": "6 млрд",
+     "label": "6 миллиардов просмотров"
+    }
+   ],
+   "search": [
+    {
+     "short": "321 тыс.",
+     "exact": 321896
+    },
+    {
+     "short": "2,6 млн",
+     "exact": 2670558
+    },
+    {
+     "short": "4 млн",
+     "exact": 4028502
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 тыс. просмотров",
+     "full": "13 060 просмотров"
+    },
+    {
+     "short": "1,1 млн просмотров",
+     "full": "1 141 464 просмотра"
+    },
+    {
+     "short": "9,1 млрд",
+     "full": "9 147 949 615 просмотров"
+    }
+   ]
+  },
+  "si": {
+   "lang": "si-LK",
+   "cards": [
+    {
+     "text": "ද19",
+     "label": "බැලීම් දහස 19"
+    },
+    {
+     "text": "289",
+     "label": "බැලීම් 289"
+    },
+    {
+     "text": "ද8.6",
+     "label": "බැලීම් දහස 8.6"
+    },
+    {
+     "text": "මි45",
+     "label": "බැලීම් මිලියන 45"
+    },
+    {
+     "text": "මි1.6",
+     "label": "බැලීම් මිලියන 1.6"
+    },
+    {
+     "text": "බි2.5",
+     "label": "බැලීම් බිලියන 2.5"
+    },
+    {
+     "text": "බි6",
+     "label": "බැලීම් බිලියන 6"
+    }
+   ],
+   "search": [
+    {
+     "short": "මි8.4",
+     "exact": 8408879
+    },
+    {
+     "short": "මි4",
+     "exact": 4028502
+    },
+    {
+     "short": "ද974",
+     "exact": 974284
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "බැලීම් ද13",
+     "full": "බැලීම් 13,060"
+    },
+    {
+     "short": "බැලීම් මි1.1",
+     "full": "බැලීම් 1,141,464"
+    },
+    {
+     "short": "බි9.1",
+     "full": "බැලීම් 9,147,949,615"
+    }
+   ]
+  },
+  "sk": {
+   "lang": "sk-SK",
+   "cards": [
+    {
+     "text": "86 tis.",
+     "label": "86 tisíc zhliadnutí"
+    },
+    {
+     "text": "8,6 tis.",
+     "label": "8,6 tisíca zhliadnutí"
+    },
+    {
+     "text": "1,8 mil.",
+     "label": "1,8 milióna zhliadnutí"
+    },
+    {
+     "text": "24 mil.",
+     "label": "24 miliónov zhliadnutí"
+    },
+    {
+     "text": "2,5 mld.",
+     "label": "2,5 miliardy zhliadnutí"
+    }
+   ],
+   "search": [
+    {
+     "short": "321 tis.",
+     "exact": 321896
+    },
+    {
+     "short": "2,6 mil.",
+     "exact": 2670558
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 tis. zhliadnutí",
+     "full": "13 060 zhliadnutí"
+    },
+    {
+     "short": "1,1 mil. zhliadnutí",
+     "full": "1 141 464 zhliadnutí"
+    },
+    {
+     "short": "9,1 mld.",
+     "full": "9 147 949 615 zhliadnutí"
+    }
+   ]
+  },
+  "sl": {
+   "lang": "sl-SI",
+   "cards": [
+    {
+     "text": "44 tis.",
+     "label": "44 tisoč ogledov"
+    },
+    {
+     "text": "116",
+     "label": "116 ogledov"
+    },
+    {
+     "text": "5,6 tis.",
+     "label": "5,6 tisoč ogledov"
+    },
+    {
+     "text": "2,6 mio.",
+     "label": "2,6 milijoni ogledov"
+    },
+    {
+     "text": "24 mio.",
+     "label": "24 milijonov ogledov"
+    },
+    {
+     "text": "2,5 mrd.",
+     "label": "2,5 milijarde ogledov"
+    }
+   ],
+   "search": [
+    {
+     "short": "123 tis.",
+     "exact": 123439
+    },
+    {
+     "short": "2,6 mio.",
+     "exact": 2670558
+    },
+    {
+     "short": "51 mio.",
+     "exact": 51111651
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 tis. ogledov",
+     "full": "13.060 ogledov"
+    },
+    {
+     "short": "1,1 mio. ogledov",
+     "full": "1.141.464 ogledov"
+    },
+    {
+     "short": "9,1 mrd.",
+     "full": "9.147.949.615 ogledov"
+    }
+   ]
+  },
+  "sq": {
+   "lang": "sq-AL",
+   "cards": [
+    {
+     "text": "44 mijë",
+     "label": "44 mijë shikime"
+    },
+    {
+     "text": "428",
+     "label": "428 shikime"
+    },
+    {
+     "text": "8,6 mijë",
+     "label": "8,6 mijë shikime"
+    },
+    {
+     "text": "29 mln",
+     "label": "29 milion shikime"
+    },
+    {
+     "text": "4,2 mln",
+     "label": "4,2 milion shikime"
+    },
+    {
+     "text": "2,5 mld",
+     "label": "2,5 miliard shikime"
+    },
+    {
+     "text": "6 mld",
+     "label": "6 miliard shikime"
+    }
+   ],
+   "search": [
+    {
+     "short": "2,6 mln",
+     "exact": 2670558
+    },
+    {
+     "short": "4 mln",
+     "exact": 4028502
+    },
+    {
+     "short": "252 mijë",
+     "exact": 252927
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 mijë shikime",
+     "full": "13 060 shikime"
+    },
+    {
+     "short": "1,1 mln shikime",
+     "full": "1 141 464 shikime"
+    },
+    {
+     "short": "9,1 mld",
+     "full": "9 147 949 615 shikime"
+    }
+   ]
+  },
+  "sr": {
+   "lang": "sr-Cyrl-RS",
+   "cards": [
+    {
+     "text": "44 хиљ.",
+     "label": "44 хиљаде прегледа"
+    },
+    {
+     "text": "5,6 хиљ.",
+     "label": "5,6 хиљада прегледа"
+    },
+    {
+     "text": "206",
+     "label": "206 прегледа"
+    },
+    {
+     "text": "1,6 мил.",
+     "label": "1,6 милиона прегледа"
+    },
+    {
+     "text": "4 мил.",
+     "label": "4 милиона прегледа"
+    },
+    {
+     "text": "4,7 млрд.",
+     "label": "4,7 милијарди прегледа"
+    }
+   ],
+   "search": [
+    {
+     "short": "123 хиљ.",
+     "exact": 123439
+    },
+    {
+     "short": "4 мил.",
+     "exact": 4028502
+    },
+    {
+     "short": "4,6 мил.",
+     "exact": 4674227
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 хиљ. прегледа",
+     "full": "13.060 прегледа"
+    },
+    {
+     "short": "1,1 мил. прегледа",
+     "full": "1.141.464 прегледа"
+    },
+    {
+     "short": "9,1 млрд.",
+     "full": "9.147.949.615 прегледа"
+    }
+   ]
+  },
+  "sr-Latn": {
+   "lang": "sr-Latn-RS",
+   "cards": [
+    {
+     "text": "44 hilj.",
+     "label": "44 hiljade pregleda"
+    },
+    {
+     "text": "399",
+     "label": "399 pregleda"
+    },
+    {
+     "text": "5,6 hilj.",
+     "label": "5,6 hiljada pregleda"
+    },
+    {
+     "text": "6,6 mil.",
+     "label": "6,6 miliona pregleda"
+    },
+    {
+     "text": "4 mil.",
+     "label": "4 miliona pregleda"
+    },
+    {
+     "text": "2,5 mlrd.",
+     "label": "2,5 milijardi pregleda"
+    }
+   ],
+   "search": [
+    {
+     "short": "321 hilj.",
+     "exact": 321896
+    },
+    {
+     "short": "2,6 mil.",
+     "exact": 2670558
+    },
+    {
+     "short": "51 mil.",
+     "exact": 51111651
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 hilj. pregleda",
+     "full": "13.060 pregleda"
+    },
+    {
+     "short": "1,1 mil. pregleda",
+     "full": "1.141.472 pregleda"
+    },
+    {
+     "short": "9,1 mlrd.",
+     "full": "9.147.949.615 pregleda"
+    }
+   ]
+  },
+  "sv": {
+   "lang": "sv-SE",
+   "cards": [
+    {
+     "text": "44 882",
+     "label": "44 882 visningar"
+    },
+    {
+     "text": "431",
+     "label": "431 visningar"
+    },
+    {
+     "text": "7 mn",
+     "label": "7 miljoner visningar"
+    },
+    {
+     "text": "1,6 mn",
+     "label": "1,6 miljoner visningar"
+    },
+    {
+     "text": "2,5 md",
+     "label": "2,5 miljarder visningar"
+    }
+   ],
+   "search": [
+    {
+     "short": "321 896",
+     "exact": 321896
+    },
+    {
+     "short": "8,4 mn",
+     "exact": 8409194
+    },
+    {
+     "short": "4 mn",
+     "exact": 4028502
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 060 visningar",
+     "full": "13 060 visningar"
+    },
+    {
+     "short": "1,1 mn visningar",
+     "full": "1 141 472 visningar"
+    },
+    {
+     "short": "9,1 md",
+     "full": "9 147 949 615 visningar"
+    }
+   ]
+  },
+  "sw": {
+   "lang": "sw-TZ",
+   "cards": [
+    {
+     "text": "elfu 44",
+     "label": "Kutazamwa:\nelfu 44"
+    },
+    {
+     "text": "9",
+     "label": "Kutazamwa:\n9"
+    },
+    {
+     "text": "elfu 5.6",
+     "label": "Kutazamwa:\nelfu 5.6"
+    },
+    {
+     "text": "4.2M",
+     "label": "Kutazamwa:\nmilioni 4.2"
+    },
+    {
+     "text": "29M",
+     "label": "Kutazamwa:\nmilioni 29"
+    },
+    {
+     "text": "3.9B",
+     "label": "Kutazamwa:\nbilioni 3.9"
+    }
+   ],
+   "search": [
+    {
+     "short": "5.3M",
+     "exact": 5372603
+    },
+    {
+     "short": "4M",
+     "exact": 4028502
+    },
+    {
+     "short": "elfu 465",
+     "exact": 465825
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "Kutazamwa:\nelfu 13",
+     "full": "Kutazamwa:\n13,060"
+    },
+    {
+     "short": "Kutazamwa:\n1.1M",
+     "full": "Kutazamwa:\n1,141,472"
+    },
+    {
+     "short": "9.1B",
+     "full": "Kutazamwa:\n9,147,949,615"
+    }
+   ]
+  },
+  "ta": {
+   "lang": "ta-IN",
+   "cards": [
+    {
+     "text": "21,956",
+     "label": "21,956 பார்வைகள்"
+    },
+    {
+     "text": "48",
+     "label": "48 பார்வைகள்"
+    },
+    {
+     "text": "6.1 லட்சம்",
+     "label": "6.1 லட்சம் பார்வைகள்"
+    },
+    {
+     "text": "2 லட்சம்",
+     "label": "2 லட்சம் பார்வைகள்"
+    },
+    {
+     "text": "1.1 கோடி",
+     "label": "1.1 கோடி பார்வைகள்"
+    },
+    {
+     "text": "10 கோடி",
+     "label": "10 கோடி பார்வைகள்"
+    }
+   ],
+   "search": [
+    {
+     "short": "36 லட்சம்",
+     "exact": 3678608
+    },
+    {
+     "short": "1.2 லட்சம்",
+     "exact": 124081
+    },
+    {
+     "short": "1.9 கோடி",
+     "exact": 19430877
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13,060 பார்வைகள்",
+     "full": "13,060 பார்வைகள்"
+    },
+    {
+     "short": "11 லட்சம் பார்வைகள்",
+     "full": "11,41,472 பார்வைகள்"
+    },
+    {
+     "short": "914 கோடி",
+     "full": "9,14,79,49,615 பார்வைகள்"
+    }
+   ]
+  },
+  "te": {
+   "lang": "te-IN",
+   "cards": [
+    {
+     "text": "86,775",
+     "label": "86,775 వీక్షణలు"
+    },
+    {
+     "text": "428",
+     "label": "428 వీక్షణలు"
+    },
+    {
+     "text": "1.2 లక్షలు",
+     "label": "1.2 లక్షలు వీక్షణలు"
+    },
+    {
+     "text": "40 లక్షలు",
+     "label": "40 లక్షలు వీక్షణలు"
+    },
+    {
+     "text": "253 కోట్లు",
+     "label": "253 కోట్లు వీక్షణలు"
+    }
+   ],
+   "search": [
+    {
+     "short": "26 లక్షలు",
+     "exact": 2670558
+    },
+    {
+     "short": "1.9 కోట్లు",
+     "exact": 19430877
+    },
+    {
+     "short": "9.6 లక్షలు",
+     "exact": 965831
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13,060 వీక్షణలు",
+     "full": "13,060 వీక్షణలు"
+    },
+    {
+     "short": "11 లక్షలు వీక్షణలు",
+     "full": "11,41,472 వీక్షణలు"
+    },
+    {
+     "short": "914 కోట్లు",
+     "full": "9,14,79,49,615 వీక్షణలు"
+    }
+   ]
+  },
+  "th": {
+   "lang": "th-TH",
+   "cards": [
+    {
+     "text": "4.4 หมื่น",
+     "label": "การดู 4.4 หมื่น ครั้ง"
+    },
+    {
+     "text": "176",
+     "label": "การดู 176 ครั้ง"
+    },
+    {
+     "text": "5.6 พัน",
+     "label": "การดู 5.6 พัน ครั้ง"
+    },
+    {
+     "text": "2 แสน",
+     "label": "การดู 2 แสน ครั้ง"
+    },
+    {
+     "text": "4 หมื่น",
+     "label": "การดู 4 หมื่น ครั้ง"
+    },
+    {
+     "text": "1.1 ล้าน",
+     "label": "การดู 1.1 ล้าน ครั้ง"
+    },
+    {
+     "text": "4.5 แสน",
+     "label": "การดู 4.5 แสน ครั้ง"
+    },
+    {
+     "text": "29 ล้าน",
+     "label": "การดู 29 ล้าน ครั้ง"
+    }
+   ],
+   "search": [
+    {
+     "short": "3.6 ล้าน",
+     "exact": 3678608
+    },
+    {
+     "short": "19 ล้าน",
+     "exact": 19430877
+    },
+    {
+     "short": "3.2 แสน",
+     "exact": 321896
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "การดู 1.3 หมื่น ครั้ง",
+     "full": "การดู 13,060 ครั้ง"
+    },
+    {
+     "short": "การดู 1.1 ล้าน ครั้ง",
+     "full": "การดู 1,141,472 ครั้ง"
+    },
+    {
+     "short": "9.1 พันล้าน",
+     "full": "การดู 9,147,949,615 ครั้ง"
+    }
+   ]
+  },
+  "tr": {
+   "lang": "tr-TR",
+   "cards": [
+    {
+     "text": "48 B",
+     "label": "48 bin görüntüleme"
+    },
+    {
+     "text": "289",
+     "label": "289 görüntüleme"
+    },
+    {
+     "text": "5,6 B",
+     "label": "5,6 bin görüntüleme"
+    },
+    {
+     "text": "2,8 Mn",
+     "label": "2,8 milyon görüntüleme"
+    },
+    {
+     "text": "4 Mn",
+     "label": "4 milyon görüntüleme"
+    },
+    {
+     "text": "6 Mr",
+     "label": "6 milyar görüntüleme"
+    }
+   ],
+   "search": [
+    {
+     "short": "294 B",
+     "exact": 294707
+    },
+    {
+     "short": "19 Mn",
+     "exact": 19430877
+    },
+    {
+     "short": "1,3 Mn",
+     "exact": 1351298
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 B görüntüleme",
+     "full": "13.060 görüntüleme"
+    },
+    {
+     "short": "1,1 Mn görüntüleme",
+     "full": "1.141.472 görüntüleme"
+    },
+    {
+     "short": "9,1 Mr",
+     "full": "9.147.949.615 görüntüleme"
+    }
+   ]
+  },
+  "uk": {
+   "lang": "uk-UA",
+   "cards": [
+    {
+     "text": "446 тис.",
+     "label": "446 тисяч переглядів"
+    },
+    {
+     "text": "612",
+     "label": "612 переглядів"
+    },
+    {
+     "text": "3,2 тис.",
+     "label": "3,2 тисячі переглядів"
+    },
+    {
+     "text": "4,2 млн",
+     "label": "4,2 мільйона переглядів"
+    },
+    {
+     "text": "7 млн",
+     "label": "7 мільйонів переглядів"
+    },
+    {
+     "text": "3,9 млрд",
+     "label": "3,9 мільярда переглядів"
+    }
+   ],
+   "search": [
+    {
+     "short": "2,6 млн",
+     "exact": 2670558
+    },
+    {
+     "short": "321 тис.",
+     "exact": 321896
+    },
+    {
+     "short": "51 млн",
+     "exact": 51111651
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 тис. переглядів",
+     "full": "13 060 переглядів"
+    },
+    {
+     "short": "1,1 млн переглядів",
+     "full": "1 141 472 перегляди"
+    },
+    {
+     "short": "9,1 млрд",
+     "full": "9 147 949 615 переглядів"
+    }
+   ]
+  },
+  "ur": {
+   "lang": "ur-PK",
+   "cards": [
+    {
+     "text": "44 ہزار",
+     "label": "44 ہزار ملاحظات"
+    },
+    {
+     "text": "5.6 ہزار",
+     "label": "5.6 ہزار ملاحظات"
+    },
+    {
+     "text": "1.7 لاکھ",
+     "label": "1.7 لاکھ ملاحظات"
+    },
+    {
+     "text": "2 لاکھ",
+     "label": "2 لاکھ ملاحظات"
+    },
+    {
+     "text": "39",
+     "label": "39 ملاحظات"
+    },
+    {
+     "text": "10 کروڑ",
+     "label": "10 کروڑ ملاحظات"
+    },
+    {
+     "text": "6 ارب",
+     "label": "6 ارب ملاحظات"
+    },
+    {
+     "text": "2.5 ارب",
+     "label": "2.5 ارب ملاحظات"
+    }
+   ],
+   "search": [
+    {
+     "short": "26 لاکھ",
+     "exact": 2670558
+    },
+    {
+     "short": "1.9 کروڑ",
+     "exact": 19430877
+    },
+    {
+     "short": "3.2 لاکھ",
+     "exact": 321896
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 ہزار ملاحظات",
+     "full": "13,060 ملاحظات"
+    },
+    {
+     "short": "11 لاکھ ملاحظات",
+     "full": "1,141,472 ملاحظات"
+    },
+    {
+     "short": "9.1 ارب",
+     "full": "9,147,949,615 ملاحظات"
+    }
+   ]
+  },
+  "uz": {
+   "lang": "uz-Latn-UZ",
+   "cards": [
+    {
+     "text": "44 ming",
+     "label": "44 ming marta"
+    },
+    {
+     "text": "5,6 ming",
+     "label": "5,6 ming marta"
+    },
+    {
+     "text": "289",
+     "label": "289 marta"
+    },
+    {
+     "text": "8,8 mln",
+     "label": "8,8 million marta"
+    },
+    {
+     "text": "4 mln",
+     "label": "4 million marta"
+    },
+    {
+     "text": "2,5 mlrd",
+     "label": "2,5 milliard marta"
+    },
+    {
+     "text": "6 mlrd",
+     "label": "6 milliard marta"
+    }
+   ],
+   "search": [
+    {
+     "short": "322 ming",
+     "exact": 322940
+    },
+    {
+     "short": "3,6 mln",
+     "exact": 3678608
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 ming marta",
+     "full": "13 060 marta"
+    },
+    {
+     "short": "1,1 mln marta",
+     "full": "1 141 472 marta"
+    },
+    {
+     "short": "9,1 mlrd",
+     "full": "9 147 949 615 marta"
+    }
+   ]
+  },
+  "vi": {
+   "lang": "vi-VN",
+   "cards": [
+    {
+     "text": "32 N",
+     "label": "32 nghìn lượt xem"
+    },
+    {
+     "text": "8,6 N",
+     "label": "8,6 nghìn lượt xem"
+    },
+    {
+     "text": "3,2 Tr",
+     "label": "3,2 triệu lượt xem"
+    },
+    {
+     "text": "605",
+     "label": "605 lượt xem"
+    },
+    {
+     "text": "4 Tr",
+     "label": "4 triệu lượt xem"
+    },
+    {
+     "text": "6 T",
+     "label": "6 tỷ lượt xem"
+    },
+    {
+     "text": "2,5 T",
+     "label": "2,5 tỷ lượt xem"
+    }
+   ],
+   "search": [
+    {
+     "short": "322 N",
+     "exact": 322940
+    },
+    {
+     "short": "3,6 Tr",
+     "exact": 3678608
+    },
+    {
+     "short": "19 Tr",
+     "exact": 19430877
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13 N lượt xem",
+     "full": "13.060 lượt xem"
+    },
+    {
+     "short": "1,1 Tr lượt xem",
+     "full": "1.141.472 lượt xem"
+    },
+    {
+     "short": "9,1 T",
+     "full": "9.147.949.615 lượt xem"
+    }
+   ]
+  },
+  "zh-CN": {
+   "lang": "zh-Hans-CN",
+   "cards": [
+    {
+     "text": "1.9万",
+     "label": "1.9万次观看"
+    },
+    {
+     "text": "32万",
+     "label": "32万次观看"
+    },
+    {
+     "text": "8699",
+     "label": "8,699次观看"
+    },
+    {
+     "text": "12亿",
+     "label": "12亿次观看"
+    }
+   ],
+   "search": [
+    {
+     "short": "267万",
+     "exact": 2670558
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "1.3万次观看",
+     "full": "13,060次观看"
+    },
+    {
+     "short": "114万次观看",
+     "full": "1,141,472次观看"
+    },
+    {
+     "short": "91亿",
+     "full": "9,147,949,615次观看"
+    }
+   ]
+  },
+  "zh-HK": {
+   "lang": "zh-Hant-HK",
+   "cards": [
+    {
+     "text": "13K",
+     "label": "收看次數：13K 次"
+    },
+    {
+     "text": "5.6K",
+     "label": "收看次數：5.6K 次"
+    },
+    {
+     "text": "1.8M",
+     "label": "收看次數：1.8M 次"
+    },
+    {
+     "text": "3M",
+     "label": "收看次數：3M 次"
+    },
+    {
+     "text": "47",
+     "label": "收看次數：47 次"
+    },
+    {
+     "text": "4.7B",
+     "label": "收看次數：4.7B 次"
+    }
+   ],
+   "search": [
+    {
+     "short": "124K",
+     "exact": 124829
+    },
+    {
+     "short": "4M",
+     "exact": 4028502
+    },
+    {
+     "short": "4.6M",
+     "exact": 4675124
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "收看次數：13K 次",
+     "full": "收看次數：13,060 次"
+    },
+    {
+     "short": "收看次數：1.1M 次",
+     "full": "收看次數：1,141,472 次"
+    },
+    {
+     "short": "9.1B",
+     "full": "收看次數：9,147,949,615 次"
+    }
+   ]
+  },
+  "zh-TW": {
+   "lang": "zh-Hant-TW",
+   "cards": [
+    {
+     "text": "30萬",
+     "label": "觀看次數：30萬次"
+    },
+    {
+     "text": "4.4萬",
+     "label": "觀看次數：4.4萬次"
+    },
+    {
+     "text": "8699",
+     "label": "觀看次數：8,699次"
+    },
+    {
+     "text": "60億",
+     "label": "觀看次數：60億次"
+    },
+    {
+     "text": "1.7億",
+     "label": "觀看次數：1.7億次"
+    }
+   ],
+   "search": [
+    {
+     "short": "530萬",
+     "exact": 5307031
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "觀看次數：1.3萬次",
+     "full": "觀看次數：13,060次"
+    },
+    {
+     "short": "觀看次數：114萬次",
+     "full": "觀看次數：1,141,472次"
+    },
+    {
+     "short": "91億",
+     "full": "觀看次數：9,147,949,615次"
+    }
+   ]
+  },
+  "zu": {
+   "lang": "zu-ZA",
+   "cards": [
+    {
+     "text": "44K",
+     "label": "44 inkulungwane ukubukwa"
+    },
+    {
+     "text": "431",
+     "label": "431 ukubukwa"
+    },
+    {
+     "text": "5.6K",
+     "label": "5.6 inkulungwane ukubukwa"
+    },
+    {
+     "text": "1.1M",
+     "label": "1.1 isigidi ukubukwa"
+    },
+    {
+     "text": "29M",
+     "label": "29 isigidi ukubukwa"
+    },
+    {
+     "text": "2.5B",
+     "label": "2.5 isigidi sezigidi ukubukwa"
+    }
+   ],
+   "search": [
+    {
+     "short": "3.6M",
+     "exact": 3678608
+    },
+    {
+     "short": "19M",
+     "exact": 19430877
+    },
+    {
+     "short": "322K",
+     "exact": 322940
+    }
+   ],
+   "live": [],
+   "watch": [
+    {
+     "short": "13K ukubukwa",
+     "full": "13,060 ukubukwa"
+    },
+    {
+     "short": "1.1M ukubukwa",
+     "full": "1,141,472 ukubukwa"
+    },
+    {
+     "short": "9.1B",
+     "full": "9,147,949,615 ukubukwa"
+    }
+   ]
+  }
+ }
+}

@@ -2,7 +2,8 @@
  * YouTube Sanitiser: content script
  * Runs on every youtube.com page. Hides Shorts, playlists, mixes,
  * and low-view-count videos based on settings stored in chrome.storage.sync.
- * DEFAULTS comes from defaults.js, which the manifest loads first.
+ * DEFAULTS comes from defaults.js and view count reading from view-count.js,
+ * which the manifest loads first.
  */
 
 // ─── Inject hide stylesheet once ─────────────────────────────────────────────
@@ -43,130 +44,83 @@ function queryAll(root, selector) {
   return els;
 }
 
-// A whole word meaning "views" in supported languages
-const VIEW_WORD_RE = /^(?:views?|visning(?:er|ar)?|avspilling(?:er)?|aufrufe?|vues?|visualiza(?:ção|ções|ción|ciones)|visualizzazion[ei]|weergaven?|näyttö[äa]|katselukertaa?|wyświetle(?:ń|nia|nie)|просмотр\p{L}*|görüntüleme|tayangan|ditonton)$/iu;
+// ─── View counts ──────────────────────────────────────────────────────────────
 
-// Words that can sit between the count and the view word ("1,2 M de vues", "8 rb x ditonton")
-const VIEW_CONNECTOR_WORDS = new Set(['de', 'di', 'x']);
+// Magnitude words learned on YouTube, per page language, as kept in
+// chrome.storage.local. Reading and learning live in view-count.js.
+let learnedMagnitudes = {};
+let pageMagnitudes = null;
+let pageMagnitudesLang = null;
 
-// Zero-view phrasing, which has no number to parse
-const NO_VIEWS_RE = /^no views$/i;
-
-// A leading count, with digit groups split by . or , or by spaces ("325 350", Swedish)
-const LEADING_COUNT_RE = /^(\d(?:[\d.,]|\s(?=\d{3}(?!\d)))*)\s*(.*)/su;
-
-// Magnitude suffix multipliers across locales (keys lowercased, trailing dot stripped)
-const VIEW_SUFFIX_MULTIPLIERS = {
-  'k': 1e3, 'm': 1e6, 'b': 1e9,          // English (k/M also French, Dutch, Spanish)
-  't': 1e3, 'mio': 1e6, 'mia': 1e9,      // Danish (tusind, million, milliard)
-  'mill': 1e6, 'mrd': 1e9,               // Norwegian (million, milliard); mrd also German, Finnish, Italian
-  'tn': 1e3, 'mn': 1e6, 'md': 1e9,       // Swedish (tusen, miljon, miljard); md also French
-  'tsd': 1e3,                            // German (Tausend)
-  'mil': 1e3, 'mi': 1e6, 'bi': 1e9,      // Spanish/Portuguese (mil = thousand, milhões, bilhões)
-  'mln': 1e6, 'mld': 1e9,                // Dutch/Italian/Polish (miljoen, milione, milion; miljard, miliard)
-  'milj': 1e6,                           // Finnish (miljoonaa)
-  'tys': 1e3,                            // Polish (tysiąc)
-  'тыс': 1e3, 'млн': 1e6, 'млрд': 1e9,   // Russian
-  'mr': 1e9,                             // Turkish (milyar)
-  'rb': 1e3, 'jt': 1e6,                  // Indonesian (ribu, juta)
-};
-
-// Suffixes that mean something else in one language, keyed by the page language
-const VIEW_SUFFIX_OVERRIDES = {
-  tr: { 'b': 1e3 },  // Turkish: B = bin (thousand)
-  id: { 'm': 1e9 },  // Indonesian: M = miliar (billion)
-};
-
-function suffixMultiplier(suffix) {
-  const lang = document.documentElement.lang.split('-')[0];
-  return VIEW_SUFFIX_OVERRIDES[lang]?.[suffix] ?? VIEW_SUFFIX_MULTIPLIERS[suffix];
+/** Magnitude words for the page's current language. */
+function magnitudesForPage() {
+  const lang = document.documentElement.lang;
+  if (!pageMagnitudes || pageMagnitudesLang !== lang) {
+    learnedMagnitudes[lang] ??= {};
+    pageMagnitudes = createMagnitudes(lang, learnedMagnitudes[lang]);
+    pageMagnitudesLang = lang;
+  }
+  return pageMagnitudes;
 }
 
 /**
- * Parse a number string that may use either comma or period as the
- * thousands/decimal separator. Returns a float or NaN.
- *
- * Rules:
- *   both present → whichever appears last is the decimal separator
- *   only comma   → ≤2 digits after comma = decimal ("1,5"); else thousands ("1,234")
- *   only dot     → exactly 3 digits after dot, or multiple dots = thousands ("1.234")
+ * Remember a magnitude word learned on this page, then filter again, since
+ * cards that couldn't be read before may be readable now.
  */
-function parseLocaleNumber(str) {
-  if (str.includes(',') && str.includes('.')) {
-    const lastComma = str.lastIndexOf(',');
-    const lastDot   = str.lastIndexOf('.');
-    return lastDot > lastComma
-      ? parseFloat(str.replace(/,/g, ''))                     // "1,234.5"
-      : parseFloat(str.replace(/\./g, '').replace(',', '.'));  // "1.234,5"
-  }
-  if (str.includes(',')) {
-    const afterComma = str.split(',')[1] || '';
-    return afterComma.length <= 2
-      ? parseFloat(str.replace(',', '.'))   // "1,5" → decimal comma
-      : parseFloat(str.replace(/,/g, ''));  // "1,234" → thousands comma
-  }
-  if (str.includes('.')) {
-    const parts = str.split('.');
-    return (parts.length > 2 || parts[parts.length - 1].length === 3)
-      ? parseFloat(str.replace(/\./g, ''))  // "1.234" / "1.234.567" → thousands dot
-      : parseFloat(str);                    // "1.5" → decimal dot
-  }
-  return parseFloat(str);
+function rememberMagnitude(word, magnitude) {
+  if (!magnitudesForPage().learn(word, magnitude)) return;
+  chrome.storage.local.set({ magnitudeWords: learnedMagnitudes });
+  scheduleRescan();
 }
 
 /**
- * Parse a YouTube view-count string in any supported language.
- * Examples: "1.2K views", "1,2 t. visninger", "1.234 Aufrufe", "1,2 M de vues"
- * The number must be followed by a view word that ends the text, optionally
- * with a known magnitude suffix and a connector ("de", "x") in between, so
- * text like "100 Reviews of ..." and unknown suffixes are rejected rather than
- * guessed. Pass bare=true when the caller already knows the text is a view
- * count, to also accept it without the view word ("54.947", "20 mio.").
- * Returns a number or null.
+ * The element holding a card's view count, found by where it sits rather than
+ * by what it says. In a lockup it's the metadata text after the leading ▷
+ * icon (the verified badge after a channel name is an icon too, but it has a
+ * label); in other cards, the first item of the metadata line.
  */
-function parseViewText(text, bare = false) {
-  if (NO_VIEWS_RE.test(text)) return 0;
-  const m = text.match(LEADING_COUNT_RE);
-  if (!m) return null;
-  const n = parseLocaleNumber(m[1].replace(/\s/g, ''));
-  if (isNaN(n)) return null;
-  const words = m[2].toLowerCase().split(/[\s.]+/).filter(Boolean);
-  const multiplier = suffixMultiplier(words[0]);
-  if (multiplier) words.shift();
-  const count = multiplier ? n * multiplier : n;
-  if (!words.length) return bare ? count : null;
-  if (VIEW_CONNECTOR_WORDS.has(words[0])) words.shift();
-  return words.length === 1 && VIEW_WORD_RE.test(words[0]) ? count : null;
-}
-
-// Where a card keeps its view count: the metadata line under the title.
-// Titles and description snippets are left out, since they can start with a
-// number and the word "views".
-const VIEW_COUNT_SPAN_SELECTOR = '#metadata-line span, yt-content-metadata-view-model span';
-
-// Metadata slots in search results that hold only a view count or an upload age,
-// so a bare number there is the view count
-const VIEW_COUNT_SLOT_SELECTOR = '#metadata-line span.inline-metadata-item';
-
-/** True when an accessible label reads as a view count, e.g. "20 millioner visninger". */
-function isViewCountLabel(label) {
-  return !!label && label.toLowerCase().split(/\s+/).some(word => VIEW_WORD_RE.test(word));
+function findViewCountElement(card) {
+  for (const text of card.querySelectorAll('yt-content-metadata-view-model span[role="text"]')) {
+    const icon = text.previousElementSibling;
+    if (icon?.childElementCount && !icon.textContent.trim() && !icon.hasAttribute('aria-label')) return text;
+  }
+  return card.querySelector('#metadata-line .inline-metadata-item');
 }
 
 /**
- * Extract view count from a video renderer element.
- * Many locales now show the count without the view word ("54.947", "20 mio.")
- * and only say "views" in the accessible label, so a span counts as a view
- * count when its text, its label, or its slot in the card says so.
- * Returns a number or null.
+ * A card's view count, or null when it has none or it can't be read for
+ * certain. A magnitude word the language data doesn't have is read from the
+ * count's accessible label, which spells it out, and learned.
  */
-function getViewCount(el) {
-  for (const span of el.querySelectorAll(VIEW_COUNT_SPAN_SELECTOR)) {
-    const bare = span.matches(VIEW_COUNT_SLOT_SELECTOR) || isViewCountLabel(span.getAttribute('aria-label'));
-    const count = parseViewText(span.textContent.trim(), bare);
-    if (count !== null) return count;
-  }
-  return null;
+function getViewCount(card) {
+  const el = findViewCountElement(card);
+  if (!el) return null;
+  const magnitudes = magnitudesForPage();
+  const text = el.textContent.trim();
+  const count = parseCount(text, magnitudes);
+  if (count !== null) return count;
+  const label = el.getAttribute('aria-label');
+  const read = label && readWithLabel(text, label, magnitudes);
+  if (!read) return null;
+  rememberMagnitude(read.word, read.magnitude);
+  return read.count;
+}
+
+let lastWatchCounts = '';
+
+/**
+ * Learn a magnitude word from the watch page, which shows the video's view
+ * count both short, under the title ("1,1 mio. visninger"), and in full, in
+ * the tooltip beside it ("1.141.413 visninger • 24. aug. 2023").
+ */
+function learnFromWatchPage() {
+  const info = document.querySelector('ytd-watch-metadata ytd-watch-info-text');
+  const short = info?.querySelector('#info span')?.textContent.trim();
+  const full = info?.querySelector('tp-yt-paper-tooltip')?.textContent.split('•')[0].trim();
+  if (!short || !full || `${short}\n${full}` === lastWatchCounts) return;
+  lastWatchCounts = `${short}\n${full}`;
+  const learned = learnFromPair(short, full);
+  if (learned) rememberMagnitude(learned.word, learned.magnitude);
 }
 
 // ─── Filter functions ─────────────────────────────────────────────────────────
@@ -373,6 +327,7 @@ function applyFilters(root) {
 // ─── Full re-scan (after settings change or navigation) ──────────────────────
 
 function fullRescan() {
+  if (settings.hideLowViews) learnFromWatchPage();
   // Remove all previously applied filters first, then reapply from scratch
   // so toggling a filter OFF actually reveals content again.
   removeAllFilters();
@@ -397,7 +352,12 @@ const observer = new MutationObserver(mutations => {
   // metadata injected after its container (lazy-load on scroll) triggers a
   // pass over the whole card. The Set deduplicates nodes sharing one.
   const pending = new Set();
+  // The watch page's view count can render well after navigation (after an
+  // ad, say), so changes to it are a chance to learn a magnitude word
+  const learning = settings.hideLowViews && location.pathname === '/watch';
+  let watchInfoChanged = false;
   for (const mutation of mutations) {
+    if (learning && !watchInfoChanged) watchInfoChanged = !!mutation.target.closest?.('ytd-watch-info-text');
     for (const node of mutation.addedNodes) {
       if (node.nodeType !== Node.ELEMENT_NODE) continue;
       const el = /** @type {Element} */ (node);
@@ -413,6 +373,7 @@ const observer = new MutationObserver(mutations => {
       }
     }
   }
+  if (watchInfoChanged) learnFromWatchPage();
   pending.forEach(refilter);
 });
 
@@ -440,8 +401,13 @@ function watchGuideIfNeeded() {
   if (settings.hideLowViews && settings.excludeSubscribed) watchForGuide();
 }
 
-chrome.storage.sync.get(DEFAULTS, stored => {
+Promise.all([
+  chrome.storage.sync.get(DEFAULTS),
+  chrome.storage.local.get({ magnitudeWords: {} }),
+]).then(([stored, local]) => {
   settings = { ...DEFAULTS, ...stored };
+  learnedMagnitudes = local.magnitudeWords;
+  pageMagnitudes = null;
   // Start observing only once the real settings are known, and rescan from
   // scratch in case a navigation event already filtered with the defaults.
   fullRescan();
@@ -450,6 +416,13 @@ chrome.storage.sync.get(DEFAULTS, stored => {
 });
 
 chrome.storage.onChanged.addListener((changes, area) => {
+  if (area === 'local') {
+    // Magnitude words learned in another tab
+    for (const [lang, words] of Object.entries(changes.magnitudeWords?.newValue ?? {})) {
+      Object.assign(learnedMagnitudes[lang] ??= {}, words);
+    }
+    return;
+  }
   if (area !== 'sync') return;
   for (const [key, { newValue }] of Object.entries(changes)) {
     // A removed key reports newValue undefined: fall back to its default

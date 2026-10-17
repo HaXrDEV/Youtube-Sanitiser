@@ -19,7 +19,7 @@ Click the extension's icon in the toolbar and switch off whatever you don't want
 
 Shorts, playlists and mixes are hidden from the moment you install it. The view count filter stays off until you turn it on.
 
-The view count filter understands YouTube in English, Danish, Norwegian, Swedish, German, French, Spanish, Portuguese, Italian, Dutch, Finnish, Polish, Russian, Turkish and Indonesian. In other languages it may not recognise every count, and a video whose count it can't read is left alone.
+The view count filter works in any language YouTube offers, without being told about it. It reads counts the way YouTube writes them in your language, and if YouTube uses an abbreviation your browser doesn't know, it learns it from YouTube itself. A video whose count it can't read yet is left alone.
 
 ## Installing
 
