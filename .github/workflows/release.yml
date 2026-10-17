@@ -1,4 +1,7 @@
-name: Release & Publish to Chrome Web Store
+name: Release
+
+# Every release goes to GitHub. It's also uploaded to the Chrome Web Store
+# only while the repository variable PUBLISH_TO_CHROME_WEB_STORE is 'true'
 
 on:
   push:
@@ -27,6 +30,7 @@ jobs:
       # Checked before anything is built or released, so a missing setting
       # can't leave a GitHub release that never reached the store
       - name: Check Chrome Web Store settings
+        if: vars.PUBLISH_TO_CHROME_WEB_STORE == 'true'
         env:
           CHROME_EXTENSION_ID: ${{ vars.CHROME_EXTENSION_ID }}
           CHROME_PUBLISHER_ID: ${{ vars.CHROME_PUBLISHER_ID }}
@@ -70,6 +74,7 @@ jobs:
       # 15 October 2026. The extension and publisher IDs are repository
       # variables rather than secrets, as they don't grant access on their own
       - name: Upload & publish to Chrome Web Store
+        if: vars.PUBLISH_TO_CHROME_WEB_STORE == 'true'
         uses: mnao305/chrome-extension-upload@f549d5d654694a7722d6abfa64c97409ad5e64c1 # v7.0.0
         with:
           extension-id: ${{ vars.CHROME_EXTENSION_ID }}
