@@ -36,7 +36,7 @@ The word next to the number says how big it is. The script looks it up in two pl
 
 A count the script can't read for certain is skipped, and that video stays visible.
 
-`tests/view-count.test.js` checks all this against how YouTube writes counts in each of its languages. Run it with `node --test`, and refresh its examples with `node tests/capture-fixtures.js`.
+`tests/view-count.test.js` checks all this against how YouTube writes counts in each of its languages (see [Tests](#tests)).
 
 ## Subscribed channels
 
@@ -49,3 +49,11 @@ A card is matched to a channel by its channel link or, failing that, by the chan
 Settings live in `chrome.storage.sync`, so Chrome syncs them across your computers if sync is on. The popup saves each change straight away, and the content script listens for `chrome.storage.onChanged`, so a toggle takes effect in every open YouTube tab without a reload. The content script starts filtering only once it has loaded your settings, so nothing stays hidden by a filter you've turned off.
 
 Magnitude words learned on YouTube are kept per language in `chrome.storage.local`, on this computer only, and every open YouTube tab picks up what another one learns.
+
+## Tests
+
+`node --test` runs the tests, with nothing to install. `tests/view-count.test.js` checks the view count reading against examples of how YouTube writes counts in each of its languages, and `tests/package.test.js` checks that every script parses and that the release zip holds every file the extension loads.
+
+GitHub runs them on every pull request and every push to `main` (`.github/workflows/checks.yml`), and the release workflow runs them again before it builds and publishes anything.
+
+The examples in `tests/fixtures/view-counts.json` come from YouTube itself. When YouTube changes how it writes counts, refresh them with `node tests/capture-fixtures.js`. That one asks YouTube for real pages, so it's left out of the checks.
