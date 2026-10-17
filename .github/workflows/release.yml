@@ -24,6 +24,20 @@ jobs:
             exit 1
           fi
 
+      # Checked before anything is built or released, so a missing setting
+      # can't leave a GitHub release that never reached the store
+      - name: Check Chrome Web Store settings
+        env:
+          CHROME_EXTENSION_ID: ${{ vars.CHROME_EXTENSION_ID }}
+          CHROME_PUBLISHER_ID: ${{ vars.CHROME_PUBLISHER_ID }}
+        run: |
+          for name in CHROME_EXTENSION_ID CHROME_PUBLISHER_ID; do
+            if [ -z "$(printenv "$name")" ]; then
+              echo "::error::Repository variable $name isn't set (Settings > Secrets and variables > Actions > Variables)"
+              exit 1
+            fi
+          done
+
       # The same tests as checks.yml, so a release never ships what they'd catch
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
@@ -52,10 +66,14 @@ jobs:
           files: youtube-sanitiser.zip
           generate_release_notes: true
 
+      # v7 uses the Chrome Web Store API v2, since Google turned off v1 on
+      # 15 October 2026. The extension and publisher IDs are repository
+      # variables rather than secrets, as they don't grant access on their own
       - name: Upload & publish to Chrome Web Store
-        uses: mnao305/chrome-extension-upload@4008e29e13c144d0f6725462cbd49b7c291b4928 # v5.0.0
+        uses: mnao305/chrome-extension-upload@f549d5d654694a7722d6abfa64c97409ad5e64c1 # v7.0.0
         with:
-          extension-id: ${{ secrets.CHROME_EXTENSION_ID }}
+          extension-id: ${{ vars.CHROME_EXTENSION_ID }}
+          publisher-id: ${{ vars.CHROME_PUBLISHER_ID }}
           file-path: youtube-sanitiser.zip
           client-id: ${{ secrets.CHROME_CLIENT_ID }}
           client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
