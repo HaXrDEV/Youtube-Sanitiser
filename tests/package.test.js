@@ -1,8 +1,9 @@
 /**
  * YouTube Sanitiser: packaging tests
  * Run with `node --test` from the repository folder. Checks that every script
- * parses, and that the release zip built by .github/workflows/release.yml
- * holds every file the extension loads, so a release can't ship without one.
+ * parses, that the release zip built by .github/build-zip.sh holds every
+ * file the extension loads, so a release can't ship without one, and that the
+ * manifest keeps what Firefox needs.
  */
 
 const test = require('node:test');
@@ -13,10 +14,10 @@ const vm = require('vm');
 
 const root = path.join(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
+const manifest = JSON.parse(read('manifest.json'));
 
 /** The files the extension loads: everything the manifest names, and what the popup page links to. */
 function extensionFiles() {
-  const manifest = JSON.parse(read('manifest.json'));
   const files = new Set(['manifest.json']);
   for (const script of manifest.content_scripts ?? []) {
     for (const file of script.js ?? []) files.add(file);
@@ -35,11 +36,11 @@ function extensionFiles() {
   return [...files];
 }
 
-/** The files the release workflow zips, from its `zip -r youtube-sanitiser.zip \` command. */
+/** The files the release zips, from the `zip -r youtube-sanitiser.zip \` command in build-zip.sh. */
 function zippedFiles() {
-  const lines = read('.github/workflows/release.yml').split(/\r?\n/);
+  const lines = read('.github/build-zip.sh').split(/\r?\n/);
   const start = lines.findIndex(line => line.includes('zip -r youtube-sanitiser.zip'));
-  assert.ok(start >= 0, 'release.yml has no zip command');
+  assert.ok(start >= 0, 'build-zip.sh has no zip command');
   const files = [];
   for (const line of lines.slice(start + 1).map(l => l.trim())) {
     files.push(line.replace(/\s*\\$/, ''));
@@ -55,6 +56,15 @@ test('the release zip holds every file the extension loads', () => {
 
 test('every file the release zips exists', () => {
   assert.deepStrictEqual(zippedFiles().filter(file => !fs.existsSync(path.join(root, file))), []);
+});
+
+// The lint in the workflows fails without an add-on ID but only warns without
+// data collection permissions. The ID has to stay the same, as Firefox keeps
+// synced settings and the addons.mozilla.org listing under it.
+test('the manifest keeps what Firefox needs', () => {
+  const { gecko } = manifest.browser_specific_settings;
+  assert.strictEqual(gecko.id, 'youtube-sanitiser@haxr');
+  assert.ok(gecko.data_collection_permissions, 'no data_collection_permissions');
 });
 
 test('every script parses', () => {

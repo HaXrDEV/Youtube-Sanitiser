@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  A Chrome extension that hides Shorts, playlists, mixes, live streams,<br>
+  A Chrome and Firefox extension that hides Shorts, playlists, mixes, live streams,<br>
   low-view videos and videos you've watched from YouTube.
 </p>
 
@@ -12,6 +12,7 @@
   <a href="manifest.json"><img src="https://img.shields.io/github/manifest-json/v/HaXrDEV/youtube-sanitiser?style=flat-square&label=version&color=ff0033" alt="Version"></a>
   <a href="https://github.com/HaXrDEV/youtube-sanitiser/actions/workflows/checks.yml"><img src="https://img.shields.io/github/actions/workflow/status/HaXrDEV/youtube-sanitiser/checks.yml?branch=main&style=flat-square&label=tests" alt="Tests"></a>
   <a href="https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3"><img src="https://img.shields.io/badge/Chrome-Manifest_V3-4285f4?style=flat-square&logo=googlechrome&logoColor=white" alt="Chrome Manifest V3"></a>
+  <a href="https://extensionworkshop.com/documentation/develop/manifest-v3-migration-guide/"><img src="https://img.shields.io/badge/Firefox-Manifest_V3-ff7139?style=flat-square&logo=firefoxbrowser&logoColor=white" alt="Firefox Manifest V3"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square" alt="MIT license"></a>
 </p>
 
@@ -40,19 +41,29 @@
 
 <sub>¹ Still shown on the You page, your playlists and a channel's Playlists tab. ² Still shown on a channel's Live tab. ³ Still shown in your watch history.</sub>
 
-- **Instant.** Changes apply to every open YouTube tab, and settings follow you through Chrome sync.
+- **Instant.** Changes apply to every open YouTube tab, and settings follow you through your browser's sync.
 - **Subscriptions exempt.** *Keep subscribed channels* still shows live streams and small videos from the channels you follow.
 - **Any language.** View counts are read in every language YouTube offers.
 
 ## Install
 
-1. Clone this repository, or download and unzip it.
-2. Open `chrome://extensions` and turn on **Developer mode**.
-3. Click **Load unpacked** and select the repository folder.
+Clone this repository, or download and unzip it. Then:
+
+**Chrome**
+
+1. Open `chrome://extensions` and turn on **Developer mode**.
+2. Click **Load unpacked** and select the repository folder.
+
+**Firefox** (140 or later)
+
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Click **Load Temporary Add-on** and select `manifest.json` in the repository folder.
+
+Firefox removes a temporary add-on when it closes, so you load it again after a restart.
 
 ## Privacy
 
-The extension collects nothing and sends nothing anywhere. Settings stay in Chrome's own storage. *Keep subscribed channels* reads your subscriptions from YouTube's sidebar, briefly expanding its *Show more* list, and keeps them in memory only. See the [privacy policy](privacy-policy.md).
+The extension collects nothing and sends nothing anywhere. Settings stay in your browser's own storage. *Keep subscribed channels* reads your subscriptions from YouTube's sidebar, briefly expanding its *Show more* list, and keeps them in memory only. See the [privacy policy](privacy-policy.md).
 
 ## Development
 
@@ -62,7 +73,7 @@ There is no build step and nothing to install. Run the tests with:
 node --test
 ```
 
-After changing the code, reload the extension on `chrome://extensions` and refresh YouTube. [How it works](docs/how-it-works.md) explains how it finds and hides things.
+After changing the code, reload the extension on `chrome://extensions` (or `about:debugging` in Firefox) and refresh YouTube. [How it works](docs/how-it-works.md) explains how it finds and hides things.
 
 ## License
 
