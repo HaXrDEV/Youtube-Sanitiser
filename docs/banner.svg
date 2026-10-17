@@ -1,71 +1,115 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 160">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 240" width="900" height="240">
   <defs>
-    <radialGradient id="redGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-        gradientTransform="translate(87 80) scale(87 40)">
-      <stop offset="0%"   stop-color="#ff0000" stop-opacity="0.16"/>
-      <stop offset="100%" stop-color="#ff0000" stop-opacity="0"/>
+    <!-- The banner has its own background, so it looks the same on light and dark pages -->
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+        gradientTransform="translate(204 122) scale(230 130)">
+      <stop offset="0%"   stop-color="#ff0033" stop-opacity="0.13"/>
+      <stop offset="100%" stop-color="#ff0033" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="accentBar" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%"   stop-color="#ff0000" stop-opacity="0"/>
-      <stop offset="25%"  stop-color="#ff0000" stop-opacity="0.7"/>
-      <stop offset="75%"  stop-color="#ff0000" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#ff0000" stop-opacity="0"/>
+    <linearGradient id="divider" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#ff0033" stop-opacity="0"/>
+      <stop offset="30%"  stop-color="#ff0033" stop-opacity="0.85"/>
+      <stop offset="70%"  stop-color="#ff0033" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#ff0033" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#cccccc"/>
+    <linearGradient id="thumbSlate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#46507a"/>
+      <stop offset="100%" stop-color="#232840"/>
     </linearGradient>
+    <linearGradient id="thumbAmber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6b5038"/>
+      <stop offset="100%" stop-color="#2e2620"/>
+    </linearGradient>
+    <linearGradient id="thumbTeal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#346660"/>
+      <stop offset="100%" stop-color="#1c2f2c"/>
+    </linearGradient>
+    <clipPath id="thumbClip">
+      <rect width="104" height="58" rx="7"/>
+    </clipPath>
     <style>
-      .title {
-        fill: url(#titleGrad);
-        stroke: #0d1117;
-        stroke-width: 4;
-        stroke-linejoin: round;
-        paint-order: stroke fill;
-      }
-      .subtitle { fill: #808080; }
-      @media (prefers-color-scheme: light) {
-        .subtitle { fill: #505050; }
-      }
+      text { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; }
+      .title    { fill: #f1f1f1; font-size: 46px; font-weight: 700; letter-spacing: -0.4px; }
+      .subtitle { fill: #aaaaaa; font-size: 20px; }
+      .badge    { fill: #ffffff; font-size: 7.5px; font-weight: 700; letter-spacing: 0.3px; }
+      .time     { fill: #ffffff; font-size: 7.5px; font-weight: 600; }
+      .line1    { fill: #3d3d3d; }
+      .line2    { fill: #2b2b2b; }
+      .hidden   { opacity: 0.45; }
+      .strike   { stroke: #ff4d6a; stroke-width: 1.5; stroke-linecap: round; }
     </style>
   </defs>
 
-  <!-- Background glow -->
-  <rect width="800" height="160" fill="url(#redGlow)"/>
+  <rect x="0.5" y="0.5" width="899" height="239" rx="16" fill="#121212" stroke="#2a2a2a"/>
+  <rect x="0.5" y="0.5" width="899" height="239" rx="16" fill="url(#glow)"/>
 
-  <!-- Card 1: normal video -->
-  <rect x="14" y="10" width="144" height="32" rx="4" fill="#1a1a2e" stroke="#2e3244" stroke-width="1"/>
-  <rect x="16" y="12" width="140" height="26" rx="2" fill="#252840"/>
-  <circle cx="88" cy="25" r="8" fill="#ff0000" opacity="0.75"/>
-  <polygon points="85,21 85,29 93,25" fill="white"/>
-  <rect x="16" y="46" width="88" height="2" rx="1" fill="#3a3f55"/>
+  <!-- A feed of six video cards, three of them filtered out -->
 
-  <!-- Card 2: filtered (Shorts), faded and crossed out -->
-  <rect x="14" y="56" width="144" height="32" rx="4" fill="#131323" stroke="#1e2030" stroke-width="1" opacity="0.55"/>
-  <rect x="16" y="58" width="140" height="26" rx="2" fill="#181830" opacity="0.55"/>
-  <rect x="18" y="61" width="33" height="10" rx="3" fill="#ff0033" opacity="0.55"/>
-  <text x="34.5" y="70" font-size="7" text-anchor="middle" fill="white"
-        font-family="-apple-system, 'Segoe UI', sans-serif" font-weight="700">SHORTS</text>
-  <line x1="16"  y1="58" x2="156" y2="84" stroke="#ff4444" stroke-width="1.5" opacity="0.65"/>
-  <line x1="156" y1="58" x2="16"  y2="84" stroke="#ff4444" stroke-width="1.5" opacity="0.65"/>
-  <rect x="16" y="92" width="68" height="2" rx="1" fill="#252535" opacity="0.45"/>
+  <!-- Video -->
+  <g transform="translate(36 32)">
+    <rect width="104" height="58" rx="7" fill="url(#thumbSlate)"/>
+    <rect x="76" y="44" width="24" height="11" rx="3" fill="#000" opacity="0.8"/>
+    <text class="time" x="88" y="52" text-anchor="middle">12:04</text>
+    <rect class="line1" y="66" width="96" height="6" rx="3"/>
+    <rect class="line2" y="78" width="62" height="5" rx="2.5"/>
+  </g>
 
-  <!-- Card 3: normal video -->
-  <rect x="14" y="102" width="144" height="32" rx="4" fill="#1a1a2e" stroke="#2e3244" stroke-width="1"/>
-  <rect x="16" y="104" width="140" height="26" rx="2" fill="#252840"/>
-  <circle cx="88" cy="117" r="8" fill="#ff0000" opacity="0.75"/>
-  <polygon points="85,113 85,121 93,117" fill="white"/>
-  <rect x="16" y="138" width="100" height="2" rx="1" fill="#3a3f55"/>
+  <!-- Shorts, hidden -->
+  <g transform="translate(152 32)">
+    <g class="hidden">
+      <rect width="104" height="58" rx="7" fill="#2a2a2a"/>
+      <rect class="line1" y="66" width="88" height="6" rx="3"/>
+      <rect class="line2" y="78" width="54" height="5" rx="2.5"/>
+    </g>
+    <rect x="6" y="6" width="38" height="12" rx="3" fill="#ff0033"/>
+    <text class="badge" x="25" y="14.6" text-anchor="middle">SHORTS</text>
+    <line class="strike" x1="6" y1="52" x2="98" y2="6"/>
+  </g>
 
-  <!-- Accent divider: YouTube red -->
-  <rect x="177" y="0" width="2" height="160" fill="url(#accentBar)" rx="1"/>
+  <!-- Video -->
+  <g transform="translate(268 32)">
+    <rect width="104" height="58" rx="7" fill="url(#thumbAmber)"/>
+    <rect x="76" y="44" width="24" height="11" rx="3" fill="#000" opacity="0.8"/>
+    <text class="time" x="88" y="52" text-anchor="middle">8:31</text>
+    <rect class="line1" y="66" width="92" height="6" rx="3"/>
+    <rect class="line2" y="78" width="70" height="5" rx="2.5"/>
+  </g>
 
-  <!-- Title -->
-  <text class="title" x="202" y="75"
-        font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-        font-size="32" font-weight="700" letter-spacing="0.4">YouTube Sanitiser</text>
+  <!-- Live stream, hidden -->
+  <g transform="translate(36 128)">
+    <g class="hidden">
+      <rect width="104" height="58" rx="7" fill="#2a2a2a"/>
+      <rect class="line1" y="66" width="90" height="6" rx="3"/>
+      <rect class="line2" y="78" width="58" height="5" rx="2.5"/>
+    </g>
+    <rect x="76" y="44" width="24" height="11" rx="3" fill="#cc0000"/>
+    <text class="badge" x="88" y="52" text-anchor="middle">LIVE</text>
+    <line class="strike" x1="6" y1="52" x2="98" y2="6"/>
+  </g>
 
-  <text class="subtitle" x="203" y="103"
-        font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-        font-size="16" letter-spacing="0.2">Hide Shorts, playlists, mixes, and low-view videos</text>
+  <!-- Video -->
+  <g transform="translate(152 128)">
+    <rect width="104" height="58" rx="7" fill="url(#thumbTeal)"/>
+    <rect x="76" y="44" width="24" height="11" rx="3" fill="#000" opacity="0.8"/>
+    <text class="time" x="88" y="52" text-anchor="middle">21:47</text>
+    <rect class="line1" y="66" width="98" height="6" rx="3"/>
+    <rect class="line2" y="78" width="60" height="5" rx="2.5"/>
+  </g>
+
+  <!-- Mix, hidden -->
+  <g transform="translate(268 128)">
+    <g class="hidden">
+      <rect width="104" height="58" rx="7" fill="#2a2a2a"/>
+      <rect x="64" width="40" height="58" fill="#000" opacity="0.6" clip-path="url(#thumbClip)"/>
+      <rect class="line1" y="66" width="86" height="6" rx="3"/>
+      <rect class="line2" y="78" width="64" height="5" rx="2.5"/>
+    </g>
+    <text class="badge" x="84" y="32" text-anchor="middle">MIX</text>
+    <line class="strike" x1="6" y1="52" x2="98" y2="6"/>
+  </g>
+
+  <rect x="404" y="24" width="2" height="192" rx="1" fill="url(#divider)"/>
+
+  <text class="title" x="438" y="116">YouTube Sanitiser</text>
+  <text class="subtitle" x="440" y="152">Just the videos you came for.</text>
 </svg>

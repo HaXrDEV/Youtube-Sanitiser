@@ -1,35 +1,66 @@
-![Banner](docs/banner.svg)
+<p align="center">
+  <img src="docs/banner.svg" alt="YouTube Sanitiser" width="100%">
+</p>
 
-YouTube Sanitiser is a small Chrome extension that tidies up YouTube. It hides Shorts, playlists, mixes and, if you like, live streams and videos hardly anyone has watched, so your home page and sidebar are mostly the videos you actually came for.
+<p align="center">
+  A Chrome extension that hides Shorts, playlists, mixes, live streams<br>
+  and low-view videos from YouTube.
+</p>
 
-![Manifest V3](https://img.shields.io/badge/Manifest-V3-red)
-![Chrome](https://img.shields.io/badge/Chrome-extension-blue)
-![No build step](https://img.shields.io/badge/build-none-lightgrey)
+<p align="center">
+  <a href="manifest.json"><img src="https://img.shields.io/github/manifest-json/v/HaXrDEV/youtube-sanitiser?style=flat-square&label=version&color=ff0033" alt="Version"></a>
+  <a href="https://github.com/HaXrDEV/youtube-sanitiser/actions/workflows/checks.yml"><img src="https://img.shields.io/github/actions/workflow/status/HaXrDEV/youtube-sanitiser/checks.yml?branch=main&style=flat-square&label=tests" alt="Tests"></a>
+  <a href="https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3"><img src="https://img.shields.io/badge/Chrome-Manifest_V3-4285f4?style=flat-square&logo=googlechrome&logoColor=white" alt="Chrome Manifest V3"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square" alt="MIT license"></a>
+</p>
 
-![Screenshot](docs/screenshot.png)
+<p align="center">
+  <a href="#features">Features</a> ·
+  <a href="#install">Install</a> ·
+  <a href="#privacy">Privacy</a> ·
+  <a href="#development">Development</a>
+</p>
 
-## What it hides
+<p align="center">
+  <img src="docs/screenshot.png" alt="The YouTube Sanitiser popup" width="352">
+</p>
 
-Click the extension's icon in the toolbar and switch off whatever you don't want to see. Changes show up straight away in every open YouTube tab, and if you use Chrome sync, your settings follow you to your other computers.
+## Features
 
-- **Shorts.** The Shorts shelves on the home page and in search results, and Shorts in the sidebar next to a video.
-- **Playlists.** Playlist cards in your feed, in search results and in the sidebar. They stay put on your You page, its playlists page and a channel's Playlists tab, since that's where you'd go looking for them.
-- **Mixes.** The endless "Mix" playlists YouTube puts together for you. A mix you've saved still shows up on those same playlist pages.
-- **Live streams.** Streams that are live right now, on your home page, in search results and in the sidebar next to a video. Once a stream ends, its recording is an ordinary video and shows up again. A channel's Live tab is left alone, since that's where you'd go looking for its streams. Turn on **Exclude subscribed channels** to keep the streams of the channels you follow.
-- **Low view count.** Hides videos with fewer views than a number you choose (10,000 to start with). Turn on **Exclude subscribed channels** if you still want everything from the channels you follow, however small they are.
+| Filter | Hides | Default |
+| :--- | :--- | :---: |
+| **Shorts** | Shorts shelves on Home and in search, and Shorts in the sidebar | On |
+| **Playlists** | Playlist cards in your feed, search and the sidebar¹ | On |
+| **Mixes** | The Mix playlists YouTube generates for you¹ | On |
+| **Live streams** | Streams that are live right now. Recordings stay.² | Off |
+| **Low view count** | Videos under a minimum you choose, 10,000 by default | Off |
 
-To know who you follow, **Exclude subscribed channels** reads your subscriptions from YouTube's sidebar, briefly opening its "Show more" list. The list is never saved or sent anywhere (see the [privacy policy](privacy-policy.md)).
+<sub>¹ Still shown on the You page, your playlists and a channel's Playlists tab. ² Still shown on a channel's Live tab.</sub>
 
-Shorts, playlists and mixes are hidden from the moment you install it. The live stream and view count filters stay off until you turn them on.
+- **Instant.** Changes apply to every open YouTube tab, and settings follow you through Chrome sync.
+- **Subscriptions exempt.** *Exclude subscribed channels* keeps live streams or small videos from the channels you follow.
+- **Any language.** View counts are read in every language YouTube offers.
 
-The view count filter works in any language YouTube offers, without being told about it. It reads counts the way YouTube writes them in your language, and if YouTube uses an abbreviation your browser doesn't know, it learns it from YouTube itself. A video whose count it can't read yet is left alone.
+## Install
 
-## Installing
+1. Clone this repository, or download and unzip it.
+2. Open `chrome://extensions` and turn on **Developer mode**.
+3. Click **Load unpacked** and select the repository folder.
 
-You load it into Chrome yourself:
+## Privacy
 
-1. Clone or download this repository.
-2. Open `chrome://extensions` and switch on **Developer mode** in the top-right corner.
-3. Click **Load unpacked** and pick the repository folder.
+The extension collects nothing and sends nothing anywhere. Settings stay in Chrome's own storage. *Exclude subscribed channels* reads your subscriptions from YouTube's sidebar, briefly expanding its *Show more* list, and keeps them in memory only. See the [privacy policy](privacy-policy.md).
 
-If you change the code, click the reload button (↺) on the extension's card and refresh your YouTube tabs to see it. If you're curious how it finds and hides things, [docs/how-it-works.md](docs/how-it-works.md) walks through it.
+## Development
+
+There is no build step and nothing to install. Run the tests with:
+
+```bash
+node --test
+```
+
+After changing the code, reload the extension on `chrome://extensions` and refresh YouTube. [How it works](docs/how-it-works.md) explains how it finds and hides things.
+
+## License
+
+[MIT](LICENSE)
