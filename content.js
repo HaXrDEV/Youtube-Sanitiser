@@ -25,9 +25,7 @@ let settings = { ...DEFAULTS };
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function sanitise(el) {
-  if (el && !el.classList.contains('yt-sanitised')) {
-    el.classList.add('yt-sanitised');
-  }
+  el?.classList.add('yt-sanitised');
 }
 
 function unsanitise(el) {
@@ -46,10 +44,16 @@ function queryAll(root, selector) {
 }
 
 // A whole word meaning "views" in supported languages
-const VIEW_WORD_RE = /^(?:views?|visning(?:er|ar)?|aufrufe?|vues?|visualiza(?:ção|ções|ción|ciones)|visualizzazion[ei]|weergaven?|näyttö[äa]|katselukertaa?|wyświetle(?:ń|nia|nie)|просмотр\p{L}*|görüntüleme|tayangan)$/iu;
+const VIEW_WORD_RE = /^(?:views?|visning(?:er|ar)?|avspilling(?:er)?|aufrufe?|vues?|visualiza(?:ção|ções|ción|ciones)|visualizzazion[ei]|weergaven?|näyttö[äa]|katselukertaa?|wyświetle(?:ń|nia|nie)|просмотр\p{L}*|görüntüleme|tayangan|ditonton)$/iu;
+
+// Words that can sit between the count and the view word ("1,2 M de vues", "8 rb x ditonton")
+const VIEW_CONNECTOR_WORDS = new Set(['de', 'di', 'x']);
 
 // Zero-view phrasing, which has no number to parse
 const NO_VIEWS_RE = /^no views$/i;
+
+// A leading count, with digit groups split by . or , or by spaces ("325 350", Swedish)
+const LEADING_COUNT_RE = /^(\d(?:[\d.,]|\s(?=\d{3}(?!\d)))*)\s*(.*)/su;
 
 // Magnitude suffix multipliers across locales (keys lowercased, trailing dot stripped)
 const VIEW_SUFFIX_MULTIPLIERS = {
@@ -113,27 +117,32 @@ function parseLocaleNumber(str) {
 /**
  * Parse a YouTube view-count string in any supported language.
  * Examples: "1.2K views", "1,2 t. visninger", "1.234 Aufrufe", "1,2 M de vues"
- * The number must be followed by a view word, optionally with a known magnitude
- * suffix (and "de"/"di") in between, so titles like "100 Reviews of ..." and
- * unknown suffixes are rejected rather than guessed. Pass bare=true when the
- * caller already knows the text is a view count, to also accept it without the
- * view word ("54.947", "20 mio."). Returns a number or null.
+ * The number must be followed by a view word that ends the text, optionally
+ * with a known magnitude suffix and a connector ("de", "x") in between, so
+ * text like "100 Reviews of ..." and unknown suffixes are rejected rather than
+ * guessed. Pass bare=true when the caller already knows the text is a view
+ * count, to also accept it without the view word ("54.947", "20 mio.").
+ * Returns a number or null.
  */
 function parseViewText(text, bare = false) {
   if (NO_VIEWS_RE.test(text)) return 0;
-  const m = text.match(/^(\d[\d.,]*)\s*(.*)/su);
+  const m = text.match(LEADING_COUNT_RE);
   if (!m) return null;
-  const n = parseLocaleNumber(m[1]);
+  const n = parseLocaleNumber(m[1].replace(/\s/g, ''));
   if (isNaN(n)) return null;
-  const [first, ...rest] = m[2].toLowerCase().split(/[\s.]+/).filter(Boolean);
-  if (!first) return bare ? n : null;
-  if (VIEW_WORD_RE.test(first)) return n;
-  const multiplier = suffixMultiplier(first);
-  if (!multiplier) return null;
-  if (bare && !rest.length) return n * multiplier;
-  const viewWord = rest[0] === 'de' || rest[0] === 'di' ? rest[1] : rest[0];
-  return viewWord && VIEW_WORD_RE.test(viewWord) ? n * multiplier : null;
+  const words = m[2].toLowerCase().split(/[\s.]+/).filter(Boolean);
+  const multiplier = suffixMultiplier(words[0]);
+  if (multiplier) words.shift();
+  const count = multiplier ? n * multiplier : n;
+  if (!words.length) return bare ? count : null;
+  if (VIEW_CONNECTOR_WORDS.has(words[0])) words.shift();
+  return words.length === 1 && VIEW_WORD_RE.test(words[0]) ? count : null;
 }
+
+// Where a card keeps its view count: the metadata line under the title.
+// Titles and description snippets are left out, since they can start with a
+// number and the word "views".
+const VIEW_COUNT_SPAN_SELECTOR = '#metadata-line span, yt-content-metadata-view-model span';
 
 // Metadata slots in search results that hold only a view count or an upload age,
 // so a bare number there is the view count
@@ -152,7 +161,7 @@ function isViewCountLabel(label) {
  * Returns a number or null.
  */
 function getViewCount(el) {
-  for (const span of el.querySelectorAll('span')) {
+  for (const span of el.querySelectorAll(VIEW_COUNT_SPAN_SELECTOR)) {
     const bare = span.matches(VIEW_COUNT_SLOT_SELECTOR) || isViewCountLabel(span.getAttribute('aria-label'));
     const count = parseViewText(span.textContent.trim(), bare);
     if (count !== null) return count;
@@ -196,20 +205,26 @@ function filterShorts(root) {
     sanitise(el.closest('ytd-rich-item-renderer') || el);
   });
   queryAll(root, 'ytd-compact-video-renderer').forEach(el => {
-    if (
-      el.querySelector('[overlay-style="SHORTS"]') ||
-      el.querySelector('ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]')
-    ) sanitise(el);
+    if (el.querySelector('[overlay-style="SHORTS"]')) sanitise(el);
   });
   queryAll(root, 'ytd-reel-shelf-renderer').forEach(el => {
     sanitise(el.closest('ytd-rich-section-renderer') || el);
   });
+  // Shorts shelf in search results. Climbs from the items, which can render
+  // after the shelf itself.
+  queryAll(root, 'ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2').forEach(el => {
+    sanitise(el.closest('grid-shelf-view-model'));
+  });
 }
 
+/**
+ * Pages where you go looking for your playlists and saved mixes, so neither
+ * filter applies: the You page and its playlists page (your library), and a
+ * channel's Playlists tab (/@handle/playlists, /channel/x/playlists).
+ */
 function isPlaylistsPage() {
   const p = window.location.pathname;
-  // /feed/playlists (library) or /@handle/playlists / /channel/x/playlists (channel tab)
-  return p === '/feed/playlists' || p.endsWith('/playlists');
+  return p === '/feed/you' || p === '/feed/library' || p === '/feed/playlists' || p.endsWith('/playlists');
 }
 
 function filterPlaylists(root) {
@@ -221,6 +236,7 @@ function filterPlaylists(root) {
 }
 
 function filterMixes(root) {
+  if (isPlaylistsPage()) return;
   queryAll(root, 'ytd-radio-renderer, ytd-compact-radio-renderer').forEach(sanitise);
   filterLockups(root, 'RD');
 }
@@ -265,7 +281,10 @@ function expandGuideSubscriptions() {
   readGuideChannels();
 
   const showMore = findGuideToggle();
-  if (showMore) {
+  // A visible toggle other than "Show more" is "Show less": the user has the
+  // list open already, so it was read in full and is left open
+  const visibleToggle = findGuideToggle(true);
+  if (showMore && (!visibleToggle || visibleToggle === showMore)) {
     showMore.click();
     setTimeout(() => {
       readGuideChannels();
@@ -308,12 +327,17 @@ function getChannelPath(el) {
   return a ? a.getAttribute('href').split('?')[0] : null;
 }
 
-/** Whether a card is from a subscribed channel, by channel link or, for lockups, by name. */
+/**
+ * Whether a card is from a subscribed channel, by channel link or else by
+ * name, since lockups don't link to the channel and a card can link to it
+ * by /channel/ ID where the guide uses its handle.
+ */
 function isFromSubscribedChannel(el) {
   const channelPath = getChannelPath(el);
-  if (channelPath) return cachedSubscriptions.has(channelPath);
-  // A lockup's first metadata row is the channel name
-  const name = el.querySelector('yt-content-metadata-view-model [role="group"]')?.textContent.trim();
+  if (channelPath && cachedSubscriptions.has(channelPath)) return true;
+  // The name sits in ytd-channel-name, or in a lockup's first metadata row
+  const name = el.querySelector('ytd-channel-name #text, yt-content-metadata-view-model [role="group"]')
+    ?.textContent.trim();
   return !!name && cachedSubscriptionNames.has(name);
 }
 
@@ -394,15 +418,21 @@ const observer = new MutationObserver(mutations => {
 
 // ─── YouTube SPA navigation ───────────────────────────────────────────────────
 
-document.addEventListener('yt-navigate-finish', () => {
-  // Small delay to let YouTube render the new page content
-  setTimeout(fullRescan, 300);
-});
+let rescanTimer;
 
-// Also catch yt-page-data-updated which fires on subsequent renders
-document.addEventListener('yt-page-data-updated', () => {
-  setTimeout(fullRescan, 100);
-});
+/**
+ * Rescan once YouTube has had a moment to render the new page. Both events
+ * below fire on a navigation, so they share one timer instead of each
+ * rescanning the whole page.
+ */
+function scheduleRescan() {
+  clearTimeout(rescanTimer);
+  rescanTimer = setTimeout(fullRescan, 300);
+}
+
+document.addEventListener('yt-navigate-finish', scheduleRescan);
+// Also fires on later renders of the same page
+document.addEventListener('yt-page-data-updated', scheduleRescan);
 
 // ─── Settings: load and watch ─────────────────────────────────────────────────
 

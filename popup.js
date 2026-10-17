@@ -25,18 +25,9 @@ function getEl(id) {
 
 /** Show/hide the sub-rows that appear under "Hide low view count" */
 function updateLowViewsSubRows(show) {
-  const minViewsRow = getEl('minViewsRow');
-  const input = getEl('minViews');
-  const excludeRow = getEl('excludeSubscribedRow');
-  if (show) {
-    minViewsRow.classList.remove('hidden');
-    excludeRow.classList.remove('hidden');
-    input.disabled = false;
-  } else {
-    minViewsRow.classList.add('hidden');
-    excludeRow.classList.add('hidden');
-    input.disabled = true;
-  }
+  getEl('minViewsRow').classList.toggle('hidden', !show);
+  getEl('excludeSubscribedRow').classList.toggle('hidden', !show);
+  getEl('minViews').disabled = !show;
 }
 
 // ─── Populate UI from settings ────────────────────────────────────────────────

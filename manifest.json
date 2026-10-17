@@ -4,10 +4,9 @@
   "version": "0.1.0",
   "description": "Hide Shorts, playlists, mixes, and low-view-count videos from YouTube.",
   "permissions": ["storage"],
-  "host_permissions": ["*://*.youtube.com/*"],
   "content_scripts": [
     {
-      "matches": ["*://*.youtube.com/*"],
+      "matches": ["https://www.youtube.com/*"],
       "js": ["defaults.js", "content.js"],
       "run_at": "document_idle"
     }

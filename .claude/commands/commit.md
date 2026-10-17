@@ -12,16 +12,16 @@ Format:
 ```
 
 ### Types (always lowercase)
-- `feat` — new feature (SemVer MINOR)
-- `fix` — bug fix (SemVer PATCH)
-- `refactor` — code change that is neither a fix nor a feature
-- `docs` — documentation only
-- `style` — formatting/whitespace, no logic change
-- `perf` — performance improvement
-- `test` — adding or fixing tests
-- `build` — build system or dependency changes
-- `ci` — CI configuration changes
-- `chore` — other maintenance
+- `feat`: new feature (SemVer MINOR)
+- `fix`: bug fix (SemVer PATCH)
+- `refactor`: code change that is neither a fix nor a feature
+- `docs`: documentation only
+- `style`: formatting/whitespace, no logic change
+- `perf`: performance improvement
+- `test`: adding or fixing tests
+- `build`: build system or dependency changes
+- `ci`: CI configuration changes
+- `chore`: other maintenance
 
 ### Rules
 - Type is **always lowercase**
