@@ -26,9 +26,7 @@ header {
 }
 
 .logo {
-  color: #ff0000;
-  font-size: 18px;
-  line-height: 1;
+  display: block;
 }
 
 h1 {
@@ -64,11 +62,40 @@ main {
   cursor: pointer;
 }
 
-/* ── Sub-row (min views input) ────────────────────────────────────────────── */
+/* ── Options ──────────────────────────────────────────────────────────────── */
 
-.sub-row {
-  padding-top: 6px;
-  padding-bottom: 10px;
+/* While a filter is on, it becomes a panel holding it and its options, inset
+   so its labels and toggles line up with the other filters'. Off, it's a
+   plain row like the rest. The panel follows its options showing, which
+   popup.js sets, so the two never disagree. */
+.group:has(.sub-row:not(.hidden)) {
+  margin: 4px 8px;
+  background: #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.group:has(.sub-row:not(.hidden)) .filter-row {
+  padding: 9px 8px;
+}
+
+.group:has(.sub-row:not(.hidden)) .filter-row:hover {
+  background: #333333;
+}
+
+/* The options hide once none of their rows show, so popup.js only has to
+   hide the rows */
+.options {
+  border-top: 1px solid #383838;
+  padding: 2px 0;
+}
+
+.options:not(:has(.sub-row:not(.hidden))) {
+  display: none;
+}
+
+.group .sub-row {
+  padding: 7px 8px;
 }
 
 .sub-label {
@@ -102,14 +129,6 @@ main {
 .views-input:disabled {
   opacity: 0.4;
   cursor: not-allowed;
-}
-
-/* ── Divider ──────────────────────────────────────────────────────────────── */
-
-.divider {
-  height: 1px;
-  background: #383838;
-  margin: 4px 0;
 }
 
 /* ── Toggle switch ────────────────────────────────────────────────────────── */
@@ -161,4 +180,35 @@ main {
 .toggle input:focus-visible + .slider {
   outline: 2px solid #ff0000;
   outline-offset: 2px;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid #383838;
+  font-size: 12px;
+  color: #aaaaaa;
+}
+
+/* A long branch name is cut short, and the commit can be selected to copy it */
+#build {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  user-select: text;
+}
+
+footer a {
+  color: #3ea6ff;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }

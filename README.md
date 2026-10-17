@@ -38,7 +38,7 @@
 <sub>¹ Still shown on the You page, your playlists and a channel's Playlists tab. ² Still shown on a channel's Live tab.</sub>
 
 - **Instant.** Changes apply to every open YouTube tab, and settings follow you through Chrome sync.
-- **Subscriptions exempt.** *Exclude subscribed channels* keeps live streams or small videos from the channels you follow.
+- **Subscriptions exempt.** *Keep subscribed channels* still shows live streams and small videos from the channels you follow.
 - **Any language.** View counts are read in every language YouTube offers.
 
 ## Install
@@ -49,7 +49,7 @@
 
 ## Privacy
 
-The extension collects nothing and sends nothing anywhere. Settings stay in Chrome's own storage. *Exclude subscribed channels* reads your subscriptions from YouTube's sidebar, briefly expanding its *Show more* list, and keeps them in memory only. See the [privacy policy](privacy-policy.md).
+The extension collects nothing and sends nothing anywhere. Settings stay in Chrome's own storage. *Keep subscribed channels* reads your subscriptions from YouTube's sidebar, briefly expanding its *Show more* list, and keeps them in memory only. See the [privacy policy](privacy-policy.md).
 
 ## Development
 

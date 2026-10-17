@@ -1,6 +1,7 @@
 /**
  * YouTube Sanitiser: popup script
- * Loads settings from chrome.storage.sync and saves on every change.
+ * Loads settings from chrome.storage.sync and saves on every change, and
+ * names the build in the footer.
  * DEFAULTS comes from defaults.js, which popup.html loads first.
  */
 
@@ -68,9 +69,45 @@ function save() {
   updateSubRows(s);
 }
 
+// ─── Build name ───────────────────────────────────────────────────────────────
+
+/** A file from the extension's own folder, or null if it isn't there. */
+async function readOwnFile(path) {
+  try {
+    const response = await fetch(chrome.runtime.getURL(path));
+    return response.ok ? (await response.text()).trim() : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * What the footer calls this copy of the extension. Loaded from a git clone,
+ * that's the branch and commit, read from .git each time the popup opens.
+ * A release has no .git folder, so it gets the manifest's version, which
+ * its tag matches.
+ */
+async function buildName() {
+  const head = await readOwnFile('.git/HEAD');
+  const ref = head?.match(/^ref: (refs\/heads\/(.+))$/);
+  if (ref) {
+    const [, refPath, branch] = ref;
+    // A branch is a file of its own, or a line in packed-refs once git packs it
+    const commit = await readOwnFile(`.git/${refPath}`) ??
+      (await readOwnFile('.git/packed-refs'))?.split(/\r?\n/)
+        .find(line => line.endsWith(` ${refPath}`))?.split(' ')[0];
+    return commit ? `${branch} · ${commit.slice(0, 7)}` : branch;
+  }
+  // A detached HEAD holds the commit itself
+  if (/^[0-9a-f]{40}/.test(head ?? '')) return head.slice(0, 7);
+  return `v${chrome.runtime.getManifest().version}`;
+}
+
 // ─── Initialise ───────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
+  buildName().then(name => { getEl('build').textContent = name; });
+
   // Load stored settings, fall back to defaults. Controls are only wired up
   // once the UI holds the stored values, because save() writes the whole UI.
   chrome.storage.sync.get(DEFAULTS, stored => {

@@ -41,7 +41,7 @@ A count the script can't read for certain is skipped, and that video stays visib
 
 ## Subscribed channels
 
-The live stream and view count filters each have an **Exclude subscribed channels** option, which needs to know who you're subscribed to. The script reads the channel list from YouTube's sidebar, briefly opening its "Show more" list so the whole list is there, then closes it again. If you already have the list open, it reads it as it is and leaves it open. It does this only while one of the options is on, along with its filter, and keeps the list in memory for as long as the page is open.
+The live stream and view count filters each have a **Keep subscribed channels** option, which needs to know who you're subscribed to. The script reads the channel list from YouTube's sidebar, briefly opening its "Show more" list so the whole list is there, then closes it again. If you already have the list open, it reads it as it is and leaves it open. It does this only while one of the options is on, along with its filter, and keeps the list in memory for as long as the page is open.
 
 A card is matched to a channel by its channel link or, failing that, by the channel name. Lockup cards don't link to the channel at all, and other cards sometimes link to it by its `/channel/` ID where the sidebar uses its handle.
 

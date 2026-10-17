@@ -27,7 +27,10 @@ function extensionFiles() {
   const popup = manifest.action?.default_popup;
   if (popup) {
     files.add(popup);
-    for (const [, file] of read(popup).matchAll(/\b(?:src|href)="([^"]+)"/g)) files.add(file);
+    for (const [, file] of read(popup).matchAll(/\b(?:src|href)="([^"]+)"/g)) {
+      // Links to web pages aren't files the extension ships
+      if (!/^[a-z][a-z\d+.-]*:/i.test(file)) files.add(file);
+    }
   }
   return [...files];
 }

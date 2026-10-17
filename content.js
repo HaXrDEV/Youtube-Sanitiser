@@ -256,7 +256,7 @@ let guideWatched = false;
  * Wait for the guide sidebar to render subscription entries, then expand
  * and read them. The guide loads asynchronously after the page content,
  * so we observe the DOM rather than relying on a fixed point in time.
- * Only runs once, and only when "Exclude subscribed channels" is in use,
+ * Only runs once, and only when "Keep subscribed channels" is in use,
  * since it clicks entries in the user's sidebar.
  */
 function watchForGuide() {
@@ -421,7 +421,7 @@ document.addEventListener('yt-page-data-updated', scheduleRescan);
 
 // ─── Settings: load and watch ─────────────────────────────────────────────────
 
-/** Whether a filter is on with "Exclude subscribed channels" set, so subscriptions are needed. */
+/** Whether a filter is on with "Keep subscribed channels" set, so subscriptions are needed. */
 function excludingSubscribed() {
   return (settings.hideLiveStreams && settings.excludeSubscribedLive) ||
     (settings.hideLowViews && settings.excludeSubscribed);
