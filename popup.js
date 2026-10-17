@@ -23,35 +23,40 @@ function getEl(id) {
   return document.getElementById(id);
 }
 
-/** Show/hide the sub-rows that appear under "Hide low view count" */
-function updateLowViewsSubRows(show) {
-  getEl('minViewsRow').classList.toggle('hidden', !show);
-  getEl('excludeSubscribedRow').classList.toggle('hidden', !show);
-  getEl('minViews').disabled = !show;
+/** Show/hide the sub-rows under "Hide live streams" and "Hide low view count" */
+function updateSubRows(s) {
+  getEl('excludeSubscribedLiveRow').classList.toggle('hidden', !s.hideLiveStreams);
+  getEl('minViewsRow').classList.toggle('hidden', !s.hideLowViews);
+  getEl('excludeSubscribedRow').classList.toggle('hidden', !s.hideLowViews);
+  getEl('minViews').disabled = !s.hideLowViews;
 }
 
 // ─── Populate UI from settings ────────────────────────────────────────────────
 
 function applyToUI(s) {
-  getEl('hideShorts').checked        = !!s.hideShorts;
-  getEl('hidePlaylists').checked     = !!s.hidePlaylists;
-  getEl('hideMixes').checked         = !!s.hideMixes;
-  getEl('hideLowViews').checked      = !!s.hideLowViews;
-  getEl('minViews').value            = formatNumber(s.minViews ?? DEFAULTS.minViews);
-  getEl('excludeSubscribed').checked = !!s.excludeSubscribed;
-  updateLowViewsSubRows(!!s.hideLowViews);
+  getEl('hideShorts').checked            = !!s.hideShorts;
+  getEl('hidePlaylists').checked         = !!s.hidePlaylists;
+  getEl('hideMixes').checked             = !!s.hideMixes;
+  getEl('hideLiveStreams').checked       = !!s.hideLiveStreams;
+  getEl('excludeSubscribedLive').checked = !!s.excludeSubscribedLive;
+  getEl('hideLowViews').checked          = !!s.hideLowViews;
+  getEl('minViews').value                = formatNumber(s.minViews ?? DEFAULTS.minViews);
+  getEl('excludeSubscribed').checked     = !!s.excludeSubscribed;
+  updateSubRows(s);
 }
 
 // ─── Read current UI state into a settings object ────────────────────────────
 
 function readFromUI() {
   return {
-    hideShorts:        getEl('hideShorts').checked,
-    hidePlaylists:     getEl('hidePlaylists').checked,
-    hideMixes:         getEl('hideMixes').checked,
-    hideLowViews:      getEl('hideLowViews').checked,
-    minViews:          parseNumber(getEl('minViews').value),
-    excludeSubscribed: getEl('excludeSubscribed').checked,
+    hideShorts:            getEl('hideShorts').checked,
+    hidePlaylists:         getEl('hidePlaylists').checked,
+    hideMixes:             getEl('hideMixes').checked,
+    hideLiveStreams:       getEl('hideLiveStreams').checked,
+    excludeSubscribedLive: getEl('excludeSubscribedLive').checked,
+    hideLowViews:          getEl('hideLowViews').checked,
+    minViews:              parseNumber(getEl('minViews').value),
+    excludeSubscribed:     getEl('excludeSubscribed').checked,
   };
 }
 
@@ -60,7 +65,7 @@ function readFromUI() {
 function save() {
   const s = readFromUI();
   chrome.storage.sync.set(s);
-  updateLowViewsSubRows(s.hideLowViews);
+  updateSubRows(s);
 }
 
 // ─── Initialise ───────────────────────────────────────────────────────────────
@@ -76,7 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function wireUpControls() {
   // Wire up all checkboxes to auto-save
-  ['hideShorts', 'hidePlaylists', 'hideMixes', 'hideLowViews', 'excludeSubscribed'].forEach(id => {
+  ['hideShorts', 'hidePlaylists', 'hideMixes', 'hideLiveStreams', 'excludeSubscribedLive',
+   'hideLowViews', 'excludeSubscribed'].forEach(id => {
     getEl(id).addEventListener('change', save);
   });
 

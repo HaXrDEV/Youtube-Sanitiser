@@ -4,10 +4,12 @@
  */
 
 const DEFAULTS = {
-  hideShorts:        true,
-  hidePlaylists:     true,
-  hideMixes:         true,
-  hideLowViews:      false,
-  minViews:          10000,
-  excludeSubscribed: false,
+  hideShorts:            true,
+  hidePlaylists:         true,
+  hideMixes:             true,
+  hideLiveStreams:       false,
+  excludeSubscribedLive: false,
+  hideLowViews:          false,
+  minViews:              10000,
+  excludeSubscribed:     false,
 };

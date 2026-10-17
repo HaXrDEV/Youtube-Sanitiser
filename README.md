@@ -1,6 +1,6 @@
 ![Banner](docs/banner.svg)
 
-YouTube Sanitiser is a small Chrome extension that tidies up YouTube. It hides Shorts, playlists, mixes and, if you like, videos hardly anyone has watched, so your home page and sidebar are mostly the videos you actually came for.
+YouTube Sanitiser is a small Chrome extension that tidies up YouTube. It hides Shorts, playlists, mixes and, if you like, live streams and videos hardly anyone has watched, so your home page and sidebar are mostly the videos you actually came for.
 
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-red)
 ![Chrome](https://img.shields.io/badge/Chrome-extension-blue)
@@ -15,9 +15,12 @@ Click the extension's icon in the toolbar and switch off whatever you don't want
 - **Shorts.** The Shorts shelves on the home page and in search results, and Shorts in the sidebar next to a video.
 - **Playlists.** Playlist cards in your feed, in search results and in the sidebar. They stay put on your You page, its playlists page and a channel's Playlists tab, since that's where you'd go looking for them.
 - **Mixes.** The endless "Mix" playlists YouTube puts together for you. A mix you've saved still shows up on those same playlist pages.
-- **Low view count.** Hides videos with fewer views than a number you choose (10,000 to start with). Turn on **Exclude subscribed channels** if you still want everything from the channels you follow, however small they are. To know who you follow, it reads your subscriptions from YouTube's sidebar, briefly opening its "Show more" list. The list is never saved or sent anywhere (see the [privacy policy](privacy-policy.md)).
+- **Live streams.** Streams that are live right now, on your home page, in search results and in the sidebar next to a video. Once a stream ends, its recording is an ordinary video and shows up again. A channel's Live tab is left alone, since that's where you'd go looking for its streams. Turn on **Exclude subscribed channels** to keep the streams of the channels you follow.
+- **Low view count.** Hides videos with fewer views than a number you choose (10,000 to start with). Turn on **Exclude subscribed channels** if you still want everything from the channels you follow, however small they are.
 
-Shorts, playlists and mixes are hidden from the moment you install it. The view count filter stays off until you turn it on.
+To know who you follow, **Exclude subscribed channels** reads your subscriptions from YouTube's sidebar, briefly opening its "Show more" list. The list is never saved or sent anywhere (see the [privacy policy](privacy-policy.md)).
+
+Shorts, playlists and mixes are hidden from the moment you install it. The live stream and view count filters stay off until you turn them on.
 
 The view count filter works in any language YouTube offers, without being told about it. It reads counts the way YouTube writes them in your language, and if YouTube uses an abbreviation your browser doesn't know, it learns it from YouTube itself. A video whose count it can't read yet is left alone.
 
