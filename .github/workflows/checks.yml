@@ -24,3 +24,10 @@ jobs:
 
       - name: Run tests
         run: node --test
+
+      # Lints the ZIP a release would ship, for anything Firefox or
+      # addons.mozilla.org would reject
+      - name: Lint for Firefox
+        run: |
+          sh .github/build-zip.sh
+          npx --yes addons-linter@10.13.0 youtube-sanitiser.zip

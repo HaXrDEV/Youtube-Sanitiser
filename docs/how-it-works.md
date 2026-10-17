@@ -1,6 +1,6 @@
 # How it works
 
-YouTube Sanitiser has no build step and no background script. The manifest loads three content scripts on YouTube pages, `defaults.js` (the default settings), `view-count.js` (reading view counts) and `content.js` (everything else), and the popup reads and writes the settings.
+YouTube Sanitiser has no build step and no background script. The manifest loads three content scripts on YouTube pages, `defaults.js` (the default settings), `view-count.js` (reading view counts) and `content.js` (everything else), and the popup reads and writes the settings. Chrome and Firefox load the same files. Chrome ignores the manifest's Firefox-only `browser_specific_settings` block, and Firefox supports the `chrome.*` APIs the scripts call.
 
 ## Hiding things
 
@@ -33,7 +33,7 @@ That text has to be a number with at most one word next to it, like `12.941`, `1
 
 The word next to the number says how big it is. The script looks it up in two places:
 
-- **The browser's own number formatting.** Chrome knows how each language abbreviates numbers (`1.2K`, `1,2 mio.`, `1.2万`, `12 लाख`), so the script asks it to abbreviate some sample numbers in the page's language and notes the words it uses.
+- **The browser's own number formatting.** The browser knows how each language abbreviates numbers (`1.2K`, `1,2 mio.`, `1.2万`, `12 लाख`), so the script asks it to abbreviate some sample numbers in the page's language and notes the words it uses. Chrome and Firefox don't always know the same words.
 - **Words learned on YouTube.** When YouTube uses a word the browser doesn't have, the script learns it from YouTube itself. A video page shows its own count both short, under the title (`1,1 mio. visninger`), and in full, in the tooltip next to it (`1.141.413 visninger`), and comparing the two gives the word and its size. A card's accessibility label helps too, since it spells the count out (`9,9 mil visualizaciones` for `9,9 K`).
 
 A count the script can't read for certain is skipped, and that video stays visible.
@@ -48,14 +48,14 @@ A card is matched to a channel by its channel link or, failing that, by the chan
 
 ## Settings
 
-Settings live in `chrome.storage.sync`, so Chrome syncs them across your computers if sync is on. The popup saves each change straight away, and the content script listens for `chrome.storage.onChanged`, so a toggle takes effect in every open YouTube tab without a reload. The content script starts filtering only once it has loaded your settings, so nothing stays hidden by a filter you've turned off.
+Settings live in `chrome.storage.sync`, so Chrome sync or Firefox Sync takes them across your computers if it's on. The popup saves each change straight away, and the content script listens for `chrome.storage.onChanged`, so a toggle takes effect in every open YouTube tab without a reload. The content script starts filtering only once it has loaded your settings, so nothing stays hidden by a filter you've turned off.
 
 Magnitude words learned on YouTube are kept per language in `chrome.storage.local`, on this computer only, and every open YouTube tab picks up what another one learns.
 
 ## Tests
 
-`node --test` runs the tests, with nothing to install. `tests/view-count.test.js` checks the view count reading against examples of how YouTube writes counts in each of its languages, `tests/popup.test.js` checks that every setting has a control in the popup that shows it and saves it, and `tests/package.test.js` checks that every script parses and that the release zip holds every file the extension loads.
+`node --test` runs the tests, with nothing to install. `tests/view-count.test.js` checks the view count reading against examples of how YouTube writes counts in each of its languages, `tests/popup.test.js` checks that every setting has a control in the popup that shows it and saves it, and `tests/package.test.js` checks that every script parses, that the release zip holds every file the extension loads, and that the manifest keeps what Firefox needs.
 
-GitHub runs them on every pull request and every push to `main` (`.github/workflows/checks.yml`), and the release workflow runs them again before it builds and publishes anything.
+GitHub runs them on every pull request and every push to `main` (`.github/workflows/checks.yml`), and the release workflow runs them again before it builds and publishes anything. Both workflows also build the release zip with `.github/build-zip.sh` and run Mozilla's `addons-linter` on it, which catches what Firefox or addons.mozilla.org would reject.
 
 The examples in `tests/fixtures/view-counts.json` come from YouTube itself. When YouTube changes how it writes counts, refresh them with `node tests/capture-fixtures.js`. That one asks YouTube for real pages, so it's left out of the checks.

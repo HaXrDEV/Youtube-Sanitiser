@@ -51,18 +51,11 @@ jobs:
         run: node --test
 
       - name: Build extension ZIP
-        run: |
-          zip -r youtube-sanitiser.zip \
-            manifest.json \
-            defaults.js \
-            view-count.js \
-            content.js \
-            popup.html \
-            popup.css \
-            popup.js \
-            icons/icon16.png \
-            icons/icon48.png \
-            icons/icon128.png
+        run: sh .github/build-zip.sh
+
+      # The same lint as checks.yml
+      - name: Lint for Firefox
+        run: npx --yes addons-linter@10.13.0 youtube-sanitiser.zip
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
