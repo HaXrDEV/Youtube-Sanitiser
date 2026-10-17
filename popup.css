@@ -10,7 +10,7 @@ body {
   width: 280px;
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 14px;
-  background: #212121;
+  background: #0f0f0f; /* YouTube's dark mode background */
   color: #e0e0e0;
   user-select: none;
 }
@@ -62,26 +62,24 @@ main {
   cursor: pointer;
 }
 
-/* ── Options ──────────────────────────────────────────────────────────────── */
+/* ── Cards ────────────────────────────────────────────────────────────────── */
 
-/* While a filter is on, it becomes a panel holding it and its options, inset
-   so its labels and toggles line up with the other filters'. Off, it's a
-   plain row like the rest. The panel follows its options showing, which
-   popup.js sets, so the two never disagree. */
-.group:has(.sub-row:not(.hidden)) {
+/* Each setting is a card. A filter with options is one card holding it and
+   its options, which show while the filter is on. */
+main > .filter-row,
+.group {
   margin: 4px 8px;
-  background: #2a2a2a;
+  background: #212121;
   border-radius: 8px;
   overflow: hidden;
 }
 
-.group:has(.sub-row:not(.hidden)) .filter-row {
+main > .filter-row,
+.group .filter-row {
   padding: 9px 8px;
 }
 
-.group:has(.sub-row:not(.hidden)) .filter-row:hover {
-  background: #333333;
-}
+/* ── Options ──────────────────────────────────────────────────────────────── */
 
 /* The options hide once none of their rows show, so popup.js only has to
    hide the rows */
