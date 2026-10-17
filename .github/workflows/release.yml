@@ -29,6 +29,7 @@ jobs:
           zip -r youtube-sanitiser.zip \
             manifest.json \
             defaults.js \
+            view-count.js \
             content.js \
             popup.html \
             popup.css \

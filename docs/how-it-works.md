@@ -1,6 +1,6 @@
 # How it works
 
-YouTube Sanitiser has no build step and no background script. The manifest loads two content scripts on YouTube pages, `defaults.js` (the default settings) and `content.js` (everything else), and the popup reads and writes the settings.
+YouTube Sanitiser has no build step and no background script. The manifest loads three content scripts on YouTube pages, `defaults.js` (the default settings), `view-count.js` (reading view counts) and `content.js` (everything else), and the popup reads and writes the settings.
 
 ## Hiding things
 
@@ -25,13 +25,18 @@ A card is always checked from scratch, not just added to, because YouTube reuses
 
 Video cards come in a few shapes: the older `ytd-rich-item-renderer`, `ytd-video-renderer` and `ytd-compact-video-renderer`, and the newer `yt-lockup-view-model`, which sits inside a rich item on the home page and stands on its own in the watch page sidebar.
 
-The view count is found in the card's metadata line, the small text under the title. The title and description are left out, since a title like "100 views in 24 hours" would otherwise read as a view count. A piece of metadata counts as a view count when:
+The script knows no language, so it never looks for the word "views". It finds the count by where it sits instead. On a lockup card, it's the metadata text right after the small ▷ icon. On the other cards, it's the first item of the metadata line under the title.
 
-- it reads like one, a number followed by the word for "views" and nothing after it (`1.2K views`, `1,2 mio. visninger`, `8 rb x ditonton`), or
-- its accessibility label reads like one. Many languages now show only the number on screen, so Danish shows `54.947` while the label says "54.947 visninger", or
-- it's in the slot of a search result that only ever holds the view count or the upload date.
+That text has to be a number with at most one word next to it, like `12.941`, `1,2 mio.` or `114万`. Anything else, like `38 watching` or an upload date, is left alone. The number is read without knowing the language's conventions. View counts are whole numbers, so in `12.941`, `12 941` or `12,34,567` every separator just groups digits, while in an abbreviated count like `1,2 mio.` a separator before one or two digits is the decimal point. Digits in other scripts, like Arabic `١٢` or Devanagari `१२`, are read too.
 
-The number is then read with the locale's separators (`1.234`, `1,234` and Swedish `1 234` all mean 1234) and its short magnitude suffix: `K`, `M` and `B` in English, `t.` and `mio.` in Danish, `тыс.` and `млн` in Russian, and so on for each supported language. The few suffixes that mean different things in different languages, like Turkish `B` (thousand, not billion), are picked by the page's language. A count the script can't read with confidence is skipped, and that video stays visible.
+The word next to the number says how big it is. The script looks it up in two places:
+
+- **The browser's own number formatting.** Chrome knows how each language abbreviates numbers (`1.2K`, `1,2 mio.`, `1.2万`, `12 लाख`), so the script asks it to abbreviate some sample numbers in the page's language and notes the words it uses.
+- **Words learned on YouTube.** When YouTube uses a word the browser doesn't have, the script learns it from YouTube itself. A video page shows its own count both short, under the title (`1,1 mio. visninger`), and in full, in the tooltip next to it (`1.141.413 visninger`), and comparing the two gives the word and its size. A card's accessibility label helps too, since it spells the count out (`9,9 mil visualizaciones` for `9,9 K`).
+
+A count the script can't read for certain is skipped, and that video stays visible.
+
+`tests/view-count.test.js` checks all this against how YouTube writes counts in each of its languages. Run it with `node --test`, and refresh its examples with `node tests/capture-fixtures.js`.
 
 ## Subscribed channels
 
@@ -42,3 +47,5 @@ A card is matched to a channel by its channel link or, failing that, by the chan
 ## Settings
 
 Settings live in `chrome.storage.sync`, so Chrome syncs them across your computers if sync is on. The popup saves each change straight away, and the content script listens for `chrome.storage.onChanged`, so a toggle takes effect in every open YouTube tab without a reload. The content script starts filtering only once it has loaded your settings, so nothing stays hidden by a filter you've turned off.
+
+Magnitude words learned on YouTube are kept per language in `chrome.storage.local`, on this computer only, and every open YouTube tab picks up what another one learns.
