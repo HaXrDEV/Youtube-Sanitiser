@@ -24,6 +24,14 @@ jobs:
             exit 1
           fi
 
+      # The same tests as checks.yml, so a release never ships what they'd catch
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 26.7.0
+
+      - name: Run tests
+        run: node --test
+
       - name: Build extension ZIP
         run: |
           zip -r youtube-sanitiser.zip \
