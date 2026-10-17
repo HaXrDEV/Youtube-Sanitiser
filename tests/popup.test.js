@@ -1,0 +1,89 @@
+/**
+ * YouTube Sanitiser: popup tests
+ * Run with `node --test` from the repository folder. Loads popup.js against a
+ * stand-in for popup.html that holds just its elements with an id, and checks
+ * that every setting has a control that shows it, saves it, and saves when
+ * it changes.
+ */
+
+const test = require('node:test');
+const assert = require('node:assert');
+const fs = require('fs');
+const path = require('path');
+const vm = require('vm');
+
+const root = path.join(__dirname, '..');
+const read = file => fs.readFileSync(path.join(root, file), 'utf8');
+
+/** A stand-in for each element in popup.html that has an id, keyed by it. */
+function popupElements() {
+  const elements = {};
+  for (const [, id] of read('popup.html').matchAll(/\bid="([^"]+)"/g)) {
+    const classes = new Set();
+    elements[id] = {
+      checked: false,
+      value: '',
+      disabled: false,
+      events: [],
+      classList: {
+        toggle: (name, on) => (on ? classes.add(name) : classes.delete(name)),
+        contains: name => classes.has(name),
+      },
+      addEventListener(type) { this.events.push(type); },
+    };
+  }
+  return elements;
+}
+
+/** popup.js, loaded the way popup.html loads it, after defaults.js. */
+function loadPopup() {
+  const elements = popupElements();
+  const popup = vm.createContext({
+    // An id popup.html doesn't have gives null, as in the browser
+    document: { getElementById: id => elements[id] ?? null, addEventListener() {} },
+    chrome: { storage: { sync: { get() {}, set() {} } } },
+  });
+  for (const file of ['defaults.js', 'popup.js']) vm.runInContext(read(file), popup, { filename: file });
+  // DEFAULTS is a const, so it isn't a property of the context
+  const defaults = vm.runInContext('DEFAULTS', popup);
+  return { popup, elements, defaults };
+}
+
+// Results come from another realm, so compare them as plain values
+const plain = value => JSON.parse(JSON.stringify(value));
+
+test('every setting shows in the popup and saves as it was', () => {
+  const { popup, defaults } = loadPopup();
+  // The defaults, and every setting changed from its default
+  const changed = Object.fromEntries(Object.entries(defaults).map(([key, value]) =>
+    [key, typeof value === 'boolean' ? !value : value * 2 + 1]));
+  for (const settings of [defaults, changed]) {
+    popup.applyToUI(settings);
+    assert.deepStrictEqual(plain(popup.readFromUI()), plain(settings));
+  }
+});
+
+test('every setting saves when its control changes', () => {
+  const { popup, elements, defaults } = loadPopup();
+  popup.wireUpControls();
+  for (const [key, value] of Object.entries(defaults)) {
+    // A checkbox saves on change, the minimum views box once you leave it
+    assert.ok(elements[key].events.includes(typeof value === 'boolean' ? 'change' : 'blur'), key);
+  }
+});
+
+test('a filter\'s options show only while it\'s on', () => {
+  const { popup, elements, defaults } = loadPopup();
+  const rowsFor = {
+    hideLiveStreams: ['excludeSubscribedLiveRow'],
+    hideLowViews: ['minViewsRow', 'excludeSubscribedRow'],
+  };
+  for (const on of Object.keys(rowsFor)) {
+    popup.applyToUI({ ...defaults, hideLiveStreams: false, hideLowViews: false, [on]: true });
+    for (const [filter, rows] of Object.entries(rowsFor)) {
+      for (const row of rows) {
+        assert.strictEqual(elements[row].classList.contains('hidden'), filter !== on, `${row} with ${on} on`);
+      }
+    }
+  }
+});

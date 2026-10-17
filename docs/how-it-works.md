@@ -10,6 +10,7 @@ What gets hidden depends on the filter:
 
 - **Shorts:** the Shorts shelves on the home page and in search (a shelf in search is recognised by the Shorts cards inside it), and sidebar videos marked as Shorts.
 - **Playlists and mixes:** the older playlist and mix renderers, plus cards in YouTube's newer "lockup" layout whose content ID starts with `PL` (playlist) or `RD` (mix). Video IDs are always 11 characters long, so a plain video whose ID happens to start with those letters isn't mistaken for one. Neither is hidden on the You page (`/feed/you`), `/feed/playlists` or a channel's Playlists tab, where your own playlists and saved mixes live.
+- **Live streams:** any video card with a LIVE badge, which YouTube puts on a lockup's thumbnail, in a search result's metadata, or as an overlay on an older card's thumbnail. The badge is found by its style, not its text, so it works in any language. A past stream shows its length there instead, so its recording stays. Nothing is hidden on a channel's Live tab (`/streams`), where you'd go looking for its streams.
 - **Low view count:** any video card whose view count is below your minimum.
 
 ## Keeping up with YouTube
@@ -40,7 +41,7 @@ A count the script can't read for certain is skipped, and that video stays visib
 
 ## Subscribed channels
 
-**Exclude subscribed channels** needs to know who you're subscribed to. The script reads the channel list from YouTube's sidebar, briefly opening its "Show more" list so the whole list is there, then closes it again. If you already have the list open, it reads it as it is and leaves it open. It does this only while the option is on, and keeps the list in memory for as long as the page is open.
+The live stream and view count filters each have an **Exclude subscribed channels** option, which needs to know who you're subscribed to. The script reads the channel list from YouTube's sidebar, briefly opening its "Show more" list so the whole list is there, then closes it again. If you already have the list open, it reads it as it is and leaves it open. It does this only while one of the options is on, along with its filter, and keeps the list in memory for as long as the page is open.
 
 A card is matched to a channel by its channel link or, failing that, by the channel name. Lockup cards don't link to the channel at all, and other cards sometimes link to it by its `/channel/` ID where the sidebar uses its handle.
 
@@ -52,7 +53,7 @@ Magnitude words learned on YouTube are kept per language in `chrome.storage.loca
 
 ## Tests
 
-`node --test` runs the tests, with nothing to install. `tests/view-count.test.js` checks the view count reading against examples of how YouTube writes counts in each of its languages, and `tests/package.test.js` checks that every script parses and that the release zip holds every file the extension loads.
+`node --test` runs the tests, with nothing to install. `tests/view-count.test.js` checks the view count reading against examples of how YouTube writes counts in each of its languages, `tests/popup.test.js` checks that every setting has a control in the popup that shows it and saves it, and `tests/package.test.js` checks that every script parses and that the release zip holds every file the extension loads.
 
 GitHub runs them on every pull request and every push to `main` (`.github/workflows/checks.yml`), and the release workflow runs them again before it builds and publishes anything.
 

@@ -1,6 +1,6 @@
 /**
  * YouTube Sanitiser: content script
- * Runs on every youtube.com page. Hides Shorts, playlists, mixes,
+ * Runs on every youtube.com page. Hides Shorts, playlists, mixes, live streams
  * and low-view-count videos based on settings stored in chrome.storage.sync.
  * DEFAULTS comes from defaults.js and view count reading from view-count.js,
  * which the manifest loads first.
@@ -242,10 +242,10 @@ function expandGuideSubscriptions() {
     showMore.click();
     setTimeout(() => {
       readGuideChannels();
-      if (settings.excludeSubscribed && cachedSubscriptions.size !== before) fullRescan();
+      if (excludingSubscribed() && cachedSubscriptions.size !== before) fullRescan();
       findGuideToggle(true)?.click(); // collapse back ("Show less")
     }, 400);
-  } else if (settings.excludeSubscribed && cachedSubscriptions.size !== before) {
+  } else if (excludingSubscribed() && cachedSubscriptions.size !== before) {
     fullRescan();
   }
 }
@@ -295,6 +295,29 @@ function isFromSubscribedChannel(el) {
   return !!name && cachedSubscriptionNames.has(name);
 }
 
+/**
+ * A channel's Live tab (/@handle/streams, /channel/x/streams), where you go
+ * looking for its streams, so the live streams filter doesn't apply there.
+ */
+function isStreamsPage() {
+  return window.location.pathname.endsWith('/streams');
+}
+
+// The LIVE badge on a stream that's live now: on a lockup's thumbnail, in a
+// search result's metadata, or as an older card's thumbnail overlay. A past
+// stream has none, so it's left alone.
+const LIVE_BADGE_SELECTOR = '.ytBadgeShapeThumbnailLive, .ytBadgeShapeLive, [overlay-style="LIVE"]';
+
+function filterLiveStreams(root) {
+  if (isStreamsPage()) return;
+  queryAll(root, LIVE_BADGE_SELECTOR).forEach(el => {
+    const card = cardFor(el);
+    if (!card) return;
+    if (settings.excludeSubscribedLive && isFromSubscribedChannel(card)) return;
+    sanitise(card);
+  });
+}
+
 function filterLowViews(root, minViews) {
   queryAll(root, CARD_SELECTOR).forEach(el => {
     // A lockup inside a renderer is handled through that renderer
@@ -318,10 +341,11 @@ function removeAllFilters() {
 // ─── Apply all active filters to a subtree ───────────────────────────────────
 
 function applyFilters(root) {
-  if (settings.hideShorts)    filterShorts(root);
-  if (settings.hidePlaylists) filterPlaylists(root);
-  if (settings.hideMixes)     filterMixes(root);
-  if (settings.hideLowViews)  filterLowViews(root, settings.minViews);
+  if (settings.hideShorts)      filterShorts(root);
+  if (settings.hidePlaylists)   filterPlaylists(root);
+  if (settings.hideMixes)       filterMixes(root);
+  if (settings.hideLiveStreams) filterLiveStreams(root);
+  if (settings.hideLowViews)    filterLowViews(root, settings.minViews);
 }
 
 // ─── Full re-scan (after settings change or navigation) ──────────────────────
@@ -397,8 +421,14 @@ document.addEventListener('yt-page-data-updated', scheduleRescan);
 
 // ─── Settings: load and watch ─────────────────────────────────────────────────
 
+/** Whether a filter is on with "Exclude subscribed channels" set, so subscriptions are needed. */
+function excludingSubscribed() {
+  return (settings.hideLiveStreams && settings.excludeSubscribedLive) ||
+    (settings.hideLowViews && settings.excludeSubscribed);
+}
+
 function watchGuideIfNeeded() {
-  if (settings.hideLowViews && settings.excludeSubscribed) watchForGuide();
+  if (excludingSubscribed()) watchForGuide();
 }
 
 Promise.all([
