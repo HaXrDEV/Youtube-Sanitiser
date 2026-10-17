@@ -30,6 +30,17 @@
 
   <div class="icons" id="iconContainer"></div>
 
+  <!-- The icon: a funnel in the same red as the popup's toggles, with a white
+       play button in its bowl. Every size is drawn from this. -->
+  <svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" style="display: none">
+    <!-- The funnel's outer edges sit at 8 and 120, which are whole pixels at 16px -->
+    <path d="M13 13 H115 L76 63 V101 L52 115 V63 Z" fill="#ff0000" stroke="#ff0000" stroke-width="10" stroke-linejoin="round"/>
+    <path class="play" d="M52 23 L52 51 L76 37 Z" fill="#fff" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>
+    <!-- The play button for small sizes: no rounded corners, and its flat edge
+         and ends on whole pixels at 16px (every 8 here), so it stays sharp -->
+    <path class="play-small" d="M48 16 L48 56 L80 36 Z" fill="#fff"/>
+  </svg>
+
   <div class="instructions">
     <strong>Steps:</strong><br/>
     1. Download all three icons below.<br/>
@@ -41,45 +52,31 @@
   <script>
     const sizes = [16, 48, 128];
 
-    sizes.forEach(size => {
+    /** The icon drawn at a size, as an image. The SVG is given that size, so
+     *  it's drawn sharp rather than scaled down from a bigger image. */
+    function iconImage(size) {
+      const svg = document.getElementById('icon').cloneNode(true);
+      svg.removeAttribute('style');
+      svg.querySelector(size < 32 ? '.play' : '.play-small').remove();
+      svg.setAttribute('width', size);
+      svg.setAttribute('height', size);
+      const blob = new Blob([new XMLSerializer().serializeToString(svg)], { type: 'image/svg+xml' });
+      const img = new Image();
+      img.src = URL.createObjectURL(blob);
+      return img.decode().then(() => img);
+    }
+
+    // In order, so the links come out smallest first
+    sizes.reduce((previous, size) => previous.then(async () => {
       const canvas = document.createElement('canvas');
       canvas.width  = size;
       canvas.height = size;
       const ctx = canvas.getContext('2d');
 
-      // Background: dark rounded rect
-      const radius = size * 0.18;
-      ctx.fillStyle = '#212121';
-      ctx.beginPath();
-      ctx.roundRect(0, 0, size, size, radius);
-      ctx.fill();
-
-      // Red play-button triangle (YouTube-ish)
-      const cx = size * 0.48;
-      const cy = size * 0.5;
-      const th = size * 0.42; // triangle height
-      const tw = size * 0.36; // triangle width
-
-      ctx.fillStyle = '#ff0000';
-      ctx.beginPath();
-      ctx.moveTo(cx - tw * 0.5, cy - th * 0.5);
-      ctx.lineTo(cx - tw * 0.5, cy + th * 0.5);
-      ctx.lineTo(cx + tw * 0.7, cy);
-      ctx.closePath();
-      ctx.fill();
-
-      // White filter lines on the right side (≡ style)
-      if (size >= 48) {
-        const lx = cx + tw * 0.55;
-        const lineW = size * 0.16;
-        const gap   = size * 0.08;
-        ctx.fillStyle = '#ffffff';
-        [-1, 0, 1].forEach((i, idx) => {
-          const w = lineW * (1 - idx * 0.2);
-          const y = cy + i * gap - size * 0.025;
-          ctx.fillRect(lx, y, w, size * 0.06);
-        });
-      }
+      // Chrome wants the 128px icon's artwork at 96px, with 16px of
+      // transparent padding round it. The small sizes fill their square.
+      const padding = size === 128 ? 16 : 0;
+      ctx.drawImage(await iconImage(size - padding * 2), padding, padding);
 
       // Create download link
       const wrap = document.createElement('div');
@@ -99,7 +96,7 @@
       wrap.appendChild(label);
       wrap.appendChild(link);
       document.getElementById('iconContainer').appendChild(wrap);
-    });
+    }), Promise.resolve());
   </script>
 </body>
 </html>
