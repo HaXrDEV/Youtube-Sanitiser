@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTube Sanitiser",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Hide Shorts, playlists, mixes, live streams and low-view-count videos from YouTube.",
   "permissions": ["storage"],
   "content_scripts": [
