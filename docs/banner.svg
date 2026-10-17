@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 240" width="900" height="240">
   <defs>
-    <!-- No background of its own: it sits on the page. banner-light.svg is the version for light pages -->
+    <!-- The banner has its own background, so it looks the same on light and dark pages -->
     <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
         gradientTransform="translate(204 122) scale(230 130)">
       <stop offset="0%"   stop-color="#ff0033" stop-opacity="0.13"/>
@@ -40,7 +40,7 @@
     </style>
   </defs>
 
-  
+  <rect x="0.5" y="0.5" width="899" height="239" rx="16" fill="#161b22" stroke="#30363d"/>
   <rect x="0.5" y="0.5" width="899" height="239" rx="16" fill="url(#glow)"/>
 
   <!-- A feed of six video cards, three of them filtered out -->

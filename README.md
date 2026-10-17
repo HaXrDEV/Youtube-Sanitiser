@@ -1,8 +1,5 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/banner-dark.svg">
-    <img src="docs/banner-light.svg" alt="YouTube Sanitiser" width="100%">
-  </picture>
+  <img src="docs/banner.svg" alt="YouTube Sanitiser" width="100%">
 </p>
 
 <p align="center">
