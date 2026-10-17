@@ -24,10 +24,51 @@
 
 let settings = { ...DEFAULTS };
 
+// ─── Where to filter ──────────────────────────────────────────────────────────
+
+/**
+ * Feeds where YouTube's algorithm picks videos for you to discover, found by
+ * containers of their own: Home and hashtag pages (marked on the page itself),
+ * search results, and the recommendations beside the video you're watching,
+ * which leaves out the playlist above them.
+ */
+const FEED_SELECTOR =
+  'ytd-browse[page-subtype="home"], ytd-browse[page-subtype="hashtag-landing-page"], ' +
+  'ytd-search, ytd-watch-next-secondary-results-renderer';
+
+/**
+ * The Explore pages in YouTube's sidebar, feeds of videos on a topic. Most are
+ * YouTube's own channels, or share their container with pages that aren't
+ * feeds, so they're found by address instead.
+ */
+const EXPLORE_PATHS = new Set([
+  '/gaming',
+  '/podcasts',
+  '/feed/hype',
+  '/feed/storefront',                  // Movies
+  '/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ', // Music
+  '/channel/UC4R8DWoMoI7CAwX8_LjQHig', // Live
+  '/channel/UCYfdidRxbB8Qhf0Nx7ioOYw', // News
+  '/channel/UCtFRv9O2AHqOZjjynzrv-xg', // Learning
+  '/channel/UCEgdi0XIXXZ-qJOFPf4JSKw', // Sports
+  '/channel/UCrpQ4p1Ql_hG8rKXIKM1MOQ', // Fashion & Beauty
+]);
+
+/**
+ * Whether an element is in one of YouTube's algorithmic feeds, the only places
+ * anything is hidden. Everywhere you go looking for something in particular,
+ * like your subscriptions, a channel, a playlist, your history or the You
+ * page, is left alone.
+ */
+function inFeed(el) {
+  return !!el.closest(FEED_SELECTOR) ||
+    (EXPLORE_PATHS.has(window.location.pathname) && !!el.closest('ytd-browse:not([hidden])'));
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function sanitise(el) {
-  el?.classList.add('yt-sanitised');
+  if (el && inFeed(el)) el.classList.add('yt-sanitised');
 }
 
 function unsanitise(el) {
@@ -172,18 +213,7 @@ function filterShorts(root) {
   });
 }
 
-/**
- * Pages where you go looking for your playlists and saved mixes, so neither
- * filter applies: the You page and its playlists page (your library), and a
- * channel's Playlists tab (/@handle/playlists, /channel/x/playlists).
- */
-function isPlaylistsPage() {
-  const p = window.location.pathname;
-  return p === '/feed/you' || p === '/feed/library' || p === '/feed/playlists' || p.endsWith('/playlists');
-}
-
 function filterPlaylists(root) {
-  if (isPlaylistsPage()) return;
   queryAll(root,
     'ytd-playlist-renderer, ytd-compact-playlist-renderer, ytd-grid-playlist-renderer'
   ).forEach(sanitise);
@@ -191,7 +221,6 @@ function filterPlaylists(root) {
 }
 
 function filterMixes(root) {
-  if (isPlaylistsPage()) return;
   queryAll(root, 'ytd-radio-renderer, ytd-compact-radio-renderer').forEach(sanitise);
   filterLockups(root, 'RD');
 }
@@ -296,21 +325,12 @@ function isFromSubscribedChannel(el) {
   return !!name && cachedSubscriptionNames.has(name);
 }
 
-/**
- * A channel's Live tab (/@handle/streams, /channel/x/streams), where you go
- * looking for its streams, so the live streams filter doesn't apply there.
- */
-function isStreamsPage() {
-  return window.location.pathname.endsWith('/streams');
-}
-
 // The LIVE badge on a stream that's live now: on a lockup's thumbnail, in a
 // search result's metadata, or as an older card's thumbnail overlay. A past
 // stream has none, so it's left alone.
 const LIVE_BADGE_SELECTOR = '.ytBadgeShapeThumbnailLive, .ytBadgeShapeLive, [overlay-style="LIVE"]';
 
 function filterLiveStreams(root) {
-  if (isStreamsPage()) return;
   queryAll(root, LIVE_BADGE_SELECTOR).forEach(el => {
     const card = cardFor(el);
     if (!card) return;
@@ -333,14 +353,6 @@ function filterLowViews(root, minViews) {
   });
 }
 
-/**
- * Your watch history (/feed/history), where you go looking for videos you've
- * watched, so the watched videos filter doesn't apply there.
- */
-function isHistoryPage() {
-  return window.location.pathname === '/feed/history';
-}
-
 // The red bar along the bottom of a thumbnail showing how much of the video
 // you've watched, as a width in percent: in a lockup's progress bar, or an
 // older card's resume playback overlay
@@ -349,7 +361,6 @@ const WATCHED_BAR_SELECTOR =
   'ytd-thumbnail-overlay-resume-playback-renderer #progress';
 
 function filterWatched(root, minPercent) {
-  if (isHistoryPage()) return;
   queryAll(root, WATCHED_BAR_SELECTOR).forEach(el => {
     if (parseFloat(el.style.width) >= minPercent) sanitise(cardFor(el));
   });
