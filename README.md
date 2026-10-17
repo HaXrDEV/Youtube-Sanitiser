@@ -22,7 +22,10 @@
 </p>
 
 <p align="center">
-  <img src="docs/screenshot.png" alt="The YouTube Sanitiser popup" width="352">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/screenshot-dark.png">
+    <img src="docs/screenshot-light.png" alt="The YouTube Sanitiser popup" width="352">
+  </picture>
 </p>
 
 ## Features
