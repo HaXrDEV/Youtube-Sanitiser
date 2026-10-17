@@ -33,14 +33,13 @@
 | Filter | Hides | Default |
 | :--- | :--- | :---: |
 | **Shorts** | Shorts shelves on Home and in search, and Shorts in the sidebar | On |
-| **Playlists** | Playlist cards in your feed, search and the sidebar¹ | On |
-| **Mixes** | The Mix playlists YouTube generates for you¹ | On |
-| **Live streams** | Streams that are live right now. Recordings stay.² | Off |
+| **Playlists** | Playlist cards on Home, in search and in the sidebar | On |
+| **Mixes** | The Mix playlists YouTube generates for you | On |
+| **Live streams** | Streams that are live right now. Recordings stay. | Off |
 | **Low view count** | Videos under a minimum you choose, 10,000 by default | Off |
-| **Watched videos** | Videos you've watched at least a share of, 90% by default³ | Off |
+| **Watched videos** | Videos you've watched at least a share of, 90% by default | Off |
 
-<sub>¹ Still shown on the You page, your playlists and a channel's Playlists tab. ² Still shown on a channel's Live tab. ³ Still shown in your watch history.</sub>
-
+- **Only where YouTube recommends.** Filters work on Home, in search, on hashtag and Explore pages, and on the recommendations beside a video. Your subscriptions, channels, playlists, history and the You page are left as they are.
 - **Instant.** Changes apply to every open YouTube tab, and settings follow you through your browser's sync.
 - **Subscriptions exempt.** *Keep subscribed channels* still shows live streams and small videos from the channels you follow.
 - **Any language.** View counts are read in every language YouTube offers.
