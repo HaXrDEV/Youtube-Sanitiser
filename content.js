@@ -343,13 +343,9 @@ function isFromSubscribedChannel(el) {
 // stream has none, so it's left alone.
 const LIVE_BADGE_SELECTOR = '.ytBadgeShapeThumbnailLive, .ytBadgeShapeLive, [overlay-style="LIVE"]';
 
-/**
- * Whether "Keep subscribed channels" spares a card: one from a channel you
- * follow, which is everything in the Subscriptions feed, so that feed is
- * spared without checking.
- */
+/** Whether "Keep subscribed channels" spares a card: one from a channel you follow. */
 function keptAsSubscribed(card, keepSubscribed) {
-  return keepSubscribed && (inSubscriptions(card) || isFromSubscribedChannel(card));
+  return keepSubscribed && isFromSubscribedChannel(card);
 }
 
 function filterLiveStreams(root) {
@@ -357,7 +353,8 @@ function filterLiveStreams(root) {
     const card = cardFor(el);
     if (!card) return;
     if (keptAsSubscribed(card, settings.excludeSubscribedLive)) return;
-    sanitise(card, settings.liveStreamsInSubscriptions);
+    // Never in Subscriptions: you follow a channel to see its streams too
+    sanitise(card);
   });
 }
 

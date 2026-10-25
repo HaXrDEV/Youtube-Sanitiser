@@ -85,19 +85,6 @@ test('a filter\'s options show only while it\'s on', () => {
   }
 });
 
-test('an option hides while another option makes it do nothing', () => {
-  const { popup, elements, defaults } = loadPopup();
-  const rowsFor = plain(vm.runInContext('OPTION_ROWS', popup));
-  for (const [row, option] of Object.entries(plain(vm.runInContext('HIDDEN_BY', popup)))) {
-    // With its filter on, only the other option decides
-    const filter = Object.keys(rowsFor).find(f => rowsFor[f].includes(row));
-    for (const on of [false, true]) {
-      popup.applyToUI({ ...defaults, [filter]: true, [option]: on });
-      assert.strictEqual(elements[row].classList.contains('hidden'), on, `${row} with ${option} ${on ? 'on' : 'off'}`);
-    }
-  }
-});
-
 test('the watched percentage stays between 1 and 100', () => {
   const { popup, elements, defaults } = loadPopup();
   popup.applyToUI(defaults);

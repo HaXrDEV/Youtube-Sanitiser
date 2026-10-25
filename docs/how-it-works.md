@@ -10,7 +10,7 @@ Filters only work where YouTube's algorithm feeds you videos to discover: Home, 
 
 Most feeds are found by a container of their own: `ytd-search`, the recommendations' `ytd-watch-next-secondary-results-renderer`, or the `ytd-browse` page that YouTube marks as `home` or `hashtag-landing-page`. The Explore pages are found by their address instead, since most of them are YouTube's own channels (marked like any other channel) or share their page with ones that aren't feeds.
 
-The Subscriptions feed, the `ytd-browse` page marked `subscriptions`, is left alone unless you ask for it. Shorts, live streams and watched videos each have an **Also in Subscriptions** option that applies that filter there too. Low view count has none, since you follow a channel to see all its videos, however few views they get. Playlists and mixes don't show up in that feed, so they have none either.
+The Subscriptions feed, the `ytd-browse` page marked `subscriptions`, is left alone unless you ask for it. Shorts and watched videos each have an **Also in Subscriptions** option that applies that filter there too. Live streams and low view count have none, since you follow a channel to see all its videos, live or not, however few views they get. Playlists and mixes don't show up in that feed, so they have none either.
 
 What gets hidden depends on the filter:
 
@@ -48,8 +48,6 @@ A count the script can't read for certain is skipped, and that video stays visib
 ## Subscribed channels
 
 The live stream and view count filters each have a **Keep subscribed channels** option, which needs to know who you're subscribed to. The script reads the channel list from YouTube's sidebar, briefly opening its "Show more" list so the whole list is there, then closes it again. If you already have the list open, it reads it as it is and leaves it open. It does this only while one of the options is on, along with its filter, and keeps the list in memory for as long as the page is open.
-
-Every video in the Subscriptions feed is from a channel you follow, so the option spares all of that feed without checking the list. That leaves the live stream filter's **Also in Subscriptions** with nothing to do, so the popup hides it while **Keep subscribed channels** is on.
 
 A card is matched to a channel by its channel link or, failing that, by the channel name. Lockup cards don't link to the channel at all, and other cards sometimes link to it by its `/channel/` ID where the sidebar uses its handle.
 
