@@ -1,9 +1,9 @@
 /**
  * YouTube Sanitiser: packaging tests
  * Run with `node --test` from the repository folder. Checks that every script
- * parses, that the release zip built by .github/build-zip.sh holds every
- * file the extension loads, so a release can't ship without one, and that the
- * manifest keeps what Firefox needs.
+ * parses, that the zip built by .github/build-zip.sh holds every file the
+ * extension loads, so the Firefox lint in the checks covers all of them, and
+ * that the manifest keeps what Firefox needs.
  */
 
 const test = require('node:test');
@@ -36,7 +36,7 @@ function extensionFiles() {
   return [...files];
 }
 
-/** The files the release zips, from the `zip -r youtube-sanitiser.zip \` command in build-zip.sh. */
+/** The files build-zip.sh zips, from its `zip -r youtube-sanitiser.zip \` command. */
 function zippedFiles() {
   const lines = read('.github/build-zip.sh').split(/\r?\n/);
   const start = lines.findIndex(line => line.includes('zip -r youtube-sanitiser.zip'));
@@ -49,12 +49,12 @@ function zippedFiles() {
   return files;
 }
 
-test('the release zip holds every file the extension loads', () => {
+test('the zip holds every file the extension loads', () => {
   const zipped = new Set(zippedFiles());
   assert.deepStrictEqual(extensionFiles().filter(file => !zipped.has(file)), []);
 });
 
-test('every file the release zips exists', () => {
+test('every file the zip lists exists', () => {
   assert.deepStrictEqual(zippedFiles().filter(file => !fs.existsSync(path.join(root, file))), []);
 });
 

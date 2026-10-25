@@ -1,7 +1,7 @@
 #!/bin/sh
-# Builds the extension ZIP from the files it ships. release.yml publishes it,
-# both workflows lint it, and tests/package.test.js checks this list against
-# the files the manifest loads
+# Builds the extension ZIP from the files it loads. checks.yml lints it for
+# Firefox, and tests/package.test.js checks this list against the files the
+# manifest loads
 set -e
 
 zip -r youtube-sanitiser.zip \

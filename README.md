@@ -9,7 +9,6 @@
 </p>
 
 <p align="center">
-  <a href="manifest.json"><img src="https://img.shields.io/github/manifest-json/v/HaXrDEV/youtube-sanitiser?style=flat-square&label=version&color=ff0033" alt="Version"></a>
   <a href="https://github.com/HaXrDEV/youtube-sanitiser/actions/workflows/checks.yml"><img src="https://img.shields.io/github/actions/workflow/status/HaXrDEV/youtube-sanitiser/checks.yml?branch=main&style=flat-square&label=tests" alt="Tests"></a>
   <a href="https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3"><img src="https://img.shields.io/badge/Chrome-Manifest_V3-4285f4?style=flat-square&logo=googlechrome&logoColor=white" alt="Chrome Manifest V3"></a>
   <a href="https://extensionworkshop.com/documentation/develop/manifest-v3-migration-guide/"><img src="https://img.shields.io/badge/Firefox-Manifest_V3-ff7139?style=flat-square&logo=firefoxbrowser&logoColor=white" alt="Firefox Manifest V3"></a>

@@ -114,8 +114,8 @@ async function readOwnFile(path) {
 /**
  * What the footer calls this copy of the extension. Loaded from a git clone,
  * that's the branch and commit, read from .git each time the popup opens.
- * A release has no .git folder, so it gets the manifest's version, which
- * its tag matches.
+ * A copy without git, like a ZIP downloaded from GitHub, has no .git folder,
+ * so it gets the manifest's version.
  */
 async function buildName() {
   const head = await readOwnFile('.git/HEAD');

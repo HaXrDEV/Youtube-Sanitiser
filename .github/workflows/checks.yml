@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Actions are pinned to commit SHAs, like in release.yml
+      # Actions are pinned to commit SHAs, so a moved tag can't change what runs
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       # The view count tests use Node's built-in number formatting data, which
@@ -25,7 +25,7 @@ jobs:
       - name: Run tests
         run: node --test
 
-      # Lints the ZIP a release would ship, for anything Firefox or
+      # Lints the extension, packed as a ZIP, for anything Firefox or
       # addons.mozilla.org would reject
       - name: Lint for Firefox
         run: |

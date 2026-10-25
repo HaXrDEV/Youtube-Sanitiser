@@ -61,8 +61,8 @@ Magnitude words learned on YouTube are kept per language in `chrome.storage.loca
 
 ## Tests
 
-`node --test` runs the tests, with nothing to install. `tests/view-count.test.js` checks the view count reading against examples of how YouTube writes counts in each of its languages, `tests/popup.test.js` checks that every setting has a control in the popup that shows it and saves it, and `tests/package.test.js` checks that every script parses, that the release zip holds every file the extension loads, and that the manifest keeps what Firefox needs.
+`node --test` runs the tests, with nothing to install. `tests/view-count.test.js` checks the view count reading against examples of how YouTube writes counts in each of its languages, `tests/popup.test.js` checks that every setting has a control in the popup that shows it and saves it, and `tests/package.test.js` checks that every script parses, that the extension's zip holds every file it loads, and that the manifest keeps what Firefox needs.
 
-GitHub runs them on every pull request and every push to `main` (`.github/workflows/checks.yml`), and the release workflow runs them again before it builds and publishes anything. Both workflows also build the release zip with `.github/build-zip.sh` and run Mozilla's `addons-linter` on it, which catches what Firefox or addons.mozilla.org would reject.
+GitHub runs them on every pull request and every push to `main` (`.github/workflows/checks.yml`). The same workflow also packs the extension into a zip with `.github/build-zip.sh` and runs Mozilla's `addons-linter` on it, which catches what Firefox or addons.mozilla.org would reject.
 
 The examples in `tests/fixtures/view-counts.json` come from YouTube itself. When YouTube changes how it writes counts, refresh them with `node tests/capture-fixtures.js`. That one asks YouTube for real pages, so it's left out of the checks.
