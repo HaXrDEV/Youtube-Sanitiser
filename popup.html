@@ -13,12 +13,26 @@
   </header>
 
   <main>
-    <div class="filter-row">
-      <label class="filter-label" for="hideShorts">Hide Shorts</label>
-      <label class="toggle">
-        <input type="checkbox" id="hideShorts" />
-        <span class="slider"></span>
-      </label>
+    <!-- A filter with options is a panel holding it and its options -->
+    <div class="group">
+      <div class="filter-row">
+        <label class="filter-label" for="hideShorts">Hide Shorts</label>
+        <label class="toggle">
+          <input type="checkbox" id="hideShorts" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- Sub-rows start hidden, so they don't flash before the settings load -->
+      <div class="options">
+        <div class="filter-row sub-row hidden" id="shortsInSubscriptionsRow">
+          <label class="filter-label sub-label" for="shortsInSubscriptions">Also in Subscriptions</label>
+          <label class="toggle">
+            <input type="checkbox" id="shortsInSubscriptions" />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
     </div>
 
     <div class="filter-row">
@@ -37,7 +51,6 @@
       </label>
     </div>
 
-    <!-- A filter with options is a panel holding it and its options -->
     <div class="group">
       <div class="filter-row">
         <label class="filter-label" for="hideLiveStreams">Hide live streams</label>
@@ -47,12 +60,19 @@
         </label>
       </div>
 
-      <!-- Sub-rows start hidden, so they don't flash before the settings load -->
       <div class="options">
         <div class="filter-row sub-row hidden" id="excludeSubscribedLiveRow">
           <label class="filter-label sub-label" for="excludeSubscribedLive">Keep subscribed channels</label>
           <label class="toggle">
             <input type="checkbox" id="excludeSubscribedLive" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="filter-row sub-row hidden" id="liveStreamsInSubscriptionsRow">
+          <label class="filter-label sub-label" for="liveStreamsInSubscriptions">Also in Subscriptions</label>
+          <label class="toggle">
+            <input type="checkbox" id="liveStreamsInSubscriptions" />
             <span class="slider"></span>
           </label>
         </div>
@@ -81,6 +101,14 @@
             <span class="slider"></span>
           </label>
         </div>
+
+        <div class="filter-row sub-row hidden" id="lowViewsInSubscriptionsRow">
+          <label class="filter-label sub-label" for="lowViewsInSubscriptions">Also in Subscriptions</label>
+          <label class="toggle">
+            <input type="checkbox" id="lowViewsInSubscriptions" />
+            <span class="slider"></span>
+          </label>
+        </div>
       </div>
     </div>
 
@@ -97,6 +125,14 @@
         <div class="filter-row sub-row hidden" id="watchedPercentRow">
           <label class="filter-label sub-label" for="watchedPercent">Watched at least</label>
           <input type="text" id="watchedPercent" class="views-input percent-input" placeholder="90%" inputmode="numeric" />
+        </div>
+
+        <div class="filter-row sub-row hidden" id="watchedInSubscriptionsRow">
+          <label class="filter-label sub-label" for="watchedInSubscriptions">Also in Subscriptions</label>
+          <label class="toggle">
+            <input type="checkbox" id="watchedInSubscriptions" />
+            <span class="slider"></span>
+          </label>
         </div>
       </div>
     </div>

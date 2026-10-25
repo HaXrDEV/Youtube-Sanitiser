@@ -65,10 +65,22 @@ function inFeed(el) {
     (EXPLORE_PATHS.has(window.location.pathname) && !!el.closest('ytd-browse:not([hidden])'));
 }
 
+/**
+ * Whether an element is in the Subscriptions feed, which a filter only touches
+ * when it's set to apply there too.
+ */
+function inSubscriptions(el) {
+  return !!el.closest('ytd-browse[page-subtype="subscriptions"]');
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-function sanitise(el) {
-  if (el && inFeed(el)) el.classList.add('yt-sanitised');
+/**
+ * Hide an element if it's in one of the feeds, or in the Subscriptions feed
+ * when alsoInSubscriptions says the filter is set to apply there.
+ */
+function sanitise(el, alsoInSubscriptions = false) {
+  if (el && (inFeed(el) || (alsoInSubscriptions && inSubscriptions(el)))) el.classList.add('yt-sanitised');
 }
 
 function unsanitise(el) {
@@ -193,35 +205,36 @@ function filterLockups(root, prefix) {
 }
 
 function filterShorts(root) {
+  const alsoInSubscriptions = settings.shortsInSubscriptions;
   // Climb to ytd-rich-section-renderer so its padding/margin collapses too
   queryAll(root, 'ytd-rich-shelf-renderer[is-shorts]').forEach(el => {
-    sanitise(el.closest('ytd-rich-section-renderer') || el);
+    sanitise(el.closest('ytd-rich-section-renderer') || el, alsoInSubscriptions);
   });
   queryAll(root, 'ytd-reel-item-renderer').forEach(el => {
-    sanitise(el.closest('ytd-rich-item-renderer') || el);
+    sanitise(el.closest('ytd-rich-item-renderer') || el, alsoInSubscriptions);
   });
   queryAll(root, 'ytd-compact-video-renderer').forEach(el => {
-    if (el.querySelector('[overlay-style="SHORTS"]')) sanitise(el);
+    if (el.querySelector('[overlay-style="SHORTS"]')) sanitise(el, alsoInSubscriptions);
   });
   queryAll(root, 'ytd-reel-shelf-renderer').forEach(el => {
-    sanitise(el.closest('ytd-rich-section-renderer') || el);
+    sanitise(el.closest('ytd-rich-section-renderer') || el, alsoInSubscriptions);
   });
   // Shorts shelf in search results. Climbs from the items, which can render
   // after the shelf itself.
   queryAll(root, 'ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2').forEach(el => {
-    sanitise(el.closest('grid-shelf-view-model'));
+    sanitise(el.closest('grid-shelf-view-model'), alsoInSubscriptions);
   });
 }
 
 function filterPlaylists(root) {
   queryAll(root,
     'ytd-playlist-renderer, ytd-compact-playlist-renderer, ytd-grid-playlist-renderer'
-  ).forEach(sanitise);
+  ).forEach(el => sanitise(el));
   filterLockups(root, 'PL');
 }
 
 function filterMixes(root) {
-  queryAll(root, 'ytd-radio-renderer, ytd-compact-radio-renderer').forEach(sanitise);
+  queryAll(root, 'ytd-radio-renderer, ytd-compact-radio-renderer').forEach(el => sanitise(el));
   filterLockups(root, 'RD');
 }
 
@@ -330,12 +343,21 @@ function isFromSubscribedChannel(el) {
 // stream has none, so it's left alone.
 const LIVE_BADGE_SELECTOR = '.ytBadgeShapeThumbnailLive, .ytBadgeShapeLive, [overlay-style="LIVE"]';
 
+/**
+ * Whether "Keep subscribed channels" spares a card. It's for the feeds YouTube
+ * recommends from: everything in the Subscriptions feed is from a channel you
+ * follow, so there it would undo "Also in Subscriptions".
+ */
+function keptAsSubscribed(card, keepSubscribed) {
+  return keepSubscribed && !inSubscriptions(card) && isFromSubscribedChannel(card);
+}
+
 function filterLiveStreams(root) {
   queryAll(root, LIVE_BADGE_SELECTOR).forEach(el => {
     const card = cardFor(el);
     if (!card) return;
-    if (settings.excludeSubscribedLive && isFromSubscribedChannel(card)) return;
-    sanitise(card);
+    if (keptAsSubscribed(card, settings.excludeSubscribedLive)) return;
+    sanitise(card, settings.liveStreamsInSubscriptions);
   });
 }
 
@@ -347,8 +369,8 @@ function filterLowViews(root, minViews) {
     if (el.classList.contains('yt-sanitised')) return;
     const count = getViewCount(el);
     if (count !== null && count < minViews) {
-      if (settings.excludeSubscribed && isFromSubscribedChannel(el)) return;
-      sanitise(el);
+      if (keptAsSubscribed(el, settings.excludeSubscribed)) return;
+      sanitise(el, settings.lowViewsInSubscriptions);
     }
   });
 }
@@ -362,7 +384,7 @@ const WATCHED_BAR_SELECTOR =
 
 function filterWatched(root, minPercent) {
   queryAll(root, WATCHED_BAR_SELECTOR).forEach(el => {
-    if (parseFloat(el.style.width) >= minPercent) sanitise(cardFor(el));
+    if (parseFloat(el.style.width) >= minPercent) sanitise(cardFor(el), settings.watchedInSubscriptions);
   });
 }
 
