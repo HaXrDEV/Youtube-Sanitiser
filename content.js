@@ -344,12 +344,12 @@ function isFromSubscribedChannel(el) {
 const LIVE_BADGE_SELECTOR = '.ytBadgeShapeThumbnailLive, .ytBadgeShapeLive, [overlay-style="LIVE"]';
 
 /**
- * Whether "Keep subscribed channels" spares a card. It's for the feeds YouTube
- * recommends from: everything in the Subscriptions feed is from a channel you
- * follow, so there it would undo "Also in Subscriptions".
+ * Whether "Keep subscribed channels" spares a card: one from a channel you
+ * follow, which is everything in the Subscriptions feed, so that feed is
+ * spared without checking.
  */
 function keptAsSubscribed(card, keepSubscribed) {
-  return keepSubscribed && !inSubscriptions(card) && isFromSubscribedChannel(card);
+  return keepSubscribed && (inSubscriptions(card) || isFromSubscribedChannel(card));
 }
 
 function filterLiveStreams(root) {

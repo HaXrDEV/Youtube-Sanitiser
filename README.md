@@ -42,8 +42,8 @@ The filters only touch the feeds where YouTube recommends videos for you to disc
 | **Watched videos** | Videos you've watched at least a share of, 90% by default | Off |
 
 - **Instant.** Changes apply to every open YouTube tab, and settings follow you through your browser's sync.
-- **Subscriptions exempt.** *Keep subscribed channels* still shows live streams and small videos from the channels you follow when YouTube recommends them.
-- **Subscriptions too, if you like.** Shorts, live streams and watched videos each have an *Also in Subscriptions* option that filters your Subscriptions feed as well.
+- **Subscriptions exempt.** *Keep subscribed channels* still shows live streams and small videos from the channels you follow.
+- **Subscriptions too, if you like.** Shorts, live streams and watched videos each have an *Also in Subscriptions* option that filters your Subscriptions feed as well. For live streams it's there while *Keep subscribed channels* is off.
 - **Any language.** View counts are read in every language YouTube offers.
 
 ## Install

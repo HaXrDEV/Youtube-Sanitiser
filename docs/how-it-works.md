@@ -49,7 +49,7 @@ A count the script can't read for certain is skipped, and that video stays visib
 
 The live stream and view count filters each have a **Keep subscribed channels** option, which needs to know who you're subscribed to. The script reads the channel list from YouTube's sidebar, briefly opening its "Show more" list so the whole list is there, then closes it again. If you already have the list open, it reads it as it is and leaves it open. It does this only while one of the options is on, along with its filter, and keeps the list in memory for as long as the page is open.
 
-The option only spares videos in the feeds YouTube recommends from. Every video in the Subscriptions feed is from a channel you follow, so there it would undo **Also in Subscriptions** entirely, and that wins.
+Every video in the Subscriptions feed is from a channel you follow, so the option spares all of that feed without checking the list. That leaves the live stream filter's **Also in Subscriptions** with nothing to do, so the popup hides it while **Keep subscribed channels** is on.
 
 A card is matched to a channel by its channel link or, failing that, by the channel name. Lockup cards don't link to the channel at all, and other cards sometimes link to it by its `/channel/` ID where the sidebar uses its handle.
 

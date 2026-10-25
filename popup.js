@@ -37,9 +37,18 @@ const OPTION_ROWS = {
   hideWatched:     ['watchedPercentRow', 'watchedInSubscriptionsRow'],
 };
 
+/**
+ * Option rows that also hide while another option is on, because it makes
+ * them do nothing: keeping subscribed channels' live streams keeps all of the
+ * Subscriptions feed's.
+ */
+const HIDDEN_BY = {
+  liveStreamsInSubscriptionsRow: 'excludeSubscribedLive',
+};
+
 function updateSubRows(s) {
   for (const [filter, rows] of Object.entries(OPTION_ROWS)) {
-    rows.forEach(row => getEl(row).classList.toggle('hidden', !s[filter]));
+    rows.forEach(row => getEl(row).classList.toggle('hidden', !s[filter] || !!s[HIDDEN_BY[row]]));
   }
 }
 
