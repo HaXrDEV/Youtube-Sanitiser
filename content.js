@@ -370,7 +370,8 @@ function filterLowViews(root, minViews) {
     const count = getViewCount(el);
     if (count !== null && count < minViews) {
       if (keptAsSubscribed(el, settings.excludeSubscribed)) return;
-      sanitise(el, settings.lowViewsInSubscriptions);
+      // Never in Subscriptions: you follow a channel to see all its videos
+      sanitise(el);
     }
   });
 }

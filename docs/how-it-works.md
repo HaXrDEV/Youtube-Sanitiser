@@ -10,7 +10,7 @@ Filters only work where YouTube's algorithm feeds you videos to discover: Home, 
 
 Most feeds are found by a container of their own: `ytd-search`, the recommendations' `ytd-watch-next-secondary-results-renderer`, or the `ytd-browse` page that YouTube marks as `home` or `hashtag-landing-page`. The Explore pages are found by their address instead, since most of them are YouTube's own channels (marked like any other channel) or share their page with ones that aren't feeds.
 
-The Subscriptions feed, the `ytd-browse` page marked `subscriptions`, is left alone unless you ask for it. Shorts, live streams, low view count and watched videos each have an **Also in Subscriptions** option that applies that filter there too. Playlists and mixes don't show up in that feed, so they have none.
+The Subscriptions feed, the `ytd-browse` page marked `subscriptions`, is left alone unless you ask for it. Shorts, live streams and watched videos each have an **Also in Subscriptions** option that applies that filter there too. Low view count has none, since you follow a channel to see all its videos, however few views they get. Playlists and mixes don't show up in that feed, so they have none either.
 
 What gets hidden depends on the filter:
 

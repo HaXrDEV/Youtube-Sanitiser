@@ -33,7 +33,7 @@ function getEl(id) {
 const OPTION_ROWS = {
   hideShorts:      ['shortsInSubscriptionsRow'],
   hideLiveStreams: ['excludeSubscribedLiveRow', 'liveStreamsInSubscriptionsRow'],
-  hideLowViews:    ['minViewsRow', 'excludeSubscribedRow', 'lowViewsInSubscriptionsRow'],
+  hideLowViews:    ['minViewsRow', 'excludeSubscribedRow'],
   hideWatched:     ['watchedPercentRow', 'watchedInSubscriptionsRow'],
 };
 
@@ -56,7 +56,6 @@ function applyToUI(s) {
   getEl('hideLowViews').checked               = !!s.hideLowViews;
   getEl('minViews').value                     = formatNumber(s.minViews ?? DEFAULTS.minViews);
   getEl('excludeSubscribed').checked          = !!s.excludeSubscribed;
-  getEl('lowViewsInSubscriptions').checked    = !!s.lowViewsInSubscriptions;
   getEl('hideWatched').checked                = !!s.hideWatched;
   getEl('watchedPercent').value               = formatPercent(s.watchedPercent ?? DEFAULTS.watchedPercent);
   getEl('watchedInSubscriptions').checked     = !!s.watchedInSubscriptions;
@@ -77,7 +76,6 @@ function readFromUI() {
     hideLowViews:               getEl('hideLowViews').checked,
     minViews:                   parseNumber(getEl('minViews').value),
     excludeSubscribed:          getEl('excludeSubscribed').checked,
-    lowViewsInSubscriptions:    getEl('lowViewsInSubscriptions').checked,
     hideWatched:                getEl('hideWatched').checked,
     watchedPercent:             parseNumber(getEl('watchedPercent').value),
     watchedInSubscriptions:     getEl('watchedInSubscriptions').checked,

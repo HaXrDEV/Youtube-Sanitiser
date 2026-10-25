@@ -14,7 +14,6 @@ const DEFAULTS = {
   hideLowViews:               false,
   minViews:                   10000,
   excludeSubscribed:          false,
-  lowViewsInSubscriptions:    false,
   hideWatched:                false,
   watchedPercent:             90,
   watchedInSubscriptions:     false,
