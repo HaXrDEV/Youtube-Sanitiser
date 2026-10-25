@@ -24,10 +24,63 @@
 
 let settings = { ...DEFAULTS };
 
+// ─── Where to filter ──────────────────────────────────────────────────────────
+
+/**
+ * Feeds where YouTube's algorithm picks videos for you to discover, found by
+ * containers of their own: Home and hashtag pages (marked on the page itself),
+ * search results, and the recommendations beside the video you're watching,
+ * which leaves out the playlist above them.
+ */
+const FEED_SELECTOR =
+  'ytd-browse[page-subtype="home"], ytd-browse[page-subtype="hashtag-landing-page"], ' +
+  'ytd-search, ytd-watch-next-secondary-results-renderer';
+
+/**
+ * The Explore pages in YouTube's sidebar, feeds of videos on a topic. Most are
+ * YouTube's own channels, or share their container with pages that aren't
+ * feeds, so they're found by address instead.
+ */
+const EXPLORE_PATHS = new Set([
+  '/gaming',
+  '/podcasts',
+  '/feed/hype',
+  '/feed/storefront',                  // Movies
+  '/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ', // Music
+  '/channel/UC4R8DWoMoI7CAwX8_LjQHig', // Live
+  '/channel/UCYfdidRxbB8Qhf0Nx7ioOYw', // News
+  '/channel/UCtFRv9O2AHqOZjjynzrv-xg', // Learning
+  '/channel/UCEgdi0XIXXZ-qJOFPf4JSKw', // Sports
+  '/channel/UCrpQ4p1Ql_hG8rKXIKM1MOQ', // Fashion & Beauty
+]);
+
+/**
+ * Whether an element is in one of YouTube's algorithmic feeds, the only places
+ * anything is hidden. Everywhere you go looking for something in particular,
+ * like your subscriptions, a channel, a playlist, your history or the You
+ * page, is left alone.
+ */
+function inFeed(el) {
+  return !!el.closest(FEED_SELECTOR) ||
+    (EXPLORE_PATHS.has(window.location.pathname) && !!el.closest('ytd-browse:not([hidden])'));
+}
+
+/**
+ * Whether an element is in the Subscriptions feed, which a filter only touches
+ * when it's set to apply there too.
+ */
+function inSubscriptions(el) {
+  return !!el.closest('ytd-browse[page-subtype="subscriptions"]');
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-function sanitise(el) {
-  el?.classList.add('yt-sanitised');
+/**
+ * Hide an element if it's in one of the feeds, or in the Subscriptions feed
+ * when alsoInSubscriptions says the filter is set to apply there.
+ */
+function sanitise(el, alsoInSubscriptions = false) {
+  if (el && (inFeed(el) || (alsoInSubscriptions && inSubscriptions(el)))) el.classList.add('yt-sanitised');
 }
 
 function unsanitise(el) {
@@ -152,47 +205,36 @@ function filterLockups(root, prefix) {
 }
 
 function filterShorts(root) {
+  const alsoInSubscriptions = settings.shortsInSubscriptions;
   // Climb to ytd-rich-section-renderer so its padding/margin collapses too
   queryAll(root, 'ytd-rich-shelf-renderer[is-shorts]').forEach(el => {
-    sanitise(el.closest('ytd-rich-section-renderer') || el);
+    sanitise(el.closest('ytd-rich-section-renderer') || el, alsoInSubscriptions);
   });
   queryAll(root, 'ytd-reel-item-renderer').forEach(el => {
-    sanitise(el.closest('ytd-rich-item-renderer') || el);
+    sanitise(el.closest('ytd-rich-item-renderer') || el, alsoInSubscriptions);
   });
   queryAll(root, 'ytd-compact-video-renderer').forEach(el => {
-    if (el.querySelector('[overlay-style="SHORTS"]')) sanitise(el);
+    if (el.querySelector('[overlay-style="SHORTS"]')) sanitise(el, alsoInSubscriptions);
   });
   queryAll(root, 'ytd-reel-shelf-renderer').forEach(el => {
-    sanitise(el.closest('ytd-rich-section-renderer') || el);
+    sanitise(el.closest('ytd-rich-section-renderer') || el, alsoInSubscriptions);
   });
   // Shorts shelf in search results. Climbs from the items, which can render
   // after the shelf itself.
   queryAll(root, 'ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2').forEach(el => {
-    sanitise(el.closest('grid-shelf-view-model'));
+    sanitise(el.closest('grid-shelf-view-model'), alsoInSubscriptions);
   });
 }
 
-/**
- * Pages where you go looking for your playlists and saved mixes, so neither
- * filter applies: the You page and its playlists page (your library), and a
- * channel's Playlists tab (/@handle/playlists, /channel/x/playlists).
- */
-function isPlaylistsPage() {
-  const p = window.location.pathname;
-  return p === '/feed/you' || p === '/feed/library' || p === '/feed/playlists' || p.endsWith('/playlists');
-}
-
 function filterPlaylists(root) {
-  if (isPlaylistsPage()) return;
   queryAll(root,
     'ytd-playlist-renderer, ytd-compact-playlist-renderer, ytd-grid-playlist-renderer'
-  ).forEach(sanitise);
+  ).forEach(el => sanitise(el));
   filterLockups(root, 'PL');
 }
 
 function filterMixes(root) {
-  if (isPlaylistsPage()) return;
-  queryAll(root, 'ytd-radio-renderer, ytd-compact-radio-renderer').forEach(sanitise);
+  queryAll(root, 'ytd-radio-renderer, ytd-compact-radio-renderer').forEach(el => sanitise(el));
   filterLockups(root, 'RD');
 }
 
@@ -296,26 +338,26 @@ function isFromSubscribedChannel(el) {
   return !!name && cachedSubscriptionNames.has(name);
 }
 
-/**
- * A channel's Live tab (/@handle/streams, /channel/x/streams), where you go
- * looking for its streams, so the live streams filter doesn't apply there.
- */
-function isStreamsPage() {
-  return window.location.pathname.endsWith('/streams');
-}
-
 // The LIVE badge on a stream that's live now: on a lockup's thumbnail, in a
 // search result's metadata, or as an older card's thumbnail overlay. A past
 // stream has none, so it's left alone.
 const LIVE_BADGE_SELECTOR = '.ytBadgeShapeThumbnailLive, .ytBadgeShapeLive, [overlay-style="LIVE"]';
 
+/**
+ * Whether "Keep subscribed channels" spares a card: one from a channel you
+ * follow, which is everything in the Subscriptions feed, so that feed is
+ * spared without checking.
+ */
+function keptAsSubscribed(card, keepSubscribed) {
+  return keepSubscribed && (inSubscriptions(card) || isFromSubscribedChannel(card));
+}
+
 function filterLiveStreams(root) {
-  if (isStreamsPage()) return;
   queryAll(root, LIVE_BADGE_SELECTOR).forEach(el => {
     const card = cardFor(el);
     if (!card) return;
-    if (settings.excludeSubscribedLive && isFromSubscribedChannel(card)) return;
-    sanitise(card);
+    if (keptAsSubscribed(card, settings.excludeSubscribedLive)) return;
+    sanitise(card, settings.liveStreamsInSubscriptions);
   });
 }
 
@@ -327,18 +369,11 @@ function filterLowViews(root, minViews) {
     if (el.classList.contains('yt-sanitised')) return;
     const count = getViewCount(el);
     if (count !== null && count < minViews) {
-      if (settings.excludeSubscribed && isFromSubscribedChannel(el)) return;
+      if (keptAsSubscribed(el, settings.excludeSubscribed)) return;
+      // Never in Subscriptions: you follow a channel to see all its videos
       sanitise(el);
     }
   });
-}
-
-/**
- * Your watch history (/feed/history), where you go looking for videos you've
- * watched, so the watched videos filter doesn't apply there.
- */
-function isHistoryPage() {
-  return window.location.pathname === '/feed/history';
 }
 
 // The red bar along the bottom of a thumbnail showing how much of the video
@@ -349,9 +384,8 @@ const WATCHED_BAR_SELECTOR =
   'ytd-thumbnail-overlay-resume-playback-renderer #progress';
 
 function filterWatched(root, minPercent) {
-  if (isHistoryPage()) return;
   queryAll(root, WATCHED_BAR_SELECTOR).forEach(el => {
-    if (parseFloat(el.style.width) >= minPercent) sanitise(cardFor(el));
+    if (parseFloat(el.style.width) >= minPercent) sanitise(cardFor(el), settings.watchedInSubscriptions);
   });
 }
 

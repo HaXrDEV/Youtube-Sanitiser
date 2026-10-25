@@ -31,30 +31,43 @@ function getEl(id) {
 
 /** The sub-rows holding each filter's options, which show while it's on */
 const OPTION_ROWS = {
-  hideLiveStreams: ['excludeSubscribedLiveRow'],
+  hideShorts:      ['shortsInSubscriptionsRow'],
+  hideLiveStreams: ['excludeSubscribedLiveRow', 'liveStreamsInSubscriptionsRow'],
   hideLowViews:    ['minViewsRow', 'excludeSubscribedRow'],
-  hideWatched:     ['watchedPercentRow'],
+  hideWatched:     ['watchedPercentRow', 'watchedInSubscriptionsRow'],
+};
+
+/**
+ * Option rows that also hide while another option is on, because it makes
+ * them do nothing: keeping subscribed channels' live streams keeps all of the
+ * Subscriptions feed's.
+ */
+const HIDDEN_BY = {
+  liveStreamsInSubscriptionsRow: 'excludeSubscribedLive',
 };
 
 function updateSubRows(s) {
   for (const [filter, rows] of Object.entries(OPTION_ROWS)) {
-    rows.forEach(row => getEl(row).classList.toggle('hidden', !s[filter]));
+    rows.forEach(row => getEl(row).classList.toggle('hidden', !s[filter] || !!s[HIDDEN_BY[row]]));
   }
 }
 
 // ─── Populate UI from settings ────────────────────────────────────────────────
 
 function applyToUI(s) {
-  getEl('hideShorts').checked            = !!s.hideShorts;
-  getEl('hidePlaylists').checked         = !!s.hidePlaylists;
-  getEl('hideMixes').checked             = !!s.hideMixes;
-  getEl('hideLiveStreams').checked       = !!s.hideLiveStreams;
-  getEl('excludeSubscribedLive').checked = !!s.excludeSubscribedLive;
-  getEl('hideLowViews').checked          = !!s.hideLowViews;
-  getEl('minViews').value                = formatNumber(s.minViews ?? DEFAULTS.minViews);
-  getEl('excludeSubscribed').checked     = !!s.excludeSubscribed;
-  getEl('hideWatched').checked           = !!s.hideWatched;
-  getEl('watchedPercent').value          = formatPercent(s.watchedPercent ?? DEFAULTS.watchedPercent);
+  getEl('hideShorts').checked                 = !!s.hideShorts;
+  getEl('shortsInSubscriptions').checked      = !!s.shortsInSubscriptions;
+  getEl('hidePlaylists').checked              = !!s.hidePlaylists;
+  getEl('hideMixes').checked                  = !!s.hideMixes;
+  getEl('hideLiveStreams').checked            = !!s.hideLiveStreams;
+  getEl('excludeSubscribedLive').checked      = !!s.excludeSubscribedLive;
+  getEl('liveStreamsInSubscriptions').checked = !!s.liveStreamsInSubscriptions;
+  getEl('hideLowViews').checked               = !!s.hideLowViews;
+  getEl('minViews').value                     = formatNumber(s.minViews ?? DEFAULTS.minViews);
+  getEl('excludeSubscribed').checked          = !!s.excludeSubscribed;
+  getEl('hideWatched').checked                = !!s.hideWatched;
+  getEl('watchedPercent').value               = formatPercent(s.watchedPercent ?? DEFAULTS.watchedPercent);
+  getEl('watchedInSubscriptions').checked     = !!s.watchedInSubscriptions;
   updateSubRows(s);
 }
 
@@ -62,16 +75,19 @@ function applyToUI(s) {
 
 function readFromUI() {
   return {
-    hideShorts:            getEl('hideShorts').checked,
-    hidePlaylists:         getEl('hidePlaylists').checked,
-    hideMixes:             getEl('hideMixes').checked,
-    hideLiveStreams:       getEl('hideLiveStreams').checked,
-    excludeSubscribedLive: getEl('excludeSubscribedLive').checked,
-    hideLowViews:          getEl('hideLowViews').checked,
-    minViews:              parseNumber(getEl('minViews').value),
-    excludeSubscribed:     getEl('excludeSubscribed').checked,
-    hideWatched:           getEl('hideWatched').checked,
-    watchedPercent:        parseNumber(getEl('watchedPercent').value),
+    hideShorts:                 getEl('hideShorts').checked,
+    shortsInSubscriptions:      getEl('shortsInSubscriptions').checked,
+    hidePlaylists:              getEl('hidePlaylists').checked,
+    hideMixes:                  getEl('hideMixes').checked,
+    hideLiveStreams:            getEl('hideLiveStreams').checked,
+    excludeSubscribedLive:      getEl('excludeSubscribedLive').checked,
+    liveStreamsInSubscriptions: getEl('liveStreamsInSubscriptions').checked,
+    hideLowViews:               getEl('hideLowViews').checked,
+    minViews:                   parseNumber(getEl('minViews').value),
+    excludeSubscribed:          getEl('excludeSubscribed').checked,
+    hideWatched:                getEl('hideWatched').checked,
+    watchedPercent:             parseNumber(getEl('watchedPercent').value),
+    watchedInSubscriptions:     getEl('watchedInSubscriptions').checked,
   };
 }
 

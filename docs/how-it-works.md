@@ -6,13 +6,18 @@ YouTube Sanitiser has no build step and no background script. The manifest loads
 
 `content.js` adds a small stylesheet to the page and hides things by giving them the `yt-sanitised` class, which sets `display: none`. Because the element is taken out of the layout rather than blanked, a hidden video doesn't leave a gap. A grid row whose videos are all hidden is collapsed too.
 
+Filters only work where YouTube's algorithm feeds you videos to discover: Home, search results, hashtag pages, the Explore pages in the sidebar (Music, Gaming, Podcasts and the rest) and the recommendations beside the video you're watching. Everywhere you go looking for something in particular is left alone, like your subscriptions, a channel, a playlist (including the one beside the video you're watching), your history and the You page.
+
+Most feeds are found by a container of their own: `ytd-search`, the recommendations' `ytd-watch-next-secondary-results-renderer`, or the `ytd-browse` page that YouTube marks as `home` or `hashtag-landing-page`. The Explore pages are found by their address instead, since most of them are YouTube's own channels (marked like any other channel) or share their page with ones that aren't feeds.
+
+The Subscriptions feed, the `ytd-browse` page marked `subscriptions`, is left alone unless you ask for it. Shorts, live streams and watched videos each have an **Also in Subscriptions** option that applies that filter there too. Low view count has none, since you follow a channel to see all its videos, however few views they get. Playlists and mixes don't show up in that feed, so they have none either.
+
 What gets hidden depends on the filter:
 
 - **Shorts:** the Shorts shelves on the home page and in search (a shelf in search is recognised by the Shorts cards inside it), and sidebar videos marked as Shorts.
-- **Playlists and mixes:** the older playlist and mix renderers, plus cards in YouTube's newer "lockup" layout whose content ID starts with `PL` (playlist) or `RD` (mix). Video IDs are always 11 characters long, so a plain video whose ID happens to start with those letters isn't mistaken for one. Neither is hidden on the You page (`/feed/you`), `/feed/playlists` or a channel's Playlists tab, where your own playlists and saved mixes live.
-- **Live streams:** any video card with a LIVE badge, which YouTube puts on a lockup's thumbnail, in a search result's metadata, or as an overlay on an older card's thumbnail. The badge is found by its style, not its text, so it works in any language. A past stream shows its length there instead, so its recording stays. Nothing is hidden on a channel's Live tab (`/streams`), where you'd go looking for its streams.
+- **Playlists and mixes:** the older playlist and mix renderers, plus cards in YouTube's newer "lockup" layout whose content ID starts with `PL` (playlist) or `RD` (mix). Video IDs are always 11 characters long, so a plain video whose ID happens to start with those letters isn't mistaken for one.- **Live streams:** any video card with a LIVE badge, which YouTube puts on a lockup's thumbnail, in a search result's metadata, or as an overlay on an older card's thumbnail. The badge is found by its style, not its text, so it works in any language. A past stream shows its length there instead, so its recording stays.
 - **Low view count:** any video card whose view count is below your minimum.
-- **Watched videos:** any video card whose red progress bar, along the bottom of the thumbnail, shows you've watched at least your chosen percentage of it. YouTube draws the bar with its width set to that percentage, in a lockup's progress bar or an older card's resume playback overlay, so the script reads the width rather than any text. YouTube shows the bar only while you're signed in with watch history on, so without it nothing is hidden. Nothing is hidden in your watch history (`/feed/history`), where you'd go looking for what you've watched.
+- **Watched videos:** any video card whose red progress bar, along the bottom of the thumbnail, shows you've watched at least your chosen percentage of it. YouTube draws the bar with its width set to that percentage, in a lockup's progress bar or an older card's resume playback overlay, so the script reads the width rather than any text. YouTube shows the bar only while you're signed in with watch history on, so without it nothing is hidden.
 
 ## Keeping up with YouTube
 
@@ -43,6 +48,8 @@ A count the script can't read for certain is skipped, and that video stays visib
 ## Subscribed channels
 
 The live stream and view count filters each have a **Keep subscribed channels** option, which needs to know who you're subscribed to. The script reads the channel list from YouTube's sidebar, briefly opening its "Show more" list so the whole list is there, then closes it again. If you already have the list open, it reads it as it is and leaves it open. It does this only while one of the options is on, along with its filter, and keeps the list in memory for as long as the page is open.
+
+Every video in the Subscriptions feed is from a channel you follow, so the option spares all of that feed without checking the list. That leaves the live stream filter's **Also in Subscriptions** with nothing to do, so the popup hides it while **Keep subscribed channels** is on.
 
 A card is matched to a channel by its channel link or, failing that, by the channel name. Lockup cards don't link to the channel at all, and other cards sometimes link to it by its `/channel/` ID where the sidebar uses its handle.
 

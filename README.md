@@ -5,7 +5,7 @@
 
 <p align="center">
   A Chrome and Firefox extension that hides Shorts, playlists, mixes, live streams,<br>
-  low-view videos and videos you've watched from YouTube.
+  low-view videos and videos you've watched from YouTube's recommendations.
 </p>
 
 <p align="center">
@@ -30,19 +30,20 @@
 
 ## Features
 
+The filters only touch the feeds where YouTube recommends videos for you to discover: Home, search, hashtag and Explore pages, and the recommendations beside a video. Anything you open on purpose, like a channel, a playlist or your history, is never filtered, and your Subscriptions feed only is when you ask for it.
+
 | Filter | Hides | Default |
 | :--- | :--- | :---: |
-| **Shorts** | Shorts shelves on Home and in search, and Shorts in the sidebar | On |
-| **Playlists** | Playlist cards in your feed, search and the sidebar¹ | On |
-| **Mixes** | The Mix playlists YouTube generates for you¹ | On |
-| **Live streams** | Streams that are live right now. Recordings stay.² | Off |
+| **Shorts** | Shorts shelves, and Shorts mixed in with other videos | On |
+| **Playlists** | Playlist cards | On |
+| **Mixes** | The Mix playlists YouTube generates for you | On |
+| **Live streams** | Streams that are live right now. Recordings stay. | Off |
 | **Low view count** | Videos under a minimum you choose, 10,000 by default | Off |
-| **Watched videos** | Videos you've watched at least a share of, 90% by default³ | Off |
-
-<sub>¹ Still shown on the You page, your playlists and a channel's Playlists tab. ² Still shown on a channel's Live tab. ³ Still shown in your watch history.</sub>
+| **Watched videos** | Videos you've watched at least a share of, 90% by default | Off |
 
 - **Instant.** Changes apply to every open YouTube tab, and settings follow you through your browser's sync.
 - **Subscriptions exempt.** *Keep subscribed channels* still shows live streams and small videos from the channels you follow.
+- **Subscriptions too, if you like.** Shorts, live streams and watched videos each have an *Also in Subscriptions* option that filters your Subscriptions feed as well. For live streams it's there while *Keep subscribed channels* is off.
 - **Any language.** View counts are read in every language YouTube offers.
 
 ## Install
