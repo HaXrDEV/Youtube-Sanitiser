@@ -2,7 +2,7 @@
  * YouTube Sanitiser: content script
  * Runs on every youtube.com page. Hides Shorts, playlists, mixes, live streams,
  * low-view-count videos and watched videos based on settings stored in
- * chrome.storage.sync.
+ * chrome.storage.sync, and always hides Playables.
  * DEFAULTS comes from defaults.js and view count reading from view-count.js,
  * which the manifest loads first.
  */
@@ -238,6 +238,18 @@ function filterMixes(root) {
   filterLockups(root, 'RD');
 }
 
+/**
+ * YouTube's Playables, games you play in the browser, which Home shows as a
+ * shelf of game cards. The whole shelf goes, title and all, found by climbing
+ * from its cards, which can render after the shelf itself. A game card
+ * anywhere else goes on its own.
+ */
+function filterPlayables(root) {
+  queryAll(root, 'ytd-mini-game-card-view-model').forEach(el => {
+    sanitise(el.closest('ytd-rich-section-renderer') || el.closest('ytd-rich-item-renderer') || el);
+  });
+}
+
 // ─── Subscription cache ───────────────────────────────────────────────────────
 
 /**
@@ -398,6 +410,8 @@ function applyFilters(root) {
   if (settings.hideShorts)      filterShorts(root);
   if (settings.hidePlaylists)   filterPlaylists(root);
   if (settings.hideMixes)       filterMixes(root);
+  // Always on: there's no setting, since nobody misses them
+  filterPlayables(root);
   if (settings.hideLiveStreams) filterLiveStreams(root);
   // Before low views, which skips hidden cards, so their counts aren't read
   if (settings.hideWatched)     filterWatched(root, settings.watchedPercent);
