@@ -4,8 +4,8 @@
 </p>
 
 <p align="center">
-  A Chrome and Firefox extension that hides Shorts, playlists, mixes, live streams,<br>
-  low-view videos and videos you've watched from YouTube's recommendations.
+  A Chrome and Firefox extension that hides Shorts, playlists, mixes, Playables,<br>
+  live streams, low-view videos and videos you've watched from YouTube's recommendations.
 </p>
 
 <p align="center">
@@ -40,6 +40,7 @@ The filters only touch the feeds where YouTube recommends videos for you to disc
 | **Low view count** | Videos under a minimum you choose, 10,000 by default | Off |
 | **Watched videos** | Videos you've watched at least a share of, 90% by default | Off |
 
+- **No Playables.** The shelf of YouTube's games you play in the browser is always hidden. Nobody misses it, so there's no option for it.
 - **Instant.** Changes apply to every open YouTube tab, and settings follow you through your browser's sync.
 - **Subscriptions exempt.** *Keep subscribed channels* still shows live streams and small videos from the channels you follow.
 - **Subscriptions too, if you like.** Shorts and watched videos each have an *Also in Subscriptions* option that filters your Subscriptions feed as well.
