@@ -42,6 +42,7 @@ The filters only touch the feeds where YouTube recommends videos for you to disc
 
 - **No Playables.** The shelf of YouTube's games you play in the browser is always hidden. Nobody misses it, so there's no option for it.
 - **Instant.** Changes apply to every open YouTube tab, and settings follow you through your browser's sync.
+- **Search stays useful.** Low view count and watched videos leave search results alone, so a search on a niche topic still finds its small videos, and you can look up one you've seen before.
 - **Subscriptions exempt.** *Keep subscribed channels* still shows live streams and small videos from the channels you follow.
 - **Subscriptions too, if you like.** Shorts and watched videos each have an *Also in Subscriptions* option that filters your Subscriptions feed as well.
 - **Any language.** View counts are read in every language YouTube offers.

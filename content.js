@@ -73,6 +73,15 @@ function inSubscriptions(el) {
   return !!el.closest('ytd-browse[page-subtype="subscriptions"]');
 }
 
+/**
+ * Whether an element is in search results. You searched for something in
+ * particular there, so the filters that guess what's worth discovering (low
+ * view count and watched videos) leave them alone.
+ */
+function inSearch(el) {
+  return !!el.closest('ytd-search');
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 /**
@@ -376,6 +385,8 @@ function filterLowViews(root, minViews) {
     if (cardFor(el) !== el) return;
     // Don't touch elements already hidden by another filter
     if (el.classList.contains('yt-sanitised')) return;
+    // Never in search: a search on a niche topic may find little else
+    if (inSearch(el)) return;
     const count = getViewCount(el);
     if (count !== null && count < minViews) {
       if (keptAsSubscribed(el, settings.excludeSubscribed)) return;
@@ -394,6 +405,8 @@ const WATCHED_BAR_SELECTOR =
 
 function filterWatched(root, minPercent) {
   queryAll(root, WATCHED_BAR_SELECTOR).forEach(el => {
+    // Never in search: you may be looking for a video you've seen
+    if (inSearch(el)) return;
     if (parseFloat(el.style.width) >= minPercent) sanitise(cardFor(el), settings.watchedInSubscriptions);
   });
 }

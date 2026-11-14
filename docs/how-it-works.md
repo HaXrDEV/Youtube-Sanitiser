@@ -12,6 +12,8 @@ Most feeds are found by a container of their own: `ytd-search`, the recommendati
 
 The Subscriptions feed, the `ytd-browse` page marked `subscriptions`, is left alone unless you ask for it. Shorts and watched videos each have an **Also in Subscriptions** option that applies that filter there too. Live streams and low view count have none, since you follow a channel to see all its videos, live or not, however few views they get. Playlists and mixes don't show up in that feed, so they have none either.
 
+Search results are a feed too, but there you're looking for something in particular. So the low view count and watched videos filters leave them alone: a search on a niche topic may find little but small videos, and searching is often how you find a video you've seen again. The other filters hide whole formats you'd rather not see anywhere, like Shorts or playlists, so they apply in search like in any other feed.
+
 What gets hidden depends on the filter:
 
 - **Shorts:** the Shorts shelves on the home page and in search (a shelf in search is recognised by the Shorts cards inside it), and sidebar videos marked as Shorts.
